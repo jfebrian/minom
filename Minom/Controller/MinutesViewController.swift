@@ -50,7 +50,10 @@ class MinutesViewController: UIViewController {
         // Search code
     }
 
-
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        // Add button pressed
+    }
+    
 }
 
 extension MinutesViewController: UISearchResultsUpdating {

@@ -11,15 +11,33 @@ struct K {
     
 }
 
+struct Font {
+    static func LexendDeca(_ size: CGFloat) -> UIFont {
+        return UIFont(name: "LexendDeca-Regular", size: size)!
+    }
+    
+    static func RobotoLight(_ size: CGFloat) -> UIFont {
+        return UIFont(name: "Roboto-Light", size: size)!
+    }
+    
+    static func RobotoRegular(_ size: CGFloat) -> UIFont {
+        return UIFont(name: "Roboto-Regular", size: size)!
+    }
+    
+    static func RobotoMedium(_ size: CGFloat) -> UIFont {
+        return UIFont(name: "Roboto-Medium", size: size)!
+    }
+}
+
 struct Color {
     static let BackgroundSecondary = UIColor(named: "Background Secondary")!
     static let Background = UIColor(named: "Background")!
-    static let BackgroundSubtle = UIColor(named: "Background Subtle")!
     static let LabelGrey = UIColor(named: "Label Grey")!
-    static let LabelViridian = UIColor(named: "Label Viridian")!
-    static let LightSeaGreen = UIColor(named: "Light Sea Green")!
-    static let MiddleBlueGreen = UIColor(named: "Middle Blue Green")!
+    static let LabelJungle = UIColor(named: "Label Jungle")!
+    static let MenuJungle = UIColor(named: "Menu Jungle")!
+    static let EmeraldGreen = UIColor(named: "Green Emerald")!
+    static let MiddleBlueGreen = UIColor(named: "Green Middle Blue")!
     static let GreenSheen = UIColor(named: "Green Sheen")!
-    static let MidnightGreen = UIColor(named: "Midnight Green")!
-    static let ViridianGreen = UIColor(named: "Viridian Green")!
+    static let MidnightGreen = UIColor(named: "Green Midnight")!
+    static let JungleGreen = UIColor(named: "Green Jungle")!
 }

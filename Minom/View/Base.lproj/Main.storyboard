@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Recents View Controller-->
         <scene sceneID="6kv-z9-9ne">
             <objects>
-                <viewController id="1Bo-Kl-F5s" sceneMemberID="viewController">
+                <viewController id="1Bo-Kl-F5s" customClass="RecentsViewController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rxd-wH-57L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,26 +26,28 @@
             </objects>
             <point key="canvasLocation" x="2138" y="885"/>
         </scene>
-        <!--View Controller-->
+        <!--Minutes View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MinutesViewController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RgQ-TZ-I1o"/>
+                    <navigationItem key="navigationItem" id="RgQ-TZ-I1o">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="afJ-eG-LDH"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2137.68115942029" y="148.66071428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="0pa-f2-iPx">
             <objects>
-                <viewController id="xJa-JU-Kci" sceneMemberID="viewController">
+                <viewController id="xJa-JU-Kci" customClass="SettingsViewController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IMq-D8-Rug">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,11 +83,11 @@
         <!--Recents-->
         <scene sceneID="woK-Bs-9te">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EEQ-xV-NGX" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EEQ-xV-NGX" customClass="NavigationController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Recents" image="clock.arrow.circlepath" catalog="system" id="ND4-bT-azO"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="NqX-lJ-Zmb">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NqX-lJ-Zmb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -100,7 +102,7 @@
         <!--Minutes-->
         <scene sceneID="Lpa-A9-8ug">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="og0-JR-FGG" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="og0-JR-FGG" customClass="NavigationController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Minutes" image="note.text" catalog="system" id="zjU-ye-qlZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WT5-qv-sZN">
@@ -119,7 +121,7 @@
         <!--Settings-->
         <scene sceneID="cDJ-fb-dL8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GQo-K4-mVt" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GQo-K4-mVt" customClass="NavigationController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" id="p3d-sc-udl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QYq-eK-oGu">

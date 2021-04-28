@@ -22,6 +22,7 @@
 		7E7CF32F2639A0D800BD0C71 /* MinutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF32E2639A0D800BD0C71 /* MinutesViewController.swift */; };
 		7E7CF3312639A0F800BD0C71 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF3302639A0F800BD0C71 /* SettingsViewController.swift */; };
 		7E7CF3332639A74F00BD0C71 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF3322639A74F00BD0C71 /* NavigationController.swift */; };
+		7E7CF33B2639BAC100BD0C71 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		7E7CF32E2639A0D800BD0C71 /* MinutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesViewController.swift; sourceTree = "<group>"; };
 		7E7CF3302639A0F800BD0C71 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7E7CF3322639A74F00BD0C71 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				7E7CF32E2639A0D800BD0C71 /* MinutesViewController.swift */,
 				7E7CF3302639A0F800BD0C71 /* SettingsViewController.swift */,
 				7E7CF3322639A74F00BD0C71 /* NavigationController.swift */,
+				7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E7CF2D626392D1A00BD0C71 /* AppDelegate.swift in Sources */,
+				7E7CF33B2639BAC100BD0C71 /* TabBarController.swift in Sources */,
 				7E7CF32F2639A0D800BD0C71 /* MinutesViewController.swift in Sources */,
 				7E7CF32D2639A0A500BD0C71 /* RecentsViewController.swift in Sources */,
 				7E7CF2D826392D1A00BD0C71 /* SceneDelegate.swift in Sources */,

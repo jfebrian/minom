@@ -9,13 +9,13 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
         
     }
     
-    func setupTabBar() {
+    private func setupTabBar() {
         tabBar.barTintColor = Color.MenuJungle
         tabBar.tintColor = .white
         

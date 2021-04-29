@@ -9,12 +9,12 @@ import UIKit
 
 class NavigationController: UINavigationController {
 
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
     }
     
-    func setupNavBar() {
+    private func setupNavBar() {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = Color.MenuJungle
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: Font.LexendDeca(17)]

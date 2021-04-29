@@ -9,12 +9,12 @@ import UIKit
 
 class RecentsViewController: UIViewController {
 
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
     }
     
-    func setupNavBar() {
+    private func setupNavBar() {
         navigationItem.title = "Minom"
         navigationController?.navigationBar.prefersLargeTitles = true
     }

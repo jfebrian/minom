@@ -8,7 +8,7 @@
 import UIKit
 
 struct K {
-    
+    static let minuteCellIdentifier = "MinutesCell"
 }
 
 struct Font {
@@ -40,4 +40,5 @@ struct Color {
     static let GreenSheen = UIColor(named: "Green Sheen")!
     static let MidnightGreen = UIColor(named: "Green Midnight")!
     static let JungleGreen = UIColor(named: "Green Jungle")!
+    static let Grey = UIColor(named: "Grey")!
 }

@@ -21,7 +21,7 @@ class MinutesCreationLogic {
     let dateFormatter = DateFormatter()
     let timeFormatter = DateFormatter()
     
-    var selectedType: String?
+    var selectedType: MeetingType?
     
     
     // MARK: - Init
@@ -79,11 +79,16 @@ class MinutesCreationLogic {
     }
     
     func isSelected(at indexPath: IndexPath) -> Bool {
-        return typeLogic.getType(at: indexPath).name == selectedType
+        return typeLogic.getType(at: indexPath).name == selectedType?.name
     }
     
     func selectType(at indexPath: IndexPath) {
-        selectedType = typeLogic.getType(at: indexPath).name
+        let selected = typeLogic.getType(at: indexPath)
+        if selectedType?.name == selected.name {
+            selectedType = nil
+        } else {
+            selectedType = typeLogic.getType(at: indexPath)
+        }
     }
     
     func addMeetingType(with name: String) {
@@ -149,7 +154,7 @@ class MinutesCreationLogic {
     func finishMeetingCreation() {
         meeting.startTime = startDate
         meeting.endTime = endDate
-        meetingLogic.save(meeting, with: participants)
+        meetingLogic.save(meeting, participants: participants, type: selectedType!)
     }
     
 }

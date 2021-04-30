@@ -9,6 +9,11 @@ import Foundation
 import RealmSwift
 
 class MeetingType:Object {
+    @objc dynamic var id = NSUUID().uuidString
     @objc dynamic var name: String = ""
     let meetings = List<Meeting>()
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

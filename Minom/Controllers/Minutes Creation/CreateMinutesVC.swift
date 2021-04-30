@@ -42,7 +42,7 @@ class CreateMinutesVC: UIViewController {
     // MARK: - Setup User Interface
     
     private func setupButtonLabels() {
-        meetingTypeLabel.text = logic.selectedType ?? "Meeting Type"
+        meetingTypeLabel.text = logic.selectedType?.name ?? "Meeting Type"
         participantNumberLabel.layer.masksToBounds = true
         participantNumberLabel.layer.cornerRadius = participantNumberLabel.frame.height * 0.5
         participantNumberLabel.text = "  \(logic.numberOfParticipants())  "

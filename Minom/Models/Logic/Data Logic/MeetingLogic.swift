@@ -21,12 +21,14 @@ class MeetingLogic {
     
     // MARK: - Model Manipulation Methods
     
-    func save(_ meeting: Meeting, with participants: [Participant]) {
+    func save(_ meeting: Meeting, participants: [Participant], type: MeetingType) {
         do {
             try realm.write {
+                meeting.type = type
                 realm.add(meeting)
                 realm.add(participants)
                 meeting.participants.append(objectsIn: participants)
+                type.meetings.append(meeting)
             }
         } catch {
             print("Error saving meeting to Realm, \(error.localizedDescription)")
@@ -95,7 +97,8 @@ class MeetingLogic {
     }
     
     func meetingType(at indexPath: IndexPath) -> String {
-        return meeting(at: indexPath).type?.name ?? ""
+        guard let type = meeting(at: indexPath).type else { fatalError("Meeting without type found!") }
+        return type.name
     }
     
 }

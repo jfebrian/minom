@@ -105,6 +105,7 @@ extension MinutesVC: UITableViewDataSource {
         cell.textLabel?.textColor = Color.LabelJungle
         
         cell.detailTextLabel?.text = meetingLogic.meetingType(at: indexPath)
+        print(meetingLogic.meetingType(at: indexPath))
         cell.detailTextLabel?.font = Font.RobotoRegular(15)
         cell.detailTextLabel?.textColor = Color.EmeraldGreen
         

@@ -13,6 +13,7 @@ class SetParticipantsTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Participants"
         setupTableView()
         setupAddButton()
     }

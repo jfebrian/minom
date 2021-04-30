@@ -21,14 +21,17 @@ class CreateMinutesVC: UIViewController {
     @IBOutlet weak var participantNumberLabel: UILabel!
     
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var agendaLabel: UILabel!
     
     private var logic = MinutesCreationLogic()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "New Meeting"
         setupSaveButton()
         setupDates()
         setupPicker()
+        titleTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +47,8 @@ class CreateMinutesVC: UIViewController {
         participantNumberLabel.layer.cornerRadius = participantNumberLabel.frame.height * 0.5
         participantNumberLabel.text = "  \(logic.numberOfParticipants())  "
         titleTextField.clearButtonMode = .whileEditing
+        agendaLabel.text = logic.getAgenda() == "" ? "No meeting agenda" : logic.getAgenda()
+        
     }
     
     private func setupSaveButton() {
@@ -98,10 +103,16 @@ class CreateMinutesVC: UIViewController {
             let destination = segue.destination as! SetParticipantsTableVC
             destination.logic = self.logic
         case is SetMeetingAgendaVC:
-            break
+            let destination = segue.destination as! SetMeetingAgendaVC
+            destination.logic = self.logic
         default:
             break
         }
     }
+}
+
+// MARK: - Text Field Delegate
+
+extension CreateMinutesVC: UITextFieldDelegate {
     
 }

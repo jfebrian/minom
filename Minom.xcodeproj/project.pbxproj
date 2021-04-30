@@ -105,6 +105,17 @@
 			path = "Data Models";
 			sourceTree = "<group>";
 		};
+		7E557319263BD0B000F549FD /* Minutes Creation */ = {
+			isa = PBXGroup;
+			children = (
+				7E557309263B034C00F549FD /* CreateMinutesVC.swift */,
+				7E55730D263B955600F549FD /* SetMeetingTypeTableVC.swift */,
+				7E55730F263B959200F549FD /* SetParticipantsTableVC.swift */,
+				7E557311263B97AE00F549FD /* SetMeetingAgendaVC.swift */,
+			);
+			path = "Minutes Creation";
+			sourceTree = "<group>";
+		};
 		7E7CF2C926392D1A00BD0C71 = {
 			isa = PBXGroup;
 			children = (
@@ -158,10 +169,7 @@
 				7E7CF3302639A0F800BD0C71 /* SettingsVC.swift */,
 				7E7CF3322639A74F00BD0C71 /* NavigationController.swift */,
 				7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */,
-				7E557309263B034C00F549FD /* CreateMinutesVC.swift */,
-				7E55730D263B955600F549FD /* SetMeetingTypeTableVC.swift */,
-				7E55730F263B959200F549FD /* SetParticipantsTableVC.swift */,
-				7E557311263B97AE00F549FD /* SetMeetingAgendaVC.swift */,
+				7E557319263BD0B000F549FD /* Minutes Creation */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

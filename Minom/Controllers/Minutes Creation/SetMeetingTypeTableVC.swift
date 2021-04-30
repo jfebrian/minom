@@ -13,6 +13,7 @@ class SetMeetingTypeTableVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Meeting Type"
         setupAddButton()
         setupTableView()
     }

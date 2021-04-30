@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    internal override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Settings"
     }

@@ -12,7 +12,7 @@ class MinutesVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private let searchController = UISearchController(searchResultsController: nil)
-    private let meetingLogic = MeetingLogic()
+    private let meetingLogic = MeetingLogic.standard
     
     private var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
@@ -26,6 +26,7 @@ class MinutesVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     private func setupNavBar() {
@@ -73,7 +74,7 @@ extension MinutesVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        40
+        return section == 0 ? 0 : 40
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -86,10 +87,6 @@ extension MinutesVC: UITableViewDataSource {
         view.addSubview(label)
         
         return view
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return Custom.separator(width: tableView.frame.width)
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

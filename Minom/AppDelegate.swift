@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print("Error initiliazing new realm, \(error.localizedDescription)")
         }
+        
+        IQKeyboardManager.shared.enable = true
         
         return true
     }

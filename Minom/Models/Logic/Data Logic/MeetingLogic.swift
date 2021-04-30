@@ -10,8 +10,14 @@ import RealmSwift
 
 class MeetingLogic {
     
+    static var standard = MeetingLogic()
+    
     let realm = try! Realm()
     var meetingByMonths = [[Meeting]]()
+    
+    init() {
+        loadMeetings()
+    }
     
     // MARK: - Model Manipulation Methods
     
@@ -25,6 +31,7 @@ class MeetingLogic {
         } catch {
             print("Error saving meeting to Realm, \(error.localizedDescription)")
         }
+        loadMeetings()
     }
     
     func delete(_ meeting: Meeting) {
@@ -40,14 +47,14 @@ class MeetingLogic {
     }
     
     private func loadMeetings() {
-        let meetings = realm.objects(Meeting.self).sorted(byKeyPath: "date", ascending: false)
+        let meetings = realm.objects(Meeting.self).sorted(byKeyPath: "startTime", ascending: false)
         if let start = meetings.first {
             let calendar = Calendar.current
             meetingByMonths = [[]]
-            var lastDate = start.date
+            var lastDate = start.startTime
             var lastMonth = [Meeting]()
             for meeting in meetings {
-                let date = meeting.date
+                let date = meeting.startTime
                 let difference = calendar.dateComponents([.year, .month], from: lastDate, to: date)
                 if difference.year! > 0 || difference.month! > 0 {
                     lastDate = date
@@ -57,11 +64,12 @@ class MeetingLogic {
                     lastMonth.append(meeting)
                 }
             }
+            meetingByMonths.append(lastMonth)
         }
     }
     
-    func getMeeting(with indexPath: IndexPath) -> Meeting? {
-        return nil
+    func meeting(with indexPath: IndexPath) -> Meeting {
+        return meetingByMonths[indexPath.section][indexPath.row]
     }
     
     func numberOfMeetingsInMonth(_ index: Int) -> Int {
@@ -73,15 +81,21 @@ class MeetingLogic {
     }
     
     func monthName(with index: Int) -> String {
-        return ""
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLL yyyy"
+        if let meeting = meetingByMonths[index].first {
+            return formatter.string(from: meeting.startTime).uppercased()
+        } else {
+            return ""
+        }
     }
     
     func meetingTitle(with indexPath: IndexPath) -> String {
-        return ""
+        return meeting(with: indexPath).title
     }
     
     func meetingType(with indexPath: IndexPath) -> String {
-        return ""
+        return meeting(with: indexPath).type?.name ?? ""
     }
     
 }

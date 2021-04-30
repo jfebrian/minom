@@ -10,9 +10,15 @@ import RealmSwift
 
 class MeetingTypeLogic {
     
+    static var standard = MeetingTypeLogic()
+    
     let realm = try! Realm()
     
     var types: Results<MeetingType>?
+    
+    init() {
+        loadTypes()
+    }
     
     // MARK: - Model Manipulation Methods
     
@@ -39,24 +45,22 @@ class MeetingTypeLogic {
         }
     }
     
-    private func loadTypes() -> Results<MeetingType> {
+    private func loadTypes() {
         types = realm.objects(MeetingType.self)
-        guard let type = types else { fatalError("Error getting meeting types from Realm") }
-        return type
     }
     
     func numberOfTypes() -> Int {
-        let types = self.types ?? loadTypes()
+        guard let types = self.types else { fatalError() }
         return types.count
     }
     
     func getType(with indexPath: IndexPath) -> MeetingType {
-        let types = self.types ?? loadTypes()
+        guard let types = self.types else { fatalError() }
         return types[indexPath.row]
     }
     
     func addMeetingType(with name: String) {
         save(name)
-        _ = loadTypes()
+        loadTypes()
     }
 }

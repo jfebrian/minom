@@ -14,7 +14,8 @@ class Meeting: Object {
     @objc dynamic var type: MeetingType? {
         LinkingObjects(fromType: MeetingType.self, property: "items").first
     }
-    @objc dynamic var date: Date = Date()
+    @objc dynamic var startTime: Date = Date()
+    @objc dynamic var endTime: Date = Date()
     let items = List<MinuteItem>()
     let participants = List<Participant>()
 }

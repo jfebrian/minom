@@ -72,11 +72,12 @@ class SetMeetingTypeTableVC: UITableViewController {
         
         guard let logic = self.logic else { fatalError("Error accessing logic when setting types") }
         
+        cell.selectionStyle = .none
         cell.backgroundColor = Color.Background
-        cell.textLabel?.text = logic.typeName(with: indexPath)
+        cell.textLabel?.text = logic.typeName(at: indexPath)
         cell.textLabel?.textColor = Color.LabelJungle
         cell.textLabel?.font = Font.LexendDeca(17)
-        cell.accessoryType = logic.isSelected(with: indexPath) ? .checkmark : .none
+        cell.accessoryType = logic.isSelected(at: indexPath) ? .checkmark : .none
         cell.tintColor = Color.LabelJungle
         cell.addSubview(Custom.separator(width: tableView.frame.width))
         
@@ -86,7 +87,7 @@ class SetMeetingTypeTableVC: UITableViewController {
     // MARK: - Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        logic?.selectType(with: indexPath)
+        logic?.selectType(at: indexPath)
         tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
     }

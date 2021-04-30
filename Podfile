@@ -8,5 +8,6 @@ use_frameworks!
 
 pod 'RealmSwift'
 pod 'IQKeyboardManagerSwift'
+pod 'SwipeCellKit'
 
 end

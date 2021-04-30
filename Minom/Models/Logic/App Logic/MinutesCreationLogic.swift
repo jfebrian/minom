@@ -74,16 +74,16 @@ class MinutesCreationLogic {
         return typeLogic.numberOfTypes()
     }
     
-    func typeName(with indexPath: IndexPath) -> String {
-        return typeLogic.getType(with: indexPath).name
+    func typeName(at indexPath: IndexPath) -> String {
+        return typeLogic.getType(at: indexPath).name
     }
     
-    func isSelected(with indexPath: IndexPath) -> Bool {
-        return typeLogic.getType(with: indexPath).name == selectedType
+    func isSelected(at indexPath: IndexPath) -> Bool {
+        return typeLogic.getType(at: indexPath).name == selectedType
     }
     
-    func selectType(with indexPath: IndexPath) {
-        selectedType = typeLogic.getType(with: indexPath).name
+    func selectType(at indexPath: IndexPath) {
+        selectedType = typeLogic.getType(at: indexPath).name
     }
     
     func addMeetingType(with name: String) {
@@ -102,12 +102,20 @@ class MinutesCreationLogic {
         participants.append(participant)
     }
     
-    func participant(with indexPath: IndexPath) -> Participant {
+    func participant(at indexPath: IndexPath) -> Participant {
         return participants[indexPath.row]
     }
     
-    func participantName(with indexPath: IndexPath) -> String {
-        return participant(with: indexPath).name
+    func setParticipantName(as name: String, at indexPath: IndexPath) {
+        participant(at: indexPath).name = name
+    }
+    
+    func participantName(at indexPath: IndexPath) -> String {
+        return participant(at: indexPath).name
+    }
+    
+    func deleteParticipant(at indexPath: IndexPath) {
+        participants.remove(at: indexPath.row)
     }
     
     // MARK: - Set Title and Agenda Logic

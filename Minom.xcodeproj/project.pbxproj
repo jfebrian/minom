@@ -116,6 +116,29 @@
 			path = "Minutes Creation";
 			sourceTree = "<group>";
 		};
+		7E55731C263BDAD000F549FD /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				7E557305263AD25A00F549FD /* MeetingLogic.swift */,
+				7E55730B263B1BC500F549FD /* MinutesCreationLogic.swift */,
+				7E557313263B99F400F549FD /* MeetingTypeLogic.swift */,
+				7E557317263BB0EA00F549FD /* ParticipantLogic.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		7E55731D263BDAE400F549FD /* Front Page */ = {
+			isa = PBXGroup;
+			children = (
+				7E7CF32C2639A0A500BD0C71 /* RecentsVC.swift */,
+				7E7CF32E2639A0D800BD0C71 /* MinutesVC.swift */,
+				7E7CF3302639A0F800BD0C71 /* SettingsVC.swift */,
+				7E7CF3322639A74F00BD0C71 /* NavigationController.swift */,
+				7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */,
+			);
+			path = "Front Page";
+			sourceTree = "<group>";
+		};
 		7E7CF2C926392D1A00BD0C71 = {
 			isa = PBXGroup;
 			children = (
@@ -153,10 +176,7 @@
 			children = (
 				7E7CF2ED26393E3600BD0C71 /* Constants.swift */,
 				7E557301263AD0E800F549FD /* Data Models */,
-				7E557305263AD25A00F549FD /* MeetingLogic.swift */,
-				7E55730B263B1BC500F549FD /* MinutesCreationLogic.swift */,
-				7E557313263B99F400F549FD /* MeetingTypeLogic.swift */,
-				7E557317263BB0EA00F549FD /* ParticipantLogic.swift */,
+				7E55731C263BDAD000F549FD /* Logic */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,11 +184,7 @@
 		7E7CF2EA26392DDB00BD0C71 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7E7CF32C2639A0A500BD0C71 /* RecentsVC.swift */,
-				7E7CF32E2639A0D800BD0C71 /* MinutesVC.swift */,
-				7E7CF3302639A0F800BD0C71 /* SettingsVC.swift */,
-				7E7CF3322639A74F00BD0C71 /* NavigationController.swift */,
-				7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */,
+				7E55731D263BDAE400F549FD /* Front Page */,
 				7E557319263BD0B000F549FD /* Minutes Creation */,
 			);
 			path = Controllers;

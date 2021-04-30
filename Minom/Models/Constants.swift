@@ -7,8 +7,10 @@
 
 import UIKit
 
-struct K {
-    
+struct Storyboard {
+    static let Main = UIStoryboard(name: "Main", bundle: nil)
+    static let MeetingCreation = UIStoryboard(name: "MeetingCreation", bundle: nil)
+    static let MinutesTaking = UIStoryboard(name: "MinutesTaking", bundle: nil)
 }
 
 struct Custom {

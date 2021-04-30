@@ -42,7 +42,7 @@ class CreateMinutesVC: UIViewController {
     // MARK: - Setup User Interface
     
     private func setupButtonLabels() {
-        meetingTypeLabel.text = logic.selectedType?.name ?? "Meeting Type"
+        meetingTypeLabel.text = logic.selectedType ?? "Meeting Type"
         participantNumberLabel.layer.masksToBounds = true
         participantNumberLabel.layer.cornerRadius = participantNumberLabel.frame.height * 0.5
         participantNumberLabel.text = "  \(logic.numberOfParticipants())  "
@@ -71,6 +71,13 @@ class CreateMinutesVC: UIViewController {
         datePicker.setDate(state ? logic.startDate : logic.endDate, animated: true)
     }
     
+    private func alert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     private func setupDates() {
         startDateLabel.text = logic.startDateString
         endDateLabel.text = logic.endDateString
@@ -86,7 +93,18 @@ class CreateMinutesVC: UIViewController {
     }
     
     @objc func saveButtonPressed(){
-        
+        if let title = titleTextField.text, !title.isEmpty {
+            logic.setTitle(with: title)
+        }
+        let status: (valid: Bool, alert: String, message: String) = logic.meetingValidation()
+        if status.valid {
+            logic.finishMeetingCreation()
+            let sb = Storyboard.MinutesTaking
+            let vc = sb.instantiateInitialViewController()!
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            alert(title: status.alert, message: status.message)
+        }
     }
     
     @IBAction func togglePickerPressed(_ sender: UIButton) {
@@ -111,8 +129,13 @@ class CreateMinutesVC: UIViewController {
     }
 }
 
-// MARK: - Text Field Delegate
-
 extension CreateMinutesVC: UITextFieldDelegate {
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard range.location == 0 else {
+            return true
+        }
+        
+        let newString = (textField.text! as NSString).replacingCharacters(in: range, with: string) as NSString
+        return newString.rangeOfCharacter(from: CharacterSet.whitespacesAndNewlines).location != 0
+    }
 }

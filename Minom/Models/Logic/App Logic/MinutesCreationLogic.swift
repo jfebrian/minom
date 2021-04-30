@@ -9,8 +9,9 @@ import Foundation
 class MinutesCreationLogic {
     
     var meeting = Meeting()
-    var typeLogic = MeetingTypeLogic()
-    var participantLogic = ParticipantLogic()
+    var participants = [Participant]()
+    var meetingLogic = MeetingLogic.standard
+    var typeLogic = MeetingTypeLogic.standard
     
     var startTimeSelected = true
 
@@ -20,7 +21,7 @@ class MinutesCreationLogic {
     let dateFormatter = DateFormatter()
     let timeFormatter = DateFormatter()
     
-    var selectedType: MeetingType?
+    var selectedType: String?
     
     
     // MARK: - Init
@@ -78,11 +79,11 @@ class MinutesCreationLogic {
     }
     
     func isSelected(with indexPath: IndexPath) -> Bool {
-        return typeLogic.getType(with: indexPath) == selectedType
+        return typeLogic.getType(with: indexPath).name == selectedType
     }
     
     func selectType(with indexPath: IndexPath) {
-        selectedType = typeLogic.getType(with: indexPath)
+        selectedType = typeLogic.getType(with: indexPath).name
     }
     
     func addMeetingType(with name: String) {
@@ -91,26 +92,56 @@ class MinutesCreationLogic {
     
     // MARK: - Set Participants Logic
     
-    func participantName(with indexPath: IndexPath) -> String {
-        return participantLogic.participant(with: indexPath).name
-    }
-    
     func numberOfParticipants() -> Int {
-        return participantLogic.numberOfParticipants()
+        return participants.count
     }
     
     func addParticipant(with name: String) {
-        participantLogic.addParticipant(with: name)
+        let participant = Participant()
+        participant.name = name
+        participants.append(participant)
     }
     
-    // MARK: - Set Agenda Logic
+    func participant(with indexPath: IndexPath) -> Participant {
+        return participants[indexPath.row]
+    }
     
-    func saveAgenda(with text: String) {
-        meeting.agenda = text
+    func participantName(with indexPath: IndexPath) -> String {
+        return participant(with: indexPath).name
+    }
+    
+    // MARK: - Set Title and Agenda Logic
+    
+    func setTitle(with title: String) {
+        meeting.title = title
+    }
+    
+    func saveAgenda(with agenda: String) {
+        meeting.agenda = agenda
     }
     
     func getAgenda() -> String {
         return meeting.agenda
+    }
+    
+    // MARK: - Finish Minutes Creation
+    
+    func meetingValidation() -> (Bool, String, String) {
+        if meeting.title == "" {
+            return (false, "Title is Empty!", "Title can't be empty")
+        } else if selectedType == nil {
+            return (false, "Type is Empty!", "You must select a type")
+        } else if participants.isEmpty {
+            return (false, "Participants is Empty!", "You can't have a meeting with no participants")
+        } else {
+            return (true, "", "")
+        }
+    }
+    
+    func finishMeetingCreation() {
+        meeting.startTime = startDate
+        meeting.endTime = endDate
+        meetingLogic.save(meeting, with: participants)
     }
     
 }

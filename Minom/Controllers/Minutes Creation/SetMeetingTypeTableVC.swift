@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 class SetMeetingTypeTableVC: UITableViewController {
     
     var logic: MinutesCreationLogic?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Meeting Type"
@@ -30,14 +31,24 @@ class SetMeetingTypeTableVC: UITableViewController {
     }
     
     @objc func addButtonPressed() {
-        let alert = UIAlertController(title: "New Meeting Type", message: nil, preferredStyle: .alert)
+        alertInput(title: "New Meeting Type")
+    }
+    
+    func alertInput(title: String, at indexPath: IndexPath? = nil) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancel)
         
         let add = UIAlertAction(title: "Save", style: .default) { action in
             if let text = alert.textFields?.first?.text, let logic = self.logic {
-                logic.addMeetingType(with: text)
-                DispatchQueue.main.async {
+                if let index = indexPath {
+                    logic.setTypeName(as: text, at: index)
+                    let cell = self.tableView.cellForRow(at: index) as! SwipeTableViewCell
+                    cell.hideSwipe(animated: true) { bool in
+                        self.tableView.reloadData()
+                    }
+                } else {
+                    logic.addMeetingType(with: text)
                     self.tableView.reloadData()
                 }
             }
@@ -45,16 +56,19 @@ class SetMeetingTypeTableVC: UITableViewController {
         alert.addAction(add)
         alert.addTextField { textField in
             textField.placeholder = "Enter Type Name"
+            if let index = indexPath, let logic = self.logic {
+                textField.text = logic.typeName(at: index)
+            }
         }
         present(alert, animated: true, completion: nil)
     }
-
+    
     // MARK: - Table View Data Source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return logic?.numberOfTypes() ?? 0
     }
@@ -68,8 +82,9 @@ class SetMeetingTypeTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let cell = SwipeTableViewCell(style: .default, reuseIdentifier: nil)
         
+        cell.delegate = self
         guard let logic = self.logic else { fatalError("Error accessing logic when setting types") }
         
         cell.selectionStyle = .none
@@ -83,7 +98,7 @@ class SetMeetingTypeTableVC: UITableViewController {
         
         return cell
     }
-
+    
     // MARK: - Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -91,4 +106,31 @@ class SetMeetingTypeTableVC: UITableViewController {
         tableView.reloadData()
     }
 }
+
+extension SetMeetingTypeTableVC: SwipeTableViewCellDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: nil) { action, indexPath in
+            let alert = UIAlertController(title: "Are you sure?", message: "This type will be deleted and all minutes related to this type be kept under 'Deleted Type'.", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            let delete = UIAlertAction(title: "Delete", style: .destructive) { action in
+                self.logic?.deleteType(at: indexPath)
+                self.tableView.reloadData()
+            }
+            alert.addAction(delete)
+            self.present(alert, animated: true, completion: nil)
+        }
+        deleteAction.image = Image.Trash
+        
+        let editAction = SwipeAction(style: .default, title: nil) { action, indexPath in
+            self.alertInput(title: "Rename Type", at: indexPath)
+        }
+        editAction.image = Image.Pencil
+        
+        return [deleteAction, editAction]
+    }
+}
+
 

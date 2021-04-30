@@ -27,6 +27,7 @@ class MinutesVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        tabBarController?.tabBar.isHidden = false
     }
     
     private func setupNavBar() {
@@ -100,12 +101,12 @@ extension MinutesVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
+        cell.selectionStyle = .none
         cell.textLabel?.text = meetingLogic.meetingTitle(at: indexPath)
         cell.textLabel?.font = Font.LexendDeca(17)
         cell.textLabel?.textColor = Color.LabelJungle
         
         cell.detailTextLabel?.text = meetingLogic.meetingType(at: indexPath)
-        print(meetingLogic.meetingType(at: indexPath))
         cell.detailTextLabel?.font = Font.RobotoRegular(15)
         cell.detailTextLabel?.textColor = Color.EmeraldGreen
         
@@ -127,7 +128,13 @@ extension MinutesVC: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension MinutesVC: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = Storyboard.MinutesTaking
+        let vc = sb.instantiateInitialViewController() as! TakeMinuteVC
+        let meeting = meetingLogic.meeting(at: indexPath)
+        vc.minutesLogic = MinutesLogic(for: meeting)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - UISearchResultsUpdating

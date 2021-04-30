@@ -13,4 +13,9 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Settings"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
 }

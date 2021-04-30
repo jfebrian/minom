@@ -23,7 +23,7 @@
         <!--Create MinutesVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="CreateMinutesVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="Y6W-OH-hqX" customClass="CreateMinutesVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,7 +250,7 @@
                                                 <rect key="frame" x="334" y="0.0" width="40" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  0  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67r-yV-stL">
-                                                        <rect key="frame" x="5.5" y="9.5" width="29.5" height="21.5"/>
+                                                        <rect key="frame" x="6" y="10" width="28.5" height="20"/>
                                                         <color key="backgroundColor" name="Label Jungle"/>
                                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                                         <color key="textColor" name="Background"/>
@@ -495,7 +495,7 @@
         <!--Set Meeting Type TableVC-->
         <scene sceneID="ekT-cW-El7">
             <objects>
-                <tableViewController id="TRU-Wk-fhw" customClass="SetMeetingTypeTableVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="TRU-Wk-fhw" customClass="SetMeetingTypeTableVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="97D-wh-QSi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -514,7 +514,7 @@
         <!--Set Participants TableVC-->
         <scene sceneID="B6D-ZJ-0Pk">
             <objects>
-                <tableViewController id="tDh-c1-VyR" customClass="SetParticipantsTableVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="tDh-c1-VyR" customClass="SetParticipantsTableVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5nC-ve-OWI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -533,7 +533,7 @@
         <!--Set Meeting AgendaVC-->
         <scene sceneID="bKr-cg-jYu">
             <objects>
-                <viewController id="c4v-Ed-7JT" customClass="SetMeetingAgendaVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="c4v-Ed-7JT" customClass="SetMeetingAgendaVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Q9-I4-Okr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

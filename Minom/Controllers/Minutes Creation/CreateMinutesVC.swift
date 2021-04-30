@@ -37,6 +37,7 @@ class CreateMinutesVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupButtonLabels()
+        tabBarController?.tabBar.isHidden = true
     }
     
     // MARK: - Setup User Interface
@@ -100,7 +101,9 @@ class CreateMinutesVC: UIViewController {
         if status.valid {
             logic.finishMeetingCreation()
             let sb = Storyboard.MinutesTaking
-            let vc = sb.instantiateInitialViewController()!
+            let vc = sb.instantiateInitialViewController() as! TakeMinuteVC
+            let meeting = logic.meeting
+            vc.minutesLogic = MinutesLogic(for: meeting)
             navigationController?.pushViewController(vc, animated: true)
         } else {
             alert(title: status.alert, message: status.message)

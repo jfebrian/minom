@@ -1,5 +1,5 @@
 //
-//  SetParticipantsTableViewController.swift
+//  MeetingTypeSelectionTableViewController.swift
 //  Minom
 //
 //  Created by Joanda Febrian on 30/04/21.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-class SetParticipantsTableVC: UITableViewController {
+class SetMeetingTypeTableVC: UITableViewController {
     
     var logic: MinutesCreationLogic?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
         setupAddButton()
+        setupTableView()
     }
     
     // MARK: - Setup User Interface
@@ -29,13 +29,13 @@ class SetParticipantsTableVC: UITableViewController {
     }
     
     @objc func addButtonPressed() {
-        let alert = UIAlertController(title: "New Participant", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "New Meeting Type", message: nil, preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancel)
         
         let add = UIAlertAction(title: "Save", style: .default) { action in
             if let text = alert.textFields?.first?.text, let logic = self.logic {
-                logic.addParticipant(with: text)
+                logic.addMeetingType(with: text)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -43,7 +43,7 @@ class SetParticipantsTableVC: UITableViewController {
         }
         alert.addAction(add)
         alert.addTextField { textField in
-            textField.placeholder = "Enter Participant Name"
+            textField.placeholder = "Enter Type Name"
         }
         present(alert, animated: true, completion: nil)
     }
@@ -55,7 +55,7 @@ class SetParticipantsTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return logic?.numberOfParticipants() ?? 0
+        return logic?.numberOfTypes() ?? 0
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -69,15 +69,25 @@ class SetParticipantsTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         
-        guard let logic = self.logic else { fatalError("Error accessing logic when setting participants") }
+        guard let logic = self.logic else { fatalError("Error accessing logic when setting types") }
         
         cell.backgroundColor = Color.Background
-        cell.textLabel?.text = logic.participantName(with: indexPath)
+        cell.textLabel?.text = logic.typeName(with: indexPath)
         cell.textLabel?.textColor = Color.LabelJungle
         cell.textLabel?.font = Font.LexendDeca(17)
+        cell.accessoryType = logic.isSelected(with: indexPath) ? .checkmark : .none
+        cell.tintColor = Color.LabelJungle
         cell.addSubview(Custom.separator(width: tableView.frame.width))
         
         return cell
     }
 
+    // MARK: - Table View Delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        logic?.selectType(with: indexPath)
+        tableView.reloadData()
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
+

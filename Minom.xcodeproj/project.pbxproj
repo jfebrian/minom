@@ -11,12 +11,16 @@
 		7E5572FC263ACEDC00F549FD /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5572FB263ACEDC00F549FD /* Meeting.swift */; };
 		7E5572FE263ACF9E00F549FD /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5572FD263ACF9E00F549FD /* Participant.swift */; };
 		7E557300263AD00500F549FD /* MinuteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5572FF263AD00500F549FD /* MinuteItem.swift */; };
-		7E557306263AD25A00F549FD /* ModelLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557305263AD25A00F549FD /* ModelLogic.swift */; };
+		7E557306263AD25A00F549FD /* MeetingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557305263AD25A00F549FD /* MeetingLogic.swift */; };
 		7E557308263AECFF00F549FD /* MeetingCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E557307263AECFF00F549FD /* MeetingCreation.storyboard */; };
-		7E55730A263B034C00F549FD /* MinutesCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557309263B034C00F549FD /* MinutesCreationViewController.swift */; };
+		7E55730A263B034C00F549FD /* CreateMinutesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557309263B034C00F549FD /* CreateMinutesVC.swift */; };
 		7E55730C263B1BC500F549FD /* MinutesCreationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55730B263B1BC500F549FD /* MinutesCreationLogic.swift */; };
-		7E55730E263B955600F549FD /* SelectMeetingTypeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55730D263B955600F549FD /* SelectMeetingTypeTableVC.swift */; };
+		7E55730E263B955600F549FD /* SetMeetingTypeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55730D263B955600F549FD /* SetMeetingTypeTableVC.swift */; };
 		7E557310263B959200F549FD /* SetParticipantsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55730F263B959200F549FD /* SetParticipantsTableVC.swift */; };
+		7E557312263B97AE00F549FD /* SetMeetingAgendaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557311263B97AE00F549FD /* SetMeetingAgendaVC.swift */; };
+		7E557314263B99F400F549FD /* MeetingTypeLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557313263B99F400F549FD /* MeetingTypeLogic.swift */; };
+		7E557316263B9B3100F549FD /* MeetingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557315263B9B3100F549FD /* MeetingType.swift */; };
+		7E557318263BB0EA00F549FD /* ParticipantLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557317263BB0EA00F549FD /* ParticipantLogic.swift */; };
 		7E7CF2D626392D1A00BD0C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF2D526392D1A00BD0C71 /* AppDelegate.swift */; };
 		7E7CF2D826392D1A00BD0C71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF2D726392D1A00BD0C71 /* SceneDelegate.swift */; };
 		7E7CF2DD26392D1A00BD0C71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E7CF2DB26392D1A00BD0C71 /* Main.storyboard */; };
@@ -27,9 +31,9 @@
 		7E7CF3212639988A00BD0C71 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7CF3152639988200BD0C71 /* Roboto-Medium.ttf */; };
 		7E7CF3222639988A00BD0C71 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7CF3162639988300BD0C71 /* Roboto-Regular.ttf */; };
 		7E7CF32A2639988A00BD0C71 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7CF31E2639988900BD0C71 /* Roboto-Light.ttf */; };
-		7E7CF32D2639A0A500BD0C71 /* RecentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF32C2639A0A500BD0C71 /* RecentsViewController.swift */; };
-		7E7CF32F2639A0D800BD0C71 /* MinutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF32E2639A0D800BD0C71 /* MinutesViewController.swift */; };
-		7E7CF3312639A0F800BD0C71 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF3302639A0F800BD0C71 /* SettingsViewController.swift */; };
+		7E7CF32D2639A0A500BD0C71 /* RecentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF32C2639A0A500BD0C71 /* RecentsVC.swift */; };
+		7E7CF32F2639A0D800BD0C71 /* MinutesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF32E2639A0D800BD0C71 /* MinutesVC.swift */; };
+		7E7CF3312639A0F800BD0C71 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF3302639A0F800BD0C71 /* SettingsVC.swift */; };
 		7E7CF3332639A74F00BD0C71 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF3322639A74F00BD0C71 /* NavigationController.swift */; };
 		7E7CF33B2639BAC100BD0C71 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
@@ -41,12 +45,16 @@
 		7E5572FB263ACEDC00F549FD /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		7E5572FD263ACF9E00F549FD /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		7E5572FF263AD00500F549FD /* MinuteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuteItem.swift; sourceTree = "<group>"; };
-		7E557305263AD25A00F549FD /* ModelLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLogic.swift; sourceTree = "<group>"; };
+		7E557305263AD25A00F549FD /* MeetingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingLogic.swift; sourceTree = "<group>"; };
 		7E557307263AECFF00F549FD /* MeetingCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeetingCreation.storyboard; sourceTree = "<group>"; };
-		7E557309263B034C00F549FD /* MinutesCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesCreationViewController.swift; sourceTree = "<group>"; };
+		7E557309263B034C00F549FD /* CreateMinutesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMinutesVC.swift; sourceTree = "<group>"; };
 		7E55730B263B1BC500F549FD /* MinutesCreationLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesCreationLogic.swift; sourceTree = "<group>"; };
-		7E55730D263B955600F549FD /* SelectMeetingTypeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMeetingTypeTableVC.swift; sourceTree = "<group>"; };
+		7E55730D263B955600F549FD /* SetMeetingTypeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMeetingTypeTableVC.swift; sourceTree = "<group>"; };
 		7E55730F263B959200F549FD /* SetParticipantsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetParticipantsTableVC.swift; sourceTree = "<group>"; };
+		7E557311263B97AE00F549FD /* SetMeetingAgendaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMeetingAgendaVC.swift; sourceTree = "<group>"; };
+		7E557313263B99F400F549FD /* MeetingTypeLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTypeLogic.swift; sourceTree = "<group>"; };
+		7E557315263B9B3100F549FD /* MeetingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingType.swift; sourceTree = "<group>"; };
+		7E557317263BB0EA00F549FD /* ParticipantLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantLogic.swift; sourceTree = "<group>"; };
 		7E7CF2D226392D1A00BD0C71 /* Minom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E7CF2D526392D1A00BD0C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E7CF2D726392D1A00BD0C71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,9 +67,9 @@
 		7E7CF3152639988200BD0C71 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		7E7CF3162639988300BD0C71 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		7E7CF31E2639988900BD0C71 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
-		7E7CF32C2639A0A500BD0C71 /* RecentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsViewController.swift; sourceTree = "<group>"; };
-		7E7CF32E2639A0D800BD0C71 /* MinutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesViewController.swift; sourceTree = "<group>"; };
-		7E7CF3302639A0F800BD0C71 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7E7CF32C2639A0A500BD0C71 /* RecentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsVC.swift; sourceTree = "<group>"; };
+		7E7CF32E2639A0D800BD0C71 /* MinutesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesVC.swift; sourceTree = "<group>"; };
+		7E7CF3302639A0F800BD0C71 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		7E7CF3322639A74F00BD0C71 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +100,7 @@
 				7E5572FB263ACEDC00F549FD /* Meeting.swift */,
 				7E5572FD263ACF9E00F549FD /* Participant.swift */,
 				7E5572FF263AD00500F549FD /* MinuteItem.swift */,
+				7E557315263B9B3100F549FD /* MeetingType.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -133,8 +142,10 @@
 			children = (
 				7E7CF2ED26393E3600BD0C71 /* Constants.swift */,
 				7E557301263AD0E800F549FD /* Data Models */,
-				7E557305263AD25A00F549FD /* ModelLogic.swift */,
+				7E557305263AD25A00F549FD /* MeetingLogic.swift */,
 				7E55730B263B1BC500F549FD /* MinutesCreationLogic.swift */,
+				7E557313263B99F400F549FD /* MeetingTypeLogic.swift */,
+				7E557317263BB0EA00F549FD /* ParticipantLogic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,14 +153,15 @@
 		7E7CF2EA26392DDB00BD0C71 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7E7CF32C2639A0A500BD0C71 /* RecentsViewController.swift */,
-				7E7CF32E2639A0D800BD0C71 /* MinutesViewController.swift */,
-				7E7CF3302639A0F800BD0C71 /* SettingsViewController.swift */,
+				7E7CF32C2639A0A500BD0C71 /* RecentsVC.swift */,
+				7E7CF32E2639A0D800BD0C71 /* MinutesVC.swift */,
+				7E7CF3302639A0F800BD0C71 /* SettingsVC.swift */,
 				7E7CF3322639A74F00BD0C71 /* NavigationController.swift */,
 				7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */,
-				7E557309263B034C00F549FD /* MinutesCreationViewController.swift */,
-				7E55730D263B955600F549FD /* SelectMeetingTypeTableVC.swift */,
+				7E557309263B034C00F549FD /* CreateMinutesVC.swift */,
+				7E55730D263B955600F549FD /* SetMeetingTypeTableVC.swift */,
 				7E55730F263B959200F549FD /* SetParticipantsTableVC.swift */,
+				7E557311263B97AE00F549FD /* SetMeetingAgendaVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -313,21 +325,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E7CF2D626392D1A00BD0C71 /* AppDelegate.swift in Sources */,
-				7E55730E263B955600F549FD /* SelectMeetingTypeTableVC.swift in Sources */,
+				7E55730E263B955600F549FD /* SetMeetingTypeTableVC.swift in Sources */,
+				7E557318263BB0EA00F549FD /* ParticipantLogic.swift in Sources */,
 				7E5572FC263ACEDC00F549FD /* Meeting.swift in Sources */,
 				7E7CF33B2639BAC100BD0C71 /* TabBarController.swift in Sources */,
-				7E7CF32F2639A0D800BD0C71 /* MinutesViewController.swift in Sources */,
+				7E7CF32F2639A0D800BD0C71 /* MinutesVC.swift in Sources */,
+				7E557316263B9B3100F549FD /* MeetingType.swift in Sources */,
 				7E557300263AD00500F549FD /* MinuteItem.swift in Sources */,
-				7E7CF32D2639A0A500BD0C71 /* RecentsViewController.swift in Sources */,
+				7E7CF32D2639A0A500BD0C71 /* RecentsVC.swift in Sources */,
 				7E7CF2D826392D1A00BD0C71 /* SceneDelegate.swift in Sources */,
 				7E557310263B959200F549FD /* SetParticipantsTableVC.swift in Sources */,
+				7E557312263B97AE00F549FD /* SetMeetingAgendaVC.swift in Sources */,
 				7E7CF2EE26393E3600BD0C71 /* Constants.swift in Sources */,
 				7E5572FE263ACF9E00F549FD /* Participant.swift in Sources */,
 				7E7CF3332639A74F00BD0C71 /* NavigationController.swift in Sources */,
-				7E557306263AD25A00F549FD /* ModelLogic.swift in Sources */,
-				7E55730A263B034C00F549FD /* MinutesCreationViewController.swift in Sources */,
-				7E7CF3312639A0F800BD0C71 /* SettingsViewController.swift in Sources */,
+				7E557306263AD25A00F549FD /* MeetingLogic.swift in Sources */,
+				7E55730A263B034C00F549FD /* CreateMinutesVC.swift in Sources */,
+				7E7CF3312639A0F800BD0C71 /* SettingsVC.swift in Sources */,
 				7E55730C263B1BC500F549FD /* MinutesCreationLogic.swift in Sources */,
+				7E557314263B99F400F549FD /* MeetingTypeLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

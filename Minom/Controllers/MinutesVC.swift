@@ -7,12 +7,12 @@
 
 import UIKit
 
-class MinutesViewController: UIViewController {
+class MinutesVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     private let searchController = UISearchController(searchResultsController: nil)
-    private let modelLogic = ModelLogic()
+    private let meetingLogic = MeetingLogic()
     
     private var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
@@ -62,14 +62,14 @@ class MinutesViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 
-extension MinutesViewController: UITableViewDataSource {
+extension MinutesVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        modelLogic.numberOfMeetingsInMonth(section)
+        meetingLogic.numberOfMeetingsInMonth(section)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        modelLogic.numberOfMonths()
+        meetingLogic.numberOfMonths()
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -80,7 +80,7 @@ extension MinutesViewController: UITableViewDataSource {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
         let label = UILabel(frame: CGRect(x: 20, y: 14, width: tableView.frame.size.width - 40, height: 20))
         view.backgroundColor = Color.BackgroundSecondary
-        label.text = modelLogic.monthName(with: section)
+        label.text = meetingLogic.monthName(with: section)
         label.font = .systemFont(ofSize: 13)
         label.textColor = Color.LabelGrey
         view.addSubview(label)
@@ -97,13 +97,13 @@ extension MinutesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: K.minuteCellIdentifier)
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
-        cell.textLabel?.text = modelLogic.meetingTitle(with: indexPath)
+        cell.textLabel?.text = meetingLogic.meetingTitle(with: indexPath)
         cell.textLabel?.font = Font.LexendDeca(17)
         cell.textLabel?.textColor = Color.LabelJungle
         
-        cell.detailTextLabel?.text = modelLogic.meetingType(with: indexPath)
+        cell.detailTextLabel?.text = meetingLogic.meetingType(with: indexPath)
         cell.detailTextLabel?.font = Font.RobotoRegular(15)
         cell.detailTextLabel?.textColor = Color.EmeraldGreen
         
@@ -124,13 +124,13 @@ extension MinutesViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension MinutesViewController: UITableViewDelegate {
+extension MinutesVC: UITableViewDelegate {
     
 }
 
 // MARK: - UISearchResultsUpdating
 
-extension MinutesViewController: UISearchResultsUpdating {
+extension MinutesVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)

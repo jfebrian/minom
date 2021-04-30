@@ -89,7 +89,6 @@ class SetMeetingTypeTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         logic?.selectType(at: indexPath)
         tableView.reloadData()
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

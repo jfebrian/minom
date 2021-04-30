@@ -9,9 +9,12 @@ import Foundation
 import RealmSwift
 
 class MinuteItem: Object {
+    @objc dynamic var id = NSUUID().uuidString
     @objc dynamic var title: String = ""
     @objc dynamic var note: String = ""
-    @objc dynamic var meeting: Meeting? {
-        LinkingObjects(fromType: Meeting.self, property: "items").first
+    @objc dynamic var meeting: Meeting?
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }

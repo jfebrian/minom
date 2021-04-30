@@ -8,7 +8,7 @@
 import UIKit
 
 struct K {
-    static let minuteCellIdentifier = "MinutesCell"
+    
 }
 
 struct Custom {

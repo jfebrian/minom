@@ -5,10 +5,10 @@
 //  Created by Joanda Febrian on 29/04/21.
 //
 
-import UIKit
+import Foundation
 import RealmSwift
 
-class ModelLogic {
+class MeetingLogic {
     
     let realm = try! Realm()
     var meetingByMonths = [[Meeting]]()

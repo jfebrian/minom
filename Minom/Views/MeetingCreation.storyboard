@@ -20,10 +20,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Minutes Creation View Controller-->
+        <!--Create MinutesVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="MinutesCreationViewController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="CreateMinutesVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,7 +165,7 @@
                                                     <constraint firstItem="7Ki-E6-mD2" firstAttribute="centerX" secondItem="MGe-nc-iJI" secondAttribute="centerX" id="lWS-MX-4g7"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Standup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhk-Ml-0QJ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhk-Ml-0QJ">
                                                 <rect key="frame" x="48" y="0.0" width="326" height="40"/>
                                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                                 <color key="textColor" name="Label Jungle"/>
@@ -197,7 +197,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IyP-AU-9F8">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                         <connections>
-                                            <action selector="meetingTypeButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6VV-br-G4D"/>
                                             <segue destination="TRU-Wk-fhw" kind="show" id="org-qe-LnA"/>
                                         </connections>
                                     </button>
@@ -242,11 +241,29 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoC-CD-xwf">
-                                                <rect key="frame" x="48" y="0.0" width="326" height="40"/>
+                                                <rect key="frame" x="48" y="0.0" width="286" height="40"/>
                                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                                 <color key="textColor" name="Label Jungle"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ni-WD-raF">
+                                                <rect key="frame" x="334" y="0.0" width="40" height="40"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  0  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67r-yV-stL">
+                                                        <rect key="frame" x="5.5" y="9.5" width="29.5" height="21.5"/>
+                                                        <color key="backgroundColor" name="Label Jungle"/>
+                                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
+                                                        <color key="textColor" name="Background"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="67r-yV-stL" firstAttribute="centerX" secondItem="5ni-WD-raF" secondAttribute="centerX" id="0TX-F0-jwf"/>
+                                                    <constraint firstItem="67r-yV-stL" firstAttribute="centerY" secondItem="5ni-WD-raF" secondAttribute="centerY" id="Pnz-Mf-YOo"/>
+                                                    <constraint firstAttribute="width" secondItem="5ni-WD-raF" secondAttribute="height" multiplier="1:1" id="dtg-b7-5Va"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R74-wu-1KI">
                                                 <rect key="frame" x="374" y="0.0" width="40" height="40"/>
                                                 <subviews>
@@ -267,13 +284,13 @@
                                             </view>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="5ni-WD-raF" firstAttribute="width" secondItem="5ni-WD-raF" secondAttribute="height" multiplier="1:1" id="JCu-gB-rRc"/>
                                             <constraint firstItem="QoC-CD-xwf" firstAttribute="centerY" secondItem="kYH-FJ-aBx" secondAttribute="centerY" id="Oli-wa-F22"/>
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8r-sO-tuo">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                         <connections>
-                                            <action selector="participantsButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ga0-Dk-l2J"/>
                                             <segue destination="tDh-c1-VyR" kind="show" id="xpU-0Q-OTj"/>
                                         </connections>
                                     </button>
@@ -409,7 +426,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obp-ir-v5l">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
                                         <connections>
-                                            <action selector="meetingAgendaButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zgU-kn-1BX"/>
                                             <segue destination="c4v-Ed-7JT" kind="show" id="emi-Gv-BGD"/>
                                         </connections>
                                     </button>
@@ -463,33 +479,26 @@
                         <outlet property="datePicker" destination="mcs-qh-Ala" id="ake-zW-oKN"/>
                         <outlet property="endDateLabel" destination="xe1-o3-UQB" id="AWl-yd-93k"/>
                         <outlet property="endTimeLabel" destination="TIj-kr-abK" id="Q3K-7G-K1f"/>
+                        <outlet property="meetingTypeLabel" destination="Yhk-Ml-0QJ" id="enS-R0-EQc"/>
+                        <outlet property="participantNumberLabel" destination="67r-yV-stL" id="eNX-hJ-ITp"/>
                         <outlet property="pickerImage" destination="h0x-TZ-2bc" id="cf4-54-lFK"/>
                         <outlet property="startDateLabel" destination="QrR-HE-Hmp" id="0VF-SL-Dfe"/>
                         <outlet property="startTimeLabel" destination="M9M-xD-89u" id="ZwO-zU-Mz0"/>
+                        <outlet property="titleTextField" destination="2N7-XL-TBv" id="ZgD-7P-Bsg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="175" y="102"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Set Meeting Type TableVC-->
         <scene sceneID="ekT-cW-El7">
             <objects>
-                <tableViewController id="TRU-Wk-fhw" sceneMemberID="viewController">
+                <tableViewController id="TRU-Wk-fhw" customClass="SetMeetingTypeTableVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="97D-wh-QSi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="lV8-vd-q0P">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lV8-vd-q0P" id="sRG-qs-Ddy">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="TRU-Wk-fhw" id="M9g-Ob-BMU"/>
                             <outlet property="delegate" destination="TRU-Wk-fhw" id="4Yb-Yh-SV5"/>
@@ -501,24 +510,14 @@
             </objects>
             <point key="canvasLocation" x="1217" y="-559"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Set Participants TableVC-->
         <scene sceneID="B6D-ZJ-0Pk">
             <objects>
-                <tableViewController id="tDh-c1-VyR" sceneMemberID="viewController">
+                <tableViewController id="tDh-c1-VyR" customClass="SetParticipantsTableVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5nC-ve-OWI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fcw-vP-cg9">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fcw-vP-cg9" id="hAR-tN-Ccp">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="tDh-c1-VyR" id="169-cb-rc9"/>
                             <outlet property="delegate" destination="tDh-c1-VyR" id="E42-Eo-g6c"/>
@@ -555,6 +554,9 @@
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="tray.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Background Secondary">
             <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

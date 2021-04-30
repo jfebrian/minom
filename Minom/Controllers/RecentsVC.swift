@@ -7,9 +7,9 @@
 
 import UIKit
 
-class RecentsViewController: UIViewController {
+class RecentsVC: UIViewController {
 
-    internal override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
     }

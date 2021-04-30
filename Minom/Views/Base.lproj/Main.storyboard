@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Recents View Controller-->
+        <!--RecentsVC-->
         <scene sceneID="6kv-z9-9ne">
             <objects>
-                <viewController id="1Bo-Kl-F5s" customClass="RecentsViewController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1Bo-Kl-F5s" customClass="RecentsVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rxd-wH-57L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="2138" y="885"/>
         </scene>
-        <!--Minutes View Controller-->
+        <!--MinutesVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MinutesViewController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MinutesVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="2859" y="149"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--SettingsVC-->
         <scene sceneID="0pa-f2-iPx">
             <objects>
-                <viewController id="xJa-JU-Kci" customClass="SettingsViewController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xJa-JU-Kci" customClass="SettingsVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IMq-D8-Rug">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

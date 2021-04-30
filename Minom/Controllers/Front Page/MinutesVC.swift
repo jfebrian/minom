@@ -89,6 +89,10 @@ extension MinutesVC: UITableViewDataSource {
         return view
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return Custom.separator(width: tableView.frame.width)
+    }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         1
     }
@@ -96,11 +100,11 @@ extension MinutesVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
-        cell.textLabel?.text = meetingLogic.meetingTitle(with: indexPath)
+        cell.textLabel?.text = meetingLogic.meetingTitle(at: indexPath)
         cell.textLabel?.font = Font.LexendDeca(17)
         cell.textLabel?.textColor = Color.LabelJungle
         
-        cell.detailTextLabel?.text = meetingLogic.meetingType(with: indexPath)
+        cell.detailTextLabel?.text = meetingLogic.meetingType(at: indexPath)
         cell.detailTextLabel?.font = Font.RobotoRegular(15)
         cell.detailTextLabel?.textColor = Color.EmeraldGreen
         

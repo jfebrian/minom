@@ -68,7 +68,7 @@ class MeetingLogic {
         }
     }
     
-    func meeting(with indexPath: IndexPath) -> Meeting {
+    func meeting(at indexPath: IndexPath) -> Meeting {
         return meetingByMonths[indexPath.section][indexPath.row]
     }
     
@@ -90,12 +90,12 @@ class MeetingLogic {
         }
     }
     
-    func meetingTitle(with indexPath: IndexPath) -> String {
-        return meeting(with: indexPath).title
+    func meetingTitle(at indexPath: IndexPath) -> String {
+        return meeting(at: indexPath).title
     }
     
-    func meetingType(with indexPath: IndexPath) -> String {
-        return meeting(with: indexPath).type?.name ?? ""
+    func meetingType(at indexPath: IndexPath) -> String {
+        return meeting(at: indexPath).type?.name ?? ""
     }
     
 }

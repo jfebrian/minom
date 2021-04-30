@@ -54,7 +54,7 @@ class MeetingTypeLogic {
         return types.count
     }
     
-    func getType(with indexPath: IndexPath) -> MeetingType {
+    func getType(at indexPath: IndexPath) -> MeetingType {
         guard let types = self.types else { fatalError() }
         return types[indexPath.row]
     }

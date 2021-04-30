@@ -42,6 +42,8 @@ struct Font {
 struct Image {
     static let DatePickerBackground = UIImage(named: "Date Picker Background")!
     static let DatePickerBackgroundReverse = UIImage(named: "Date Picker Background Reverse")!
+    static let Trash = UIImage(systemName: "trash")
+    static let Pencil = UIImage(systemName: "pencil")
 }
 
 struct Color {

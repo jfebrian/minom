@@ -11,6 +11,14 @@ struct K {
     static let minuteCellIdentifier = "MinutesCell"
 }
 
+struct Custom {
+    static func separator(width: CGFloat) -> UIView {
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 1))
+        v.backgroundColor = Color.Grey
+        return v
+    }
+}
+
 struct Font {
     static func LexendDeca(_ size: CGFloat) -> UIFont {
         return UIFont(name: "LexendDeca-Regular", size: size)!
@@ -27,6 +35,11 @@ struct Font {
     static func RobotoMedium(_ size: CGFloat) -> UIFont {
         return UIFont(name: "Roboto-Medium", size: size)!
     }
+}
+
+struct Image {
+    static let DatePickerBackground = UIImage(named: "Date Picker Background")!
+    static let DatePickerBackgroundReverse = UIImage(named: "Date Picker Background Reverse")!
 }
 
 struct Color {

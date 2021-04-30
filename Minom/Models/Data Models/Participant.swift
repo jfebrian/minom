@@ -11,4 +11,8 @@ import RealmSwift
 class Participant: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var attendance: Bool = false
+    @objc dynamic var meeting: Meeting? {
+        LinkingObjects(fromType: Meeting.self, property: "participants").first
+    }
+    
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class NavigationController: UINavigationController {
 
-    internal override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
     }

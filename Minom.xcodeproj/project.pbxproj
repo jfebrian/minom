@@ -11,6 +11,12 @@
 		7E5572FC263ACEDC00F549FD /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5572FB263ACEDC00F549FD /* Meeting.swift */; };
 		7E5572FE263ACF9E00F549FD /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5572FD263ACF9E00F549FD /* Participant.swift */; };
 		7E557300263AD00500F549FD /* MinuteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5572FF263AD00500F549FD /* MinuteItem.swift */; };
+		7E557306263AD25A00F549FD /* ModelLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557305263AD25A00F549FD /* ModelLogic.swift */; };
+		7E557308263AECFF00F549FD /* MeetingCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E557307263AECFF00F549FD /* MeetingCreation.storyboard */; };
+		7E55730A263B034C00F549FD /* MinutesCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557309263B034C00F549FD /* MinutesCreationViewController.swift */; };
+		7E55730C263B1BC500F549FD /* MinutesCreationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55730B263B1BC500F549FD /* MinutesCreationLogic.swift */; };
+		7E55730E263B955600F549FD /* SelectMeetingTypeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55730D263B955600F549FD /* SelectMeetingTypeTableVC.swift */; };
+		7E557310263B959200F549FD /* SetParticipantsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55730F263B959200F549FD /* SetParticipantsTableVC.swift */; };
 		7E7CF2D626392D1A00BD0C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF2D526392D1A00BD0C71 /* AppDelegate.swift */; };
 		7E7CF2D826392D1A00BD0C71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF2D726392D1A00BD0C71 /* SceneDelegate.swift */; };
 		7E7CF2DD26392D1A00BD0C71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E7CF2DB26392D1A00BD0C71 /* Main.storyboard */; };
@@ -35,6 +41,12 @@
 		7E5572FB263ACEDC00F549FD /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		7E5572FD263ACF9E00F549FD /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		7E5572FF263AD00500F549FD /* MinuteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuteItem.swift; sourceTree = "<group>"; };
+		7E557305263AD25A00F549FD /* ModelLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLogic.swift; sourceTree = "<group>"; };
+		7E557307263AECFF00F549FD /* MeetingCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeetingCreation.storyboard; sourceTree = "<group>"; };
+		7E557309263B034C00F549FD /* MinutesCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesCreationViewController.swift; sourceTree = "<group>"; };
+		7E55730B263B1BC500F549FD /* MinutesCreationLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesCreationLogic.swift; sourceTree = "<group>"; };
+		7E55730D263B955600F549FD /* SelectMeetingTypeTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMeetingTypeTableVC.swift; sourceTree = "<group>"; };
+		7E55730F263B959200F549FD /* SetParticipantsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetParticipantsTableVC.swift; sourceTree = "<group>"; };
 		7E7CF2D226392D1A00BD0C71 /* Minom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E7CF2D526392D1A00BD0C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E7CF2D726392D1A00BD0C71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +133,8 @@
 			children = (
 				7E7CF2ED26393E3600BD0C71 /* Constants.swift */,
 				7E557301263AD0E800F549FD /* Data Models */,
+				7E557305263AD25A00F549FD /* ModelLogic.swift */,
+				7E55730B263B1BC500F549FD /* MinutesCreationLogic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,6 +147,9 @@
 				7E7CF3302639A0F800BD0C71 /* SettingsViewController.swift */,
 				7E7CF3322639A74F00BD0C71 /* NavigationController.swift */,
 				7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */,
+				7E557309263B034C00F549FD /* MinutesCreationViewController.swift */,
+				7E55730D263B955600F549FD /* SelectMeetingTypeTableVC.swift */,
+				7E55730F263B959200F549FD /* SetParticipantsTableVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -141,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				7E7CF2DB26392D1A00BD0C71 /* Main.storyboard */,
+				7E557307263AECFF00F549FD /* MeetingCreation.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -241,6 +259,7 @@
 				7E7CF2DF26392D1B00BD0C71 /* Assets.xcassets in Resources */,
 				7E7CF3112639984E00BD0C71 /* LexendDeca-Regular.ttf in Resources */,
 				7E7CF2DD26392D1A00BD0C71 /* Main.storyboard in Resources */,
+				7E557308263AECFF00F549FD /* MeetingCreation.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,16 +313,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E7CF2D626392D1A00BD0C71 /* AppDelegate.swift in Sources */,
+				7E55730E263B955600F549FD /* SelectMeetingTypeTableVC.swift in Sources */,
 				7E5572FC263ACEDC00F549FD /* Meeting.swift in Sources */,
 				7E7CF33B2639BAC100BD0C71 /* TabBarController.swift in Sources */,
 				7E7CF32F2639A0D800BD0C71 /* MinutesViewController.swift in Sources */,
 				7E557300263AD00500F549FD /* MinuteItem.swift in Sources */,
 				7E7CF32D2639A0A500BD0C71 /* RecentsViewController.swift in Sources */,
 				7E7CF2D826392D1A00BD0C71 /* SceneDelegate.swift in Sources */,
+				7E557310263B959200F549FD /* SetParticipantsTableVC.swift in Sources */,
 				7E7CF2EE26393E3600BD0C71 /* Constants.swift in Sources */,
 				7E5572FE263ACF9E00F549FD /* Participant.swift in Sources */,
 				7E7CF3332639A74F00BD0C71 /* NavigationController.swift in Sources */,
+				7E557306263AD25A00F549FD /* ModelLogic.swift in Sources */,
+				7E55730A263B034C00F549FD /* MinutesCreationViewController.swift in Sources */,
 				7E7CF3312639A0F800BD0C71 /* SettingsViewController.swift in Sources */,
+				7E55730C263B1BC500F549FD /* MinutesCreationLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

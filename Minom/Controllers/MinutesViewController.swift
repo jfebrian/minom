@@ -12,12 +12,13 @@ class MinutesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private let searchController = UISearchController(searchResultsController: nil)
+    private let modelLogic = ModelLogic()
     
     private var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
     
-    internal override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
         tableView.backgroundColor = Color.BackgroundSecondary
@@ -64,11 +65,11 @@ class MinutesViewController: UIViewController {
 extension MinutesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        modelLogic.numberOfMeetingsInMonth(section)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        modelLogic.numberOfMonths()
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -79,7 +80,7 @@ extension MinutesViewController: UITableViewDataSource {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
         let label = UILabel(frame: CGRect(x: 20, y: 14, width: tableView.frame.size.width - 40, height: 20))
         view.backgroundColor = Color.BackgroundSecondary
-        label.text = "MAY 2021"
+        label.text = modelLogic.monthName(with: section)
         label.font = .systemFont(ofSize: 13)
         label.textColor = Color.LabelGrey
         view.addSubview(label)
@@ -88,9 +89,7 @@ extension MinutesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let v = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1))
-        v.backgroundColor = Color.Grey
-        return v
+        return Custom.separator(width: tableView.frame.width)
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -100,10 +99,11 @@ extension MinutesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: K.minuteCellIdentifier)
         
-        cell.textLabel?.text = "Standup, 1 May 21"
+        cell.textLabel?.text = modelLogic.meetingTitle(with: indexPath)
         cell.textLabel?.font = Font.LexendDeca(17)
         cell.textLabel?.textColor = Color.LabelJungle
-        cell.detailTextLabel?.text = "Daily Standup"
+        
+        cell.detailTextLabel?.text = modelLogic.meetingType(with: indexPath)
         cell.detailTextLabel?.font = Font.RobotoRegular(15)
         cell.detailTextLabel?.textColor = Color.EmeraldGreen
         
@@ -113,9 +113,8 @@ extension MinutesViewController: UITableViewDataSource {
         cell.accessoryView = disclosureIndicator
         cell.tintColor = Color.LabelJungle
         
-        let v = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1))
-        v.backgroundColor = Color.Grey
-        cell.addSubview(v)
+        
+        cell.addSubview(Custom.separator(width: tableView.frame.width))
         
         return cell
     }
@@ -132,7 +131,7 @@ extension MinutesViewController: UITableViewDelegate {
 // MARK: - UISearchResultsUpdating
 
 extension MinutesViewController: UISearchResultsUpdating {
-    internal func updateSearchResults(for searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
     }

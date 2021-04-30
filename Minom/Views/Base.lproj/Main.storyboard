@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="iKN-bX-e0d"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background Secondary"/>
                     </view>
                     <navigationItem key="navigationItem" id="HNO-fG-NkS"/>
                 </viewController>
@@ -63,6 +63,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="afJ-eG-LDH">
                             <connections>
                                 <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="OEa-zv-xG5"/>
+                                <segue destination="w3a-Sk-xvS" kind="show" id="6Np-j8-bmY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -73,6 +74,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2137.68115942029" y="148.66071428571428"/>
+        </scene>
+        <!--MeetingCreation-->
+        <scene sceneID="GdQ-6n-CYr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MeetingCreation" id="w3a-Sk-xvS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3vd-Vl-c1q"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gca-mC-qEx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2859" y="149"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="0pa-f2-iPx">
@@ -171,6 +182,9 @@
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
+        <namedColor name="Background Secondary">
+            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Label Jungle">
             <color red="0.054999999701976776" green="0.46700000762939453" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

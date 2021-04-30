@@ -103,4 +103,14 @@ class MinutesCreationLogic {
         participantLogic.addParticipant(with: name)
     }
     
+    // MARK: - Set Agenda Logic
+    
+    func saveAgenda(with text: String) {
+        meeting.agenda = text
+    }
+    
+    func getAgenda() -> String {
+        return meeting.agenda
+    }
+    
 }

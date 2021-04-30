@@ -353,23 +353,6 @@
                                     <constraint firstAttribute="bottom" secondItem="xXb-HB-MfS" secondAttribute="bottom" id="beP-9h-zii"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-RZ-Nbd" userLabel="Agenda Label">
-                                <rect key="frame" x="0.0" y="502" width="414" height="28"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No meeting agenda." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hw7-tl-9Zu">
-                                        <rect key="frame" x="13.5" y="0.0" width="388.5" height="20"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
-                                        <color key="textColor" name="Green Jungle"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="hw7-tl-9Zu" secondAttribute="trailing" constant="12" id="2xW-Ll-gQc"/>
-                                    <constraint firstAttribute="height" secondItem="hw7-tl-9Zu" secondAttribute="height" constant="8" id="Xrx-lS-khh"/>
-                                    <constraint firstItem="hw7-tl-9Zu" firstAttribute="top" secondItem="CFE-RZ-Nbd" secondAttribute="top" id="avW-Sz-zdr"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3X-gm-w3D" userLabel="Meeting Agenda">
                                 <rect key="frame" x="0.0" y="462" width="414" height="40"/>
                                 <subviews>
@@ -379,7 +362,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXZ-IH-7Nv">
                                                 <rect key="frame" x="0.0" y="0.0" width="48" height="40"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note.text" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KLo-fX-8gx">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="note.text" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KLo-fX-8gx">
                                                         <rect key="frame" x="13.5" y="10.5" width="21" height="18.5"/>
                                                         <color key="tintColor" name="Label Jungle"/>
                                                         <constraints>
@@ -423,27 +406,40 @@
                                             <constraint firstItem="GWi-Gs-snG" firstAttribute="centerY" secondItem="Hyl-7J-w5K" secondAttribute="centerY" id="Jlz-Yl-Azn"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obp-ir-v5l">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
-                                        <connections>
-                                            <segue destination="c4v-Ed-7JT" kind="show" id="emi-Gv-BGD"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Hyl-7J-w5K" secondAttribute="trailing" id="8d8-2h-GRr"/>
                                     <constraint firstItem="CjU-qC-Jwm" firstAttribute="height" secondItem="V3X-gm-w3D" secondAttribute="height" id="9ec-T0-dG5"/>
-                                    <constraint firstItem="obp-ir-v5l" firstAttribute="top" secondItem="V3X-gm-w3D" secondAttribute="top" id="IzC-Ky-Qz9"/>
                                     <constraint firstItem="Hyl-7J-w5K" firstAttribute="top" secondItem="V3X-gm-w3D" secondAttribute="top" id="NFf-5W-q3P"/>
-                                    <constraint firstItem="obp-ir-v5l" firstAttribute="leading" secondItem="V3X-gm-w3D" secondAttribute="leading" id="Oxg-yd-PU0"/>
                                     <constraint firstItem="jXZ-IH-7Nv" firstAttribute="height" secondItem="V3X-gm-w3D" secondAttribute="height" id="RGA-Oc-qDC"/>
                                     <constraint firstItem="Hyl-7J-w5K" firstAttribute="leading" secondItem="V3X-gm-w3D" secondAttribute="leading" id="YCB-GO-Uvg"/>
-                                    <constraint firstAttribute="trailing" secondItem="obp-ir-v5l" secondAttribute="trailing" id="eR0-Pa-62o"/>
                                     <constraint firstAttribute="height" constant="40" id="m7f-C4-lyL"/>
                                     <constraint firstAttribute="bottom" secondItem="Hyl-7J-w5K" secondAttribute="bottom" id="voq-Ie-kjK"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-RZ-Nbd" userLabel="Agenda Label">
+                                <rect key="frame" x="0.0" y="502" width="414" height="28"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No meeting agenda" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hw7-tl-9Zu">
+                                        <rect key="frame" x="48" y="0.0" width="326" height="20"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                        <color key="textColor" name="Green Jungle"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="hw7-tl-9Zu" firstAttribute="top" secondItem="CFE-RZ-Nbd" secondAttribute="top" id="Hap-3m-Mqx"/>
+                                    <constraint firstAttribute="height" secondItem="hw7-tl-9Zu" secondAttribute="height" constant="8" id="Uah-6m-vHD"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obp-ir-v5l">
+                                <rect key="frame" x="0.0" y="462" width="414" height="68"/>
+                                <connections>
+                                    <segue destination="c4v-Ed-7JT" kind="show" id="emi-Gv-BGD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background Secondary"/>
@@ -452,21 +448,25 @@
                             <constraint firstItem="hiw-jT-miP" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="587-mn-u2H"/>
                             <constraint firstItem="V3X-gm-w3D" firstAttribute="top" secondItem="hiw-jT-miP" secondAttribute="bottom" constant="1" id="9mG-wk-aK2"/>
                             <constraint firstItem="iWg-dm-L94" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AvJ-vd-DZn"/>
-                            <constraint firstItem="hw7-tl-9Zu" firstAttribute="leading" secondItem="KLo-fX-8gx" secondAttribute="leading" id="DE0-Fs-evL"/>
+                            <constraint firstItem="obp-ir-v5l" firstAttribute="bottom" secondItem="CFE-RZ-Nbd" secondAttribute="bottom" id="BeP-n6-ESU"/>
                             <constraint firstAttribute="trailing" secondItem="KD3-EI-8pc" secondAttribute="trailing" id="F9K-CD-0Mc"/>
                             <constraint firstItem="CFE-RZ-Nbd" firstAttribute="top" secondItem="V3X-gm-w3D" secondAttribute="bottom" id="Hd4-yd-TCz"/>
                             <constraint firstItem="wHM-mb-edE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="HzO-8G-bxs"/>
+                            <constraint firstItem="hw7-tl-9Zu" firstAttribute="leading" secondItem="GWi-Gs-snG" secondAttribute="leading" id="Jsb-eW-WxG"/>
                             <constraint firstItem="V3X-gm-w3D" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="LUs-46-6wn"/>
-                            <constraint firstItem="obp-ir-v5l" firstAttribute="bottom" secondItem="CFE-RZ-Nbd" secondAttribute="bottom" id="MSr-fd-mc8"/>
                             <constraint firstItem="KD3-EI-8pc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MaM-z1-BUN"/>
                             <constraint firstItem="wHM-mb-edE" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ooo-Ra-q0y"/>
+                            <constraint firstItem="obp-ir-v5l" firstAttribute="top" secondItem="V3X-gm-w3D" secondAttribute="top" id="UHj-hx-CMH"/>
                             <constraint firstItem="mcs-qh-Ala" firstAttribute="top" secondItem="iWg-dm-L94" secondAttribute="bottom" id="UUf-B6-NVD"/>
                             <constraint firstItem="hiw-jT-miP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XUM-c8-DyO"/>
                             <constraint firstItem="CFE-RZ-Nbd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Yng-o0-Ce5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CFE-RZ-Nbd" secondAttribute="trailing" id="aAd-sH-eSS"/>
                             <constraint firstItem="hiw-jT-miP" firstAttribute="top" secondItem="KD3-EI-8pc" secondAttribute="bottom" constant="16" id="avn-yy-qcG"/>
+                            <constraint firstItem="obp-ir-v5l" firstAttribute="leading" secondItem="V3X-gm-w3D" secondAttribute="leading" id="bAJ-si-3iJ"/>
                             <constraint firstItem="iWg-dm-L94" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="bsm-4f-ann"/>
+                            <constraint firstItem="hw7-tl-9Zu" firstAttribute="trailing" secondItem="GWi-Gs-snG" secondAttribute="trailing" id="cLS-wV-1UV"/>
                             <constraint firstItem="wHM-mb-edE" firstAttribute="top" secondItem="mcs-qh-Ala" secondAttribute="bottom" id="e6d-ki-H81"/>
+                            <constraint firstItem="obp-ir-v5l" firstAttribute="trailing" secondItem="V3X-gm-w3D" secondAttribute="trailing" id="fr5-aO-5zA"/>
                             <constraint firstItem="iWg-dm-L94" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="h6o-OC-UDQ"/>
                             <constraint firstItem="KD3-EI-8pc" firstAttribute="top" secondItem="wHM-mb-edE" secondAttribute="bottom" constant="1" id="ksK-XN-rjJ"/>
                             <constraint firstItem="mcs-qh-Ala" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="pfu-1O-WXN"/>
@@ -475,6 +475,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="fqz-Hw-6GJ"/>
                     <connections>
+                        <outlet property="agendaLabel" destination="hw7-tl-9Zu" id="C1w-sH-FJ3"/>
                         <outlet property="clockImage" destination="GnL-X8-oNd" id="Kkw-PI-oMa"/>
                         <outlet property="datePicker" destination="mcs-qh-Ala" id="ake-zW-oKN"/>
                         <outlet property="endDateLabel" destination="xe1-o3-UQB" id="AWl-yd-93k"/>
@@ -489,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175" y="102"/>
+            <point key="canvasLocation" x="173.91304347826087" y="101.78571428571428"/>
         </scene>
         <!--Set Meeting Type TableVC-->
         <scene sceneID="ekT-cW-El7">
@@ -529,21 +530,51 @@
             </objects>
             <point key="canvasLocation" x="1216" y="102"/>
         </scene>
-        <!--View Controller-->
+        <!--Set Meeting AgendaVC-->
         <scene sceneID="bKr-cg-jYu">
             <objects>
-                <viewController id="c4v-Ed-7JT" sceneMemberID="viewController">
+                <viewController id="c4v-Ed-7JT" customClass="SetMeetingAgendaVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Q9-I4-Okr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1l-k1-g9A">
+                                <rect key="frame" x="0.0" y="16" width="414" height="776"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vHB-Pu-VAb">
+                                        <rect key="frame" x="16" y="16" width="382" height="744"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" name="Label Jungle"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="vHB-Pu-VAb" firstAttribute="leading" secondItem="T1l-k1-g9A" secondAttribute="leading" constant="16" id="021-76-9Yg"/>
+                                    <constraint firstItem="vHB-Pu-VAb" firstAttribute="top" secondItem="T1l-k1-g9A" secondAttribute="top" constant="16" id="STV-j6-lzj"/>
+                                    <constraint firstAttribute="trailing" secondItem="vHB-Pu-VAb" secondAttribute="trailing" constant="16" id="UY1-LX-JeK"/>
+                                    <constraint firstAttribute="bottom" secondItem="vHB-Pu-VAb" secondAttribute="bottom" constant="16" id="hyz-Dg-6R3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="A6e-iF-bLa"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background Secondary"/>
+                        <constraints>
+                            <constraint firstItem="A6e-iF-bLa" firstAttribute="bottom" secondItem="T1l-k1-g9A" secondAttribute="bottom" constant="16" id="1A6-q9-bqn"/>
+                            <constraint firstItem="T1l-k1-g9A" firstAttribute="leading" secondItem="A6e-iF-bLa" secondAttribute="leading" id="8xf-tP-bAb"/>
+                            <constraint firstItem="T1l-k1-g9A" firstAttribute="top" secondItem="A6e-iF-bLa" secondAttribute="top" constant="16" id="qkX-lj-ZmW"/>
+                            <constraint firstItem="A6e-iF-bLa" firstAttribute="trailing" secondItem="T1l-k1-g9A" secondAttribute="trailing" id="vVY-uR-ya3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="olZ-1H-4XI"/>
+                    <connections>
+                        <outlet property="textView" destination="vHB-Pu-VAb" id="GPu-O5-MyE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tO1-eH-IUc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1216" y="771"/>
+            <point key="canvasLocation" x="1216" y="833"/>
         </scene>
     </scenes>
     <resources>

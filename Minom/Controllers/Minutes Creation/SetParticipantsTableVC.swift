@@ -53,6 +53,7 @@ class SetParticipantsTableVC: UITableViewController {
                 }
             }
         }
+        
         alert.addAction(add)
         alert.addTextField { textField in
             textField.placeholder = "Enter Participant Name"
@@ -117,8 +118,7 @@ extension SetParticipantsTableVC: SwipeTableViewCellDelegate {
             self.alertInput(title: "Edit Participant", at: indexPath)
         }
         editAction.image = Image.Pencil
-        editAction.image?.withTintColor(Color.JungleGreen)
 
-        return [editAction, deleteAction]
+        return [deleteAction, editAction]
     }
 }

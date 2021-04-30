@@ -12,9 +12,9 @@
         <!--RecentsVC-->
         <scene sceneID="6kv-z9-9ne">
             <objects>
-                <viewController id="1Bo-Kl-F5s" customClass="RecentsVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="1Bo-Kl-F5s" customClass="RecentsVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rxd-wH-57L">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="iKN-bX-e0d"/>
                         <color key="backgroundColor" name="Background Secondary"/>
@@ -28,19 +28,19 @@
         <!--MinutesVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MinutesVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="BYZ-38-t0r" customClass="MinutesVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't made any minutes." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5Q-jq-924">
-                                <rect key="frame" x="89" y="396.5" width="236.5" height="20.5"/>
+                                <rect key="frame" x="89" y="438" width="236.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="Label Jungle"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6ho-Z3-6oj">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="SXB-Ys-2nS"/>
@@ -49,7 +49,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background Secondary"/>
                         <constraints>
                             <constraint firstItem="6ho-Z3-6oj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Lks-6k-Cqz"/>
                             <constraint firstItem="6ho-Z3-6oj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MCf-0h-Sno"/>
@@ -88,12 +88,12 @@
         <!--SettingsVC-->
         <scene sceneID="0pa-f2-iPx">
             <objects>
-                <viewController id="xJa-JU-Kci" customClass="SettingsVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="xJa-JU-Kci" customClass="SettingsVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IMq-D8-Rug">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="7Sh-bg-gN8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background Secondary"/>
                     </view>
                     <navigationItem key="navigationItem" id="T2M-VK-ima"/>
                 </viewController>
@@ -104,7 +104,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ovh-Oq-17S">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ofd-gb-NJd" customClass="TabBarController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="ofd-gb-NJd" customClass="TabBarController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="j6Y-Ol-nhF">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -123,7 +123,7 @@
         <!--Recents-->
         <scene sceneID="woK-Bs-9te">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EEQ-xV-NGX" customClass="NavigationController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="EEQ-xV-NGX" customClass="NavigationController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Recents" image="clock.arrow.circlepath" catalog="system" id="ND4-bT-azO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NqX-lJ-Zmb">
@@ -142,7 +142,7 @@
         <!--Minutes-->
         <scene sceneID="Lpa-A9-8ug">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="og0-JR-FGG" customClass="NavigationController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="og0-JR-FGG" customClass="NavigationController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Minutes" image="note.text" catalog="system" id="zjU-ye-qlZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WT5-qv-sZN">
@@ -161,7 +161,7 @@
         <!--Settings-->
         <scene sceneID="cDJ-fb-dL8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GQo-K4-mVt" customClass="NavigationController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="GQo-K4-mVt" customClass="NavigationController" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" id="p3d-sc-udl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QYq-eK-oGu">

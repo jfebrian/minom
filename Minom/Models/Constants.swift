@@ -7,6 +7,12 @@
 
 import UIKit
 
+struct ID {
+    static let titleCell = "MinuteTitleCell"
+    static let itemCell = "MinuteItemCell"
+    static let buttonCell = "ButtonCell"
+}
+
 struct Storyboard {
     static let Main = UIStoryboard(name: "Main", bundle: nil)
     static let MeetingCreation = UIStoryboard(name: "MeetingCreation", bundle: nil)
@@ -44,6 +50,8 @@ struct Image {
     static let DatePickerBackgroundReverse = UIImage(named: "Date Picker Background Reverse")!
     static let Trash = UIImage(systemName: "trash")
     static let Pencil = UIImage(systemName: "pencil")
+    static let BackArrow = UIImage(systemName: "chevron.backward")
+    static let People = UIImage(systemName: "person.3.fill")
 }
 
 struct Color {

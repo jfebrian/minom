@@ -48,7 +48,7 @@ class MeetingLogic {
         }
     }
     
-    private func loadMeetings() {
+    func loadMeetings() {
         let meetings = realm.objects(Meeting.self).sorted(byKeyPath: "startTime", ascending: false)
         if let start = meetings.first {
             let calendar = Calendar.current
@@ -97,8 +97,8 @@ class MeetingLogic {
     }
     
     func meetingType(at indexPath: IndexPath) -> String {
-        guard let type = meeting(at: indexPath).type else { fatalError("Meeting without type found!") }
-        return type.name
+        let type = meeting(at: indexPath).type
+        return type?.name ?? "Deleted Type"
     }
     
 }

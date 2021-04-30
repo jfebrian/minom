@@ -95,6 +95,18 @@ class MinutesCreationLogic {
         typeLogic.addMeetingType(with: name)
     }
     
+    func setTypeName(as name: String, at indexPath: IndexPath) {
+        typeLogic.setTypeName(as: name, at: indexPath)
+    }
+    
+    func deleteType(at indexPath: IndexPath) {
+        if selectedType == typeLogic.getType(at: indexPath) {
+            selectedType = nil
+        }
+        typeLogic.deleteType(at: indexPath)
+        meetingLogic.loadMeetings()
+    }
+    
     // MARK: - Set Participants Logic
     
     func numberOfParticipants() -> Int {

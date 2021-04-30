@@ -22,7 +22,7 @@ class MeetingTypeLogic {
     
     // MARK: - Model Manipulation Methods
     
-    func save(_ name: String) {
+    private func save(_ name: String) {
         do {
             try realm.write {
                 let type = MeetingType()
@@ -34,10 +34,12 @@ class MeetingTypeLogic {
         }
     }
     
-    func delete(_ type: MeetingType) {
+    private func delete(_ type: MeetingType) {
         do {
             try realm.write {
-                realm.delete(type.meetings)
+                for meeting in type.meetings {
+                    meeting.type = nil
+                }
                 realm.delete(type)
             }
         } catch {
@@ -62,5 +64,19 @@ class MeetingTypeLogic {
     func addMeetingType(with name: String) {
         save(name)
         loadTypes()
+    }
+    
+    func setTypeName(as name: String, at indexPath: IndexPath) {
+        do {
+            try realm.write {
+                getType(at: indexPath).name = name
+            }
+        } catch {
+            print("Error renaming meeting type, \(error.localizedDescription)")
+        }
+    }
+    
+    func deleteType(at indexPath: IndexPath) {
+        delete(getType(at: indexPath))
     }
 }

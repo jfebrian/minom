@@ -265,8 +265,6 @@
                     <connections>
                         <outlet property="bottomBar" destination="Awd-3o-Goi" id="g3h-1e-Ve9"/>
                         <outlet property="tableView" destination="O7N-bd-Ce5" id="eFc-x9-MU5"/>
-                        <segue destination="MCX-Ge-pkd" kind="show" id="U5r-1v-AZ5"/>
-                        <segue destination="SiX-bY-TrN" kind="show" identifier="ViewParticipants" id="VMm-XD-Efz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U67-uu-KQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -278,7 +276,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="ViewParticipants" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SiX-bY-TrN" customClass="ParticipantsTableVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1w9-oP-hxc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <connections>
@@ -297,11 +295,11 @@
             <objects>
                 <viewController storyboardIdentifier="MeetingItem" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MCX-Ge-pkd" customClass="MeetingItemVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="viQ-TN-Twr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5Y-vk-lIz">
-                                <rect key="frame" x="0.0" y="16" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="56"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tdf-wD-2ad">
                                         <rect key="frame" x="16" y="0.0" width="382" height="56"/>
@@ -324,10 +322,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIu-7i-Vao">
-                                <rect key="frame" x="0.0" y="88" width="414" height="704"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="714"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hF0-3Y-pJQ">
-                                        <rect key="frame" x="16" y="0.0" width="382" height="704"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="714"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" name="Label Jungle"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>

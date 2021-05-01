@@ -53,7 +53,8 @@ class MinutesVC: UIViewController {
     }
     
     private func filterContentForSearchText(_ searchText: String) {
-        // Search code
+        meetingLogic.searchMeetings(for: searchText)
+        tableView.reloadData()
     }
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -66,12 +67,18 @@ class MinutesVC: UIViewController {
 
 extension MinutesVC: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        meetingLogic.numberOfMeetingsInMonth(section)
+    var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        meetingLogic.numberOfMonths()
+        print(meetingLogic.numberOfMonths(isFiltering))
+        return meetingLogic.numberOfMonths(isFiltering)
+    }
+
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return meetingLogic.numberOfMeetingsInMonth(section, isFiltering)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -82,7 +89,7 @@ extension MinutesVC: UITableViewDataSource {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
         let label = UILabel(frame: CGRect(x: 20, y: 14, width: tableView.frame.size.width - 40, height: 20))
         view.backgroundColor = Color.BackgroundSecondary
-        label.text = meetingLogic.monthName(with: section)
+        label.text = meetingLogic.monthName(with: section, isFiltering)
         label.font = .systemFont(ofSize: 13)
         label.textColor = Color.LabelGrey
         view.addSubview(label)
@@ -102,11 +109,11 @@ extension MinutesVC: UITableViewDataSource {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
         cell.selectionStyle = .none
-        cell.textLabel?.text = meetingLogic.meetingTitle(at: indexPath)
+        cell.textLabel?.text = meetingLogic.meetingTitle(at: indexPath, isFiltering)
         cell.textLabel?.font = Font.LexendDeca(17)
         cell.textLabel?.textColor = Color.LabelJungle
         
-        cell.detailTextLabel?.text = meetingLogic.meetingType(at: indexPath)
+        cell.detailTextLabel?.text = meetingLogic.meetingType(at: indexPath, isFiltering)
         cell.detailTextLabel?.font = Font.RobotoRegular(15)
         cell.detailTextLabel?.textColor = Color.EmeraldGreen
         
@@ -131,7 +138,7 @@ extension MinutesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sb = Storyboard.MinutesTaking
         let vc = sb.instantiateInitialViewController() as! TakeMinuteVC
-        let meeting = meetingLogic.meeting(at: indexPath)
+        let meeting = meetingLogic.meeting(at: indexPath, isFiltering)
         vc.logic = MinutesLogic(for: meeting)
         navigationController?.pushViewController(vc, animated: true)
     }

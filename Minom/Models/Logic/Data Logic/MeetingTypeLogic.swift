@@ -30,7 +30,7 @@ class MeetingTypeLogic {
                 realm.add(type)
             }
         } catch {
-            print("Error saving meeting type, \(error.localizedDescription)")
+            print("Error saving meeting type to Realm, \(error.localizedDescription)")
         }
     }
     
@@ -43,7 +43,7 @@ class MeetingTypeLogic {
                 realm.delete(type)
             }
         } catch {
-            print("Error deleting meeting type, \(error.localizedDescription)")
+            print("Error deleting meeting type from Realm, \(error.localizedDescription)")
         }
     }
     

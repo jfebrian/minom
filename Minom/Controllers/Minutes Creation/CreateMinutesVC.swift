@@ -37,6 +37,7 @@ class CreateMinutesVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupButtonLabels()
+        updatePicker()
         tabBarController?.tabBar.isHidden = true
     }
     
@@ -103,7 +104,8 @@ class CreateMinutesVC: UIViewController {
             let sb = Storyboard.MinutesTaking
             let vc = sb.instantiateInitialViewController() as! TakeMinuteVC
             let meeting = logic.meeting
-            vc.minutesLogic = MinutesLogic(for: meeting)
+            vc.logic = MinutesLogic(for: meeting)
+            vc.creationLogic = logic
             navigationController?.pushViewController(vc, animated: true)
         } else {
             alert(title: status.alert, message: status.message)
@@ -120,8 +122,8 @@ class CreateMinutesVC: UIViewController {
         case is SetMeetingTypeTableVC:
             let destination = segue.destination as! SetMeetingTypeTableVC
             destination.logic = self.logic
-        case is SetParticipantsTableVC:
-            let destination = segue.destination as! SetParticipantsTableVC
+        case is ParticipantsTableVC:
+            let destination = segue.destination as! ParticipantsTableVC
             destination.logic = self.logic
         case is SetMeetingAgendaVC:
             let destination = segue.destination as! SetMeetingAgendaVC

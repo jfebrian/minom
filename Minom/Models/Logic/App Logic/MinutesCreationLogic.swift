@@ -113,9 +113,7 @@ class MinutesCreationLogic {
         return participants.count
     }
     
-    func addParticipant(with name: String) {
-        let participant = Participant()
-        participant.name = name
+    func addParticipant(with participant: Participant) {
         participants.append(participant)
     }
     
@@ -133,6 +131,10 @@ class MinutesCreationLogic {
     
     func deleteParticipant(at indexPath: IndexPath) {
         participants.remove(at: indexPath.row)
+    }
+    
+    func toggleAttendance(at indexPath: IndexPath) {
+        participant(at: indexPath).attendance = true
     }
     
     // MARK: - Set Title and Agenda Logic

@@ -15,6 +15,7 @@ class Meeting: Object {
     @objc dynamic var startTime: Date = Date()
     @objc dynamic var endTime: Date = Date()
     @objc dynamic var type: MeetingType?
+    
     let items = List<MinuteItem>()
     let participants = List<Participant>()
     

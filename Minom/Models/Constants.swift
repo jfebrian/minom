@@ -13,10 +13,24 @@ struct ID {
     static let buttonCell = "ButtonCell"
 }
 
+struct Segue {
+    static let viewParticipants = "viewParticipants"
+}
+
 struct Storyboard {
     static let Main = UIStoryboard(name: "Main", bundle: nil)
     static let MeetingCreation = UIStoryboard(name: "MeetingCreation", bundle: nil)
     static let MinutesTaking = UIStoryboard(name: "MinutesTaking", bundle: nil)
+    struct ID {
+        static var MeetingItem: UIViewController {
+            let sb = UIStoryboard(name: "MinutesTaking", bundle: nil)
+            return sb.instantiateViewController(identifier: "MeetingItem")
+        }
+        static var ViewParticipants: UIViewController {
+            let sb = UIStoryboard(name: "MinutesTaking", bundle: nil)
+            return sb.instantiateViewController(identifier: "ViewParticipants")
+        }
+    }
 }
 
 struct Custom {
@@ -48,10 +62,11 @@ struct Font {
 struct Image {
     static let DatePickerBackground = UIImage(named: "Date Picker Background")!
     static let DatePickerBackgroundReverse = UIImage(named: "Date Picker Background Reverse")!
-    static let Trash = UIImage(systemName: "trash")
-    static let Pencil = UIImage(systemName: "pencil")
-    static let BackArrow = UIImage(systemName: "chevron.backward")
-    static let People = UIImage(systemName: "person.3.fill")
+    static let Trash = UIImage(systemName: "trash")!
+    static let Pencil = UIImage(systemName: "pencil")!
+    static let BackArrow = UIImage(systemName: "chevron.backward")!
+    static let People = UIImage(systemName: "person.3.fill")!
+    static let Checkmark = UIImage(systemName: "checkmark")!
 }
 
 struct Color {

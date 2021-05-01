@@ -132,7 +132,7 @@ extension MinutesVC: UITableViewDelegate {
         let sb = Storyboard.MinutesTaking
         let vc = sb.instantiateInitialViewController() as! TakeMinuteVC
         let meeting = meetingLogic.meeting(at: indexPath)
-        vc.minutesLogic = MinutesLogic(for: meeting)
+        vc.logic = MinutesLogic(for: meeting)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

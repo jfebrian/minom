@@ -21,17 +21,12 @@ class SetMeetingAgendaVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         textView.text = logic?.getAgenda()
-        setupTextView()
+        textView.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         logic?.saveAgenda(with: textView.text)
-    }
-    
-    func setupTextView() {
-        textView.textColor = Color.JungleGreen
-        textView.becomeFirstResponder()
     }
 
 }

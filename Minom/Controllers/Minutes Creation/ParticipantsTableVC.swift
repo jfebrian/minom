@@ -8,15 +8,25 @@
 import UIKit
 import SwipeCellKit
 
-class SetParticipantsTableVC: UITableViewController {
+class ParticipantsTableVC: UITableViewController {
     
     var logic: MinutesCreationLogic?
+    var minutesLogic: MinutesLogic?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Participants"
         setupTableView()
         setupAddButton()
+        setupLogic()
+    }
+    
+    func setupLogic() {
+        if let minutesLogic = self.minutesLogic {
+            logic?.meeting = minutesLogic.meeting
+            logic?.participants = minutesLogic.participants
+            tableView.reloadData()
+        }
     }
     
     // MARK: - Setup User Interface
@@ -42,13 +52,16 @@ class SetParticipantsTableVC: UITableViewController {
         let add = UIAlertAction(title: "Save", style: .default) { action in
             if let text = alert.textFields?.first?.text, let logic = self.logic {
                 if let index = indexPath {
-                    logic.setParticipantName(as: text, at: index)
+                    self.minutesLogic?.setParticipantName(as: text, at: index) ?? logic.setParticipantName(as: text, at: index)
                     let cell = self.tableView.cellForRow(at: index) as! SwipeTableViewCell
                     cell.hideSwipe(animated: true) { bool in
                         self.tableView.reloadData()
                     }
                 } else {
-                    logic.addParticipant(with: text)
+                    let participant = Participant()
+                    participant.name = text
+                    logic.addParticipant(with: participant)
+                    self.minutesLogic?.addParticipant(with: participant)
                     self.tableView.reloadData()
                 }
             }
@@ -94,6 +107,8 @@ class SetParticipantsTableVC: UITableViewController {
         cell.textLabel?.textColor = Color.LabelJungle
         cell.textLabel?.font = Font.LexendDeca(17)
         cell.addSubview(Custom.separator(width: tableView.frame.width))
+        cell.tintColor = Color.LabelJungle
+        cell.accessoryType = logic.participant(at: indexPath).attendance ? .checkmark : .none
         
         return cell
     }
@@ -105,11 +120,12 @@ class SetParticipantsTableVC: UITableViewController {
 
 }
 
-extension SetParticipantsTableVC: SwipeTableViewCellDelegate {
+extension ParticipantsTableVC: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
 
         let deleteAction = SwipeAction(style: .destructive, title: nil) { action, indexPath in
+            self.minutesLogic?.deleteParticipant(at: indexPath)
             self.logic?.deleteParticipant(at: indexPath)
         }
         deleteAction.image = Image.Trash
@@ -117,8 +133,20 @@ extension SetParticipantsTableVC: SwipeTableViewCellDelegate {
         let editAction = SwipeAction(style: .default, title: nil) { action, indexPath in
             self.alertInput(title: "Edit Participant", at: indexPath)
         }
+        editAction.backgroundColor = Color.JungleGreen
         editAction.image = Image.Pencil
+        
+        let checkAction = SwipeAction(style: .default, title: nil) { action, indexPath in
+            self.minutesLogic?.toggleAttendance(at: indexPath) ?? self.logic?.toggleAttendance(at: indexPath)
+            let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell
+            cell.hideSwipe(animated: true) { bool in
+                self.tableView.reloadData()
+            }
+            
+        }
+        checkAction.backgroundColor = Color.LabelJungle
+        checkAction.image = Image.Checkmark
 
-        return [deleteAction, editAction]
+        return [deleteAction, editAction, checkAction]
     }
 }

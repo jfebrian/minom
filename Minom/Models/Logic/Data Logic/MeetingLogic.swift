@@ -14,6 +14,8 @@ class MeetingLogic {
     
     let realm = try! Realm()
     var meetingByMonths = [[Meeting]]()
+    var filteredMeetingByMonths = [[Meeting]]()
+    
     
     init() {
         loadMeetings()
@@ -48,6 +50,44 @@ class MeetingLogic {
         }
     }
     
+    func check(_ meeting: Meeting, for stringToSearch: String) -> Bool {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "eeee dd MMMM yyyy"
+        let date = formatter.string(from: meeting.startTime).lowercased()
+        let string = stringToSearch.lowercased()
+        
+        if meeting.title.lowercased().contains(string) || meeting.agenda.lowercased().contains(string) || date.contains(string) || (meeting.type?.name.lowercased().contains(string) ?? "deleted type".contains(string)) {
+            return true
+        } else {
+            for participant in meeting.participants {
+                if participant.name.lowercased().contains(string) {
+                    return true
+                }
+            }
+            for item in meeting.items {
+                if item.title.lowercased().contains(string) || item.note.lowercased().contains(string) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    func searchMeetings(for text: String) {
+        filteredMeetingByMonths = [[]]
+        for month in meetingByMonths {
+            var lastMonth = [Meeting]()
+            for meeting in month {
+                if check(meeting, for: text) {
+                    lastMonth.append(meeting)
+                }
+            }
+            if !lastMonth.isEmpty {
+                filteredMeetingByMonths.append(lastMonth)
+            }
+        }
+    }
+    
     func loadMeetings() {
         let meetings = realm.objects(Meeting.self).sorted(byKeyPath: "startTime", ascending: false)
         if let start = meetings.first {
@@ -57,8 +97,9 @@ class MeetingLogic {
             var lastMonth = [Meeting]()
             for meeting in meetings {
                 let date = meeting.startTime
-                let difference = calendar.dateComponents([.year, .month], from: lastDate, to: date)
-                if difference.year! > 0 || difference.month! > 0 {
+                let dateComp = calendar.dateComponents([.year, .month], from: date)
+                let lastComp = calendar.dateComponents([.year, .month], from: lastDate)
+                if dateComp.year! < lastComp.year! || dateComp.month! < lastComp.month! {
                     lastDate = date
                     meetingByMonths.append(lastMonth)
                     lastMonth = [meeting]
@@ -70,34 +111,33 @@ class MeetingLogic {
         }
     }
     
-    func meeting(at indexPath: IndexPath) -> Meeting {
-        return meetingByMonths[indexPath.section][indexPath.row]
+    func meeting(at indexPath: IndexPath, _ isFiltering: Bool) -> Meeting {
+        return isFiltering ? filteredMeetingByMonths[indexPath.section][indexPath.row] : meetingByMonths[indexPath.section][indexPath.row]
     }
     
-    func numberOfMeetingsInMonth(_ index: Int) -> Int {
-        return meetingByMonths[index].count
+    func numberOfMonths(_ isFiltering: Bool) -> Int {
+        return isFiltering ? filteredMeetingByMonths.count : meetingByMonths.count
     }
     
-    func numberOfMonths() -> Int {
-        return meetingByMonths.count
+    func numberOfMeetingsInMonth(_ index: Int, _ isFiltering: Bool) -> Int {
+        return isFiltering ? filteredMeetingByMonths[index].count : meetingByMonths[index].count
     }
     
-    func monthName(with index: Int) -> String {
+    func monthName(with index: Int, _ isFiltering: Bool) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "LLL yyyy"
-        if let meeting = meetingByMonths[index].first {
-            return formatter.string(from: meeting.startTime).uppercased()
-        } else {
-            return ""
+        guard let meeting = isFiltering ? filteredMeetingByMonths[index].first : meetingByMonths[index].first else {
+            fatalError("Error loading meetings!")
         }
+        return formatter.string(from: meeting.startTime).uppercased()
     }
     
-    func meetingTitle(at indexPath: IndexPath) -> String {
-        return meeting(at: indexPath).title
+    func meetingTitle(at indexPath: IndexPath, _ isFiltering: Bool) -> String {
+        return meeting(at: indexPath, isFiltering).title
     }
     
-    func meetingType(at indexPath: IndexPath) -> String {
-        let type = meeting(at: indexPath).type
+    func meetingType(at indexPath: IndexPath, _ isFiltering: Bool) -> String {
+        let type = meeting(at: indexPath, isFiltering).type
         return type?.name ?? "Deleted Type"
     }
     

@@ -56,6 +56,7 @@ class TakeMinuteVC: UIViewController {
     }
     
     @IBAction func recordPressed(_ sender: UIButton) {
+        logic?.recordAudio()
     }
     
 }

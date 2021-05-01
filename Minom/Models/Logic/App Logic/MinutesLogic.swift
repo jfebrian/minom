@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 class MinutesLogic {
     
@@ -34,6 +35,8 @@ class MinutesLogic {
         }
     }
     
+    // MARK: - Meeting Title
+    
     var title: String {
         return meeting.title
     }
@@ -54,6 +57,8 @@ class MinutesLogic {
         return dateFormatter.string(from: meeting.startTime)
     }
     
+    // MARK: - Minute Items
+    
     func saveItem(title: String, note: String, item: MinuteItem? = nil) {
         itemLogic.save(title: title, note: note, meeting: meeting, item: item)
     }
@@ -65,6 +70,8 @@ class MinutesLogic {
     func itemTitle(at indexPath: IndexPath) -> String {
         return meeting.items[indexPath.row-1].title
     }
+    
+    // MARK: - Participants
     
     func participant(at indexPath: IndexPath) -> Participant {
         return participants[indexPath.row]
@@ -86,6 +93,12 @@ class MinutesLogic {
     
     func toggleAttendance(at indexPath: IndexPath) {
         participantLogic.toggleAttendance(participant(at: indexPath))
+    }
+    
+    // MARK: - Audio Recording
+    
+    func recordAudio() {
+        
     }
     
 }

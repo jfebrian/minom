@@ -43,34 +43,34 @@
                                                     <rect key="frame" x="16" y="16" width="382" height="96"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcU-Z1-2J2">
-                                                            <rect key="frame" x="16" y="8" width="238.5" height="25"/>
+                                                            <rect key="frame" x="16" y="8" width="238.5" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="20"/>
                                                             <color key="textColor" name="Label Jungle"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMa-bZ-Oog">
-                                                            <rect key="frame" x="16" y="41" width="238.5" height="16.5"/>
+                                                            <rect key="frame" x="16" y="39.5" width="238.5" height="16.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                                             <color key="textColor" name="Green Jungle"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="27l-Po-GLq">
-                                                            <rect key="frame" x="270.5" y="8" width="103.5" height="73.5"/>
+                                                            <rect key="frame" x="270.5" y="8" width="103.5" height="72.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYM-1x-DB2">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="103.5" height="28.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="103.5" height="28"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="24"/>
                                                                     <color key="textColor" name="Label Jungle"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sI3-Q2-j8E">
-                                                                    <rect key="frame" x="0.0" y="28.5" width="103.5" height="28.5"/>
+                                                                    <rect key="frame" x="0.0" y="28" width="103.5" height="28"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="24"/>
                                                                     <color key="textColor" name="Green Jungle"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sn9-jO-xOF">
-                                                                    <rect key="frame" x="0.0" y="57" width="103.5" height="16.5"/>
+                                                                    <rect key="frame" x="0.0" y="56" width="103.5" height="16.5"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                                                     <color key="textColor" name="Green Jungle"/>
                                                                     <nil key="highlightedColor"/>
@@ -163,7 +163,7 @@
                                                     <rect key="frame" x="16" y="8" width="382" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkh-fI-iqU">
-                                                            <rect key="frame" x="147.5" y="14" width="87" height="22.5"/>
+                                                            <rect key="frame" x="152.5" y="14.5" width="77" height="21"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="18"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -486,9 +486,7 @@
                                 </subviews>
                                 <color key="backgroundColor" name="Background"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="hF0-3Y-pJQ" secondAttribute="trailing" constant="16" id="EuP-bq-N5B"/>
                                     <constraint firstItem="hF0-3Y-pJQ" firstAttribute="top" secondItem="lIu-7i-Vao" secondAttribute="top" id="GH0-gQ-IHN"/>
-                                    <constraint firstItem="hF0-3Y-pJQ" firstAttribute="leading" secondItem="lIu-7i-Vao" secondAttribute="leading" constant="16" id="NRx-J8-0Em"/>
                                     <constraint firstAttribute="bottom" secondItem="hF0-3Y-pJQ" secondAttribute="bottom" id="y7t-H0-NWC"/>
                                 </constraints>
                             </view>
@@ -499,6 +497,8 @@
                             <constraint firstItem="akf-3R-yFK" firstAttribute="trailing" secondItem="lIu-7i-Vao" secondAttribute="trailing" id="Bq2-oJ-6Sh"/>
                             <constraint firstItem="T5Y-vk-lIz" firstAttribute="top" secondItem="akf-3R-yFK" secondAttribute="top" constant="16" id="EXG-cm-vmv"/>
                             <constraint firstItem="akf-3R-yFK" firstAttribute="bottom" secondItem="lIu-7i-Vao" secondAttribute="bottom" constant="16" id="HOr-TT-gFM"/>
+                            <constraint firstItem="hF0-3Y-pJQ" firstAttribute="leading" secondItem="Tdf-wD-2ad" secondAttribute="leading" id="WUF-du-g1s"/>
+                            <constraint firstItem="hF0-3Y-pJQ" firstAttribute="trailing" secondItem="Tdf-wD-2ad" secondAttribute="trailing" id="Y4H-Fj-osE"/>
                             <constraint firstItem="lIu-7i-Vao" firstAttribute="top" secondItem="T5Y-vk-lIz" secondAttribute="bottom" constant="16" id="hIr-Ix-wRC"/>
                             <constraint firstItem="lIu-7i-Vao" firstAttribute="leading" secondItem="akf-3R-yFK" secondAttribute="leading" id="qDI-s0-hUC"/>
                             <constraint firstItem="akf-3R-yFK" firstAttribute="trailing" secondItem="T5Y-vk-lIz" secondAttribute="trailing" id="ylC-ws-ykl"/>

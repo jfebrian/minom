@@ -34,8 +34,6 @@ class TakeMinuteVC: UIViewController {
         super.viewDidLoad()
         setupView()
         setupBottomBar()
-        var updateTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: Selector("updateTime"), userInfo: nil, repeats: true)
-        var timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: Selector("updateSlider"), userInfo: nil, repeats: true)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.BackArrow, style: .done, target: self, action: #selector(saveAndGoBack))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: Image.People, style: .done, target: self, action: #selector(viewParticipants))
     }
@@ -107,6 +105,8 @@ class TakeMinuteVC: UIViewController {
         controlSlider.value = 0
         controlSlider.maximumValue = Float(soundPlayer.duration)
         audioTimeLabel.text = "00.00"
+        _ = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+        _ = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.updateSlider), userInfo: nil, repeats: true)
     }
     
     func setupRecordButtons() {
@@ -149,9 +149,7 @@ class TakeMinuteVC: UIViewController {
         let yes = UIAlertAction(title: "Yes", style: .default) { action in
             self.soundRecorder.stop()
             self.soundRecorder = nil
-            self.recordButtonsView.isHidden = true
-            self.audioButtonsView.isHidden = false
-            self.pauseButton.isHidden = true
+            self.setupAudioButtons()
         }
         alert.addAction(yes)
         present(alert, animated: true, completion: nil)
@@ -177,6 +175,24 @@ class TakeMinuteVC: UIViewController {
         soundPlayer.prepareToPlay()
         soundPlayer.play()
     }
+    
+    @IBAction func goBackward(_ sender: UIButton) {
+        soundPlayer.stop()
+        let time = TimeInterval(soundPlayer.currentTime - 10)
+        soundPlayer.currentTime = time < 0 ? 0 : time
+        soundPlayer.prepareToPlay()
+        soundPlayer.play()
+    }
+    
+    @IBAction func goForward(_ sender: UIButton) {
+        soundPlayer.stop()
+        let time = TimeInterval(soundPlayer.currentTime + 10)
+        let duration = soundPlayer.duration
+        soundPlayer.currentTime = time >= duration ? duration - 1 : time
+        soundPlayer.prepareToPlay()
+        soundPlayer.play()
+    }
+    
     
     @objc func updateSlider() {
         controlSlider.value = Float(soundPlayer.currentTime)

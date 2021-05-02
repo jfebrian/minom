@@ -269,6 +269,9 @@
                                                                 </constraints>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" backgroundImage="gobackward.10" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="goBackward:" destination="Zto-KV-qcY" eventType="touchUpInside" id="3qC-c7-T6E"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -324,6 +327,9 @@
                                                                 </constraints>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <state key="normal" backgroundImage="goforward.10" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="goForward:" destination="Zto-KV-qcY" eventType="touchUpInside" id="J9q-To-k4Z"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

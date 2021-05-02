@@ -15,6 +15,8 @@ struct ID {
 
 struct Segue {
     static let viewParticipants = "viewParticipants"
+    static let addParticipant = "AddParticipant"
+    static let addNewMinute = "AddNewMinute"
 }
 
 struct Storyboard {

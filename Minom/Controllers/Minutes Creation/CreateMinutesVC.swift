@@ -20,6 +20,7 @@ class CreateMinutesVC: UIViewController {
     @IBOutlet weak var meetingTypeView: UIView!
     @IBOutlet weak var participantsView: UIView!
     @IBOutlet weak var meetingTitleView: UIView!
+    @IBOutlet weak var deleteMeetingView: UIView!
     
     @IBOutlet weak var meetingTypeLabel: UILabel!
     @IBOutlet weak var participantNumberLabel: UILabel!
@@ -31,7 +32,8 @@ class CreateMinutesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "New Meeting"
+        navigationItem.title = logic.exist ? "" : "New Meeting"
+        deleteMeetingView.isHidden = logic.exist ? false : true
         setupSaveButton()
         setupDates()
         setupPicker()
@@ -125,6 +127,7 @@ class CreateMinutesVC: UIViewController {
             let meeting = logic.meeting
             vc.logic = MinutesLogic(for: meeting)
             vc.creationLogic = logic
+            vc.creationLogic?.exist = true
             navigationController?.pushViewController(vc, animated: true)
         } else {
             alert(title: status.alert, message: status.message)
@@ -151,6 +154,19 @@ class CreateMinutesVC: UIViewController {
             break
         }
     }
+    
+    @IBAction func deleteMeeting(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Are you sure?", message: "Deleting this meeting is permanent and the data can't be retrieved again.", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        let delete = UIAlertAction(title: "Delete", style: .destructive) { action in
+            self.logic.deleteMeeting()
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        alert.addAction(delete)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension CreateMinutesVC: UITextFieldDelegate {

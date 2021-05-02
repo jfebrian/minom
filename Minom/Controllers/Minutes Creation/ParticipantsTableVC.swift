@@ -84,7 +84,21 @@ class ParticipantsTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return logic?.numberOfParticipants() ?? 0
+        let rows = logic?.numberOfParticipants() ?? 0
+        if rows == 0 {
+            let screen = UIScreen.main.bounds
+            let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: screen.width, height: screen.height))
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: screen.width * 0.75, height: screen.height))
+            label.numberOfLines = 0
+            label.center = emptyView.center
+            label.textAlignment = .center
+            label.font = Font.LexendDeca(24)
+            label.textColor = Color.LabelJungle
+            label.text = "This meeting has no participants."
+            emptyView.addSubview(label)
+            tableView.backgroundView = emptyView
+        }
+        return rows
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -120,13 +134,21 @@ class ParticipantsTableVC: UITableViewController {
 
 }
 
+// MARK: - Swipe Table View Cell Delegate
+
 extension ParticipantsTableVC: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
 
         let deleteAction = SwipeAction(style: .destructive, title: nil) { action, indexPath in
-            self.minutesLogic?.deleteParticipant(at: indexPath)
-            self.logic?.deleteParticipant(at: indexPath)
+            let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell
+            cell.hideSwipe(animated: true) { bool in
+                self.minutesLogic?.deleteParticipant(at: indexPath) ??
+                self.logic?.deleteParticipant(at: indexPath)
+                self.logic?.reloadParticipants()
+                
+                self.tableView.reloadData()
+            }
         }
         deleteAction.image = Image.Trash
         

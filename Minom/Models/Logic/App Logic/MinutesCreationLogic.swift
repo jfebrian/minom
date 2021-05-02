@@ -11,6 +11,7 @@ class MinutesCreationLogic {
     var meeting = Meeting()
     var participants = [Participant]()
     var meetingLogic = MeetingLogic.standard
+    var participantLogic = ParticipantLogic.standard
     var typeLogic = MeetingTypeLogic.standard
     
     var startTimeSelected = true
@@ -49,6 +50,13 @@ class MinutesCreationLogic {
         timeFormatter.dateFormat = "HH.mm"
     }
     
+    func reloadParticipants() {
+        participants = []
+        for participant in meeting.participants {
+            participants.append(participant)
+        }
+    }
+    
     // MARK: - Set Date Time Logic
     
     var startDateString: String {
@@ -77,6 +85,14 @@ class MinutesCreationLogic {
             endDate = date
             startDate = startDate > endDate ? endDate.addingTimeInterval(-interval) : startDate
         }
+        
+        if exist {
+            meetingLogic.setTime(start: startDate, end: endDate, meeting: meeting)
+        } else {
+            meeting.startTime = startDate
+            meeting.endTime = endDate
+        }
+        
     }
     
     func togglePicker(_ x: Int) {
@@ -136,7 +152,7 @@ class MinutesCreationLogic {
     func addParticipant(with participant: Participant) {
         participants.append(participant)
         if exist {
-            meetingLogic.add(participant, for: meeting)
+            participantLogic.save(participant, for: meeting)
         }
     }
     
@@ -146,7 +162,7 @@ class MinutesCreationLogic {
     
     func setParticipantName(as name: String, at indexPath: IndexPath) {
         if exist {
-            meetingLogic.rename(participant(at: indexPath), with: name)
+            participantLogic.rename(participant(at: indexPath), with: name)
         } else {
             participant(at: indexPath).name = name
         }
@@ -159,7 +175,7 @@ class MinutesCreationLogic {
     func deleteParticipant(at indexPath: IndexPath) {
         participants.remove(at: indexPath.row)
         if exist {
-            meetingLogic.remove(participant(at: indexPath))
+            participantLogic.delete(participant(at: indexPath))
         }
         
     }
@@ -167,7 +183,7 @@ class MinutesCreationLogic {
     func toggleAttendance(at indexPath: IndexPath) {
         let participant = participant(at: indexPath)
         if exist {
-            meetingLogic.toggleAttendance(for: participant)
+            participantLogic.toggleAttendance(participant)
         } else {
             participant.attendance = !participant.attendance
         }
@@ -210,13 +226,14 @@ class MinutesCreationLogic {
     }
     
     func finishMeetingCreation() {
-        if exist {
-            meetingLogic.setTime(start: startDate, end: endDate, meeting: meeting)
-        } else {
-            meeting.startTime = startDate
-            meeting.endTime = endDate
+        if !exist {
             meetingLogic.save(meeting, participants: participants, type: selectedType!)
         }
     }
     
+    // MARK: - Delete
+    
+    func deleteMeeting() {
+        meetingLogic.delete(meeting)
+    }
 }

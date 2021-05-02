@@ -71,51 +71,6 @@ class MeetingLogic {
         loadMeetings()
     }
     
-    func rename(_ participant: Participant, with name: String) {
-        do {
-            try realm.write {
-                participant.name = name
-            }
-        } catch {
-            print("Error renaming participant to Realm, \(error.localizedDescription)")
-        }
-        loadMeetings()
-    }
-    
-    func toggleAttendance(for participant: Participant) {
-        do {
-            try realm.write {
-                participant.attendance = !participant.attendance
-            }
-        } catch {
-            print("Error toggling participant's attendance to Realm, \(error.localizedDescription)")
-        }
-        loadMeetings()
-    }
-    
-    func add(_ participant: Participant, for meeting: Meeting) {
-        do {
-            try realm.write {
-                realm.add(participant)
-                meeting.participants.append(participant)
-            }
-        } catch {
-            print("Error adding participant to Realm, \(error.localizedDescription)")
-        }
-        loadMeetings()
-    }
-    
-    func remove(_ participant: Participant) {
-        do {
-            try realm.write {
-                realm.delete(participant)
-            }
-        } catch {
-            print("Error removing meeting to Realm, \(error.localizedDescription)")
-        }
-        loadMeetings()
-    }
-    
     func setType(for meeting:Meeting, with type: MeetingType) {
         do {
             try realm.write {
@@ -137,6 +92,7 @@ class MeetingLogic {
         } catch {
             print("Error deleting meeting from Realm, \(error.localizedDescription)")
         }
+        loadMeetings()
     }
     
     func toggleAudioExist(_ meeting: Meeting) {
@@ -189,9 +145,9 @@ class MeetingLogic {
     
     func loadMeetings() {
         let meetings = realm.objects(Meeting.self).sorted(byKeyPath: "startTime", ascending: false)
+        meetingByMonths = [[]]
         if let start = meetings.first {
             let calendar = Calendar.current
-            meetingByMonths = [[]]
             var lastDate = start.startTime
             var lastMonth = [Meeting]()
             for meeting in meetings {

@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 class MinutesVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyButton: UIButton!
     
     private let searchController = UISearchController(searchResultsController: nil)
     private let meetingLogic = MeetingLogic.standard
@@ -21,6 +23,7 @@ class MinutesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        emptyButton.layer.cornerRadius = 10.0
         tableView.backgroundColor = Color.BackgroundSecondary
     }
     
@@ -57,8 +60,8 @@ class MinutesVC: UIViewController {
         tableView.reloadData()
     }
 
-    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        // Add button pressed
+    @IBAction func emptyButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: Segue.addNewMinute, sender: self)
     }
     
 }
@@ -72,7 +75,14 @@ extension MinutesVC: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return meetingLogic.numberOfMonths(isFiltering)
+        let months = meetingLogic.numberOfMonths(isFiltering)
+        if months < 2 {
+            tableView.isHidden = true
+            return months
+        } else {
+            tableView.isHidden = false
+            return months
+        }
     }
 
     
@@ -105,8 +115,8 @@ extension MinutesVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        
+        let cell = SwipeTableViewCell(style: .subtitle, reuseIdentifier: nil)
+        cell.delegate = self
         cell.selectionStyle = .none
         cell.textLabel?.text = meetingLogic.meetingTitle(at: indexPath, isFiltering)
         cell.textLabel?.font = Font.LexendDeca(17)
@@ -149,5 +159,32 @@ extension MinutesVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
+    }
+}
+
+// MARK: - Swipe Table View Cell Delegate
+
+extension MinutesVC: SwipeTableViewCellDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let deleteAction = SwipeAction(style: .destructive, title: nil) { action, indexPath in
+            let alert = UIAlertController(title: "Are you sure?", message: "Deleting this meeting is permanent and the data can't be retrieved again.", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            let delete = UIAlertAction(title: "Delete", style: .destructive) { action in
+                let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell
+                cell.hideSwipe(animated: true) { bool in
+                    let meeting = self.meetingLogic.meeting(at: indexPath, self.isFiltering)
+                    self.meetingLogic.delete(meeting)
+                    self.tableView.reloadData()
+                }
+            }
+            alert.addAction(delete)
+            self.present(alert, animated: true, completion: nil)
+        }
+        deleteAction.image = Image.Trash
+
+        return [deleteAction]
     }
 }

@@ -91,8 +91,9 @@ class MinutesLogic {
     }
     
     func deleteParticipant(at indexPath: IndexPath) {
+        let participant = participant(at: indexPath)
         participants.remove(at: indexPath.row)
-        participantLogic.delete(participant(at: indexPath))
+        participantLogic.delete(participant)
     }
     
     func toggleAttendance(at indexPath: IndexPath) {

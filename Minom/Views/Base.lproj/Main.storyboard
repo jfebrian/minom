@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LexendDeca-Regular.ttf">
+            <string>LexendDeca-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--RecentsVC-->
         <scene sceneID="6kv-z9-9ne">
@@ -16,8 +21,21 @@
                     <view key="view" contentMode="scaleToFill" id="rxd-wH-57L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This section is not implemented yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYd-IS-g2z">
+                                <rect key="frame" x="52" y="420" width="310.5" height="56"/>
+                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="24"/>
+                                <color key="textColor" name="Label Jungle"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iKN-bX-e0d"/>
                         <color key="backgroundColor" name="Background Secondary"/>
+                        <constraints>
+                            <constraint firstItem="nYd-IS-g2z" firstAttribute="centerY" secondItem="rxd-wH-57L" secondAttribute="centerY" id="O0R-WA-Ich"/>
+                            <constraint firstItem="nYd-IS-g2z" firstAttribute="width" secondItem="rxd-wH-57L" secondAttribute="width" multiplier="0.75" id="PZN-dL-zz8"/>
+                            <constraint firstItem="nYd-IS-g2z" firstAttribute="centerX" secondItem="rxd-wH-57L" secondAttribute="centerX" id="Rk4-pf-wkH"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HNO-fG-NkS"/>
                 </viewController>
@@ -33,42 +51,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't made any minutes." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5Q-jq-924">
-                                <rect key="frame" x="89" y="438" width="236.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="Label Jungle"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6ho-Z3-6oj">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e6D-6I-Ps3">
+                                <rect key="frame" x="52" y="411" width="310.5" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't made any minutes yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NA6-eb-pXh">
+                                        <rect key="frame" x="33" y="0.0" width="244.5" height="56"/>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="24"/>
+                                        <color key="textColor" name="Label Jungle"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPC-lK-h0R">
+                                        <rect key="frame" x="16" y="80" width="278.5" height="48"/>
+                                        <color key="backgroundColor" name="Label Jungle"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="tCo-Wg-LFe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
+                                        <state key="normal" title="Add New Minute">
+                                            <color key="titleColor" name="Background Secondary"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="emptyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3k4-bo-OZz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="CPC-lK-h0R" secondAttribute="trailing" constant="16" id="Ibb-DQ-KwD"/>
+                                    <constraint firstItem="CPC-lK-h0R" firstAttribute="leading" secondItem="e6D-6I-Ps3" secondAttribute="leading" constant="16" id="JCV-pE-qQo"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qq1-FY-14Y">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="SXB-Ys-2nS"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="mSA-W4-Qny"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="M31-Wl-0si"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="e79-ze-xpB"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="Background Secondary"/>
                         <constraints>
-                            <constraint firstItem="6ho-Z3-6oj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Lks-6k-Cqz"/>
-                            <constraint firstItem="6ho-Z3-6oj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MCf-0h-Sno"/>
-                            <constraint firstItem="6ho-Z3-6oj" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="P2L-lQ-6vQ"/>
-                            <constraint firstItem="e5Q-jq-924" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cWF-OF-qT0"/>
-                            <constraint firstItem="e5Q-jq-924" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kIx-s6-Vmo"/>
-                            <constraint firstItem="6ho-Z3-6oj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sVb-ZU-QRj"/>
+                            <constraint firstItem="e6D-6I-Ps3" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.75" id="0XC-yj-bes"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qq1-FY-14Y" secondAttribute="bottom" id="K57-fr-QsA"/>
+                            <constraint firstItem="qq1-FY-14Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NOS-fb-6Ly"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qq1-FY-14Y" secondAttribute="trailing" id="SvZ-7F-aXK"/>
+                            <constraint firstItem="e6D-6I-Ps3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="aKk-Nz-pR1"/>
+                            <constraint firstItem="qq1-FY-14Y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="w9b-k2-ewJ"/>
+                            <constraint firstItem="e6D-6I-Ps3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wxt-yM-XBP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RgQ-TZ-I1o">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="afJ-eG-LDH">
                             <connections>
-                                <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="OEa-zv-xG5"/>
-                                <segue destination="w3a-Sk-xvS" kind="show" id="6Np-j8-bmY"/>
+                                <segue destination="w3a-Sk-xvS" kind="show" identifier="AddNewMinute" id="6Np-j8-bmY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="6ho-Z3-6oj" id="LmQ-v2-yoX"/>
+                        <outlet property="emptyButton" destination="CPC-lK-h0R" id="myd-Ql-XbS"/>
+                        <outlet property="tableView" destination="qq1-FY-14Y" id="wgI-xc-dBK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -92,8 +134,21 @@
                     <view key="view" contentMode="scaleToFill" id="IMq-D8-Rug">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This section is not implemented yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJZ-b7-Ijd">
+                                <rect key="frame" x="52" y="420" width="310.5" height="56"/>
+                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="24"/>
+                                <color key="textColor" name="Label Jungle"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7Sh-bg-gN8"/>
                         <color key="backgroundColor" name="Background Secondary"/>
+                        <constraints>
+                            <constraint firstItem="jJZ-b7-Ijd" firstAttribute="centerY" secondItem="IMq-D8-Rug" secondAttribute="centerY" id="Cap-PS-4PO"/>
+                            <constraint firstItem="jJZ-b7-Ijd" firstAttribute="centerX" secondItem="IMq-D8-Rug" secondAttribute="centerX" id="UDs-5d-0zn"/>
+                            <constraint firstItem="jJZ-b7-Ijd" firstAttribute="width" secondItem="IMq-D8-Rug" secondAttribute="width" multiplier="0.75" id="npN-sE-Uyd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T2M-VK-ima"/>
                 </viewController>

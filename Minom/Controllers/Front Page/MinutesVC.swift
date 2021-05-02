@@ -12,6 +12,7 @@ class MinutesVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyButton: UIButton!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     private let searchController = UISearchController(searchResultsController: nil)
     private let meetingLogic = MeetingLogic.standard
@@ -78,6 +79,13 @@ extension MinutesVC: UITableViewDataSource {
         let months = meetingLogic.numberOfMonths(isFiltering)
         if months < 2 {
             tableView.isHidden = true
+            if isFiltering {
+                emptyLabel.text = "There is no meeting related to that search keyword"
+                emptyButton.isHidden = true
+            } else {
+                emptyLabel.text = "You haven't made any minutes yet."
+                emptyButton.isHidden = false
+            }
             return months
         } else {
             tableView.isHidden = false

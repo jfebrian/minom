@@ -17,13 +17,17 @@ class CreateMinutesVC: UIViewController {
     @IBOutlet weak var pickerImage: UIImageView!
     @IBOutlet weak var clockImage: UIImageView!
     
+    @IBOutlet weak var meetingTypeView: UIView!
+    @IBOutlet weak var participantsView: UIView!
+    @IBOutlet weak var meetingTitleView: UIView!
+    
     @IBOutlet weak var meetingTypeLabel: UILabel!
     @IBOutlet weak var participantNumberLabel: UILabel!
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var agendaLabel: UILabel!
     
-    private var logic = MinutesCreationLogic()
+    var logic = MinutesCreationLogic()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +54,10 @@ class CreateMinutesVC: UIViewController {
         participantNumberLabel.text = "  \(logic.numberOfParticipants())  "
         titleTextField.clearButtonMode = .whileEditing
         agendaLabel.text = logic.getAgenda() == "" ? "No meeting agenda" : logic.getAgenda()
+        
+        if logic.exist {
+            titleTextField.text = logic.meeting.title
+        }
         
     }
     

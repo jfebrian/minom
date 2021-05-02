@@ -37,8 +37,11 @@ class MeetingTypeLogic {
     private func delete(_ type: MeetingType) {
         do {
             try realm.write {
-                for meeting in type.meetings {
-                    meeting.type = nil
+                let meetings = realm.objects(Meeting.self)
+                for meeting in meetings {
+                    if meeting.type == type {
+                        meeting.type = nil
+                    }
                 }
                 realm.delete(type)
             }

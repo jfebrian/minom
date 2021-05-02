@@ -14,6 +14,7 @@ class MinutesCreationLogic {
     var typeLogic = MeetingTypeLogic.standard
     
     var startTimeSelected = true
+    var exist: Bool = false
 
     var startDate = Date()
     var endDate = Date().addingTimeInterval(TimeInterval(30 * 60))
@@ -26,7 +27,21 @@ class MinutesCreationLogic {
     
     // MARK: - Init
     
-    init() {
+    init(with meeting: Meeting? = nil) {
+        initFormatters()
+        if let existMeeting = meeting {
+            self.meeting = existMeeting
+            for participant in existMeeting.participants {
+                participants.append(participant)
+            }
+            startDate = existMeeting.startTime
+            endDate = existMeeting.endTime
+            selectedType = existMeeting.type
+            exist = true
+        }
+    }
+    
+    func initFormatters() {
         dateFormatter.timeStyle = .none
         dateFormatter.dateStyle = .medium
         dateFormatter.locale = Locale(identifier: "en_GB")
@@ -84,10 +99,15 @@ class MinutesCreationLogic {
     
     func selectType(at indexPath: IndexPath) {
         let selected = typeLogic.getType(at: indexPath)
-        if selectedType?.name == selected.name {
-            selectedType = nil
+        if exist {
+            meetingLogic.setType(for: meeting, with: selected)
+            selectedType = selected
         } else {
-            selectedType = typeLogic.getType(at: indexPath)
+            if selectedType?.name == selected.name {
+                selectedType = nil
+            } else {
+                selectedType = selected
+            }
         }
     }
     
@@ -115,6 +135,9 @@ class MinutesCreationLogic {
     
     func addParticipant(with participant: Participant) {
         participants.append(participant)
+        if exist {
+            meetingLogic.add(participant, for: meeting)
+        }
     }
     
     func participant(at indexPath: IndexPath) -> Participant {
@@ -122,7 +145,11 @@ class MinutesCreationLogic {
     }
     
     func setParticipantName(as name: String, at indexPath: IndexPath) {
-        participant(at: indexPath).name = name
+        if exist {
+            meetingLogic.rename(participant(at: indexPath), with: name)
+        } else {
+            participant(at: indexPath).name = name
+        }
     }
     
     func participantName(at indexPath: IndexPath) -> String {
@@ -131,20 +158,37 @@ class MinutesCreationLogic {
     
     func deleteParticipant(at indexPath: IndexPath) {
         participants.remove(at: indexPath.row)
+        if exist {
+            meetingLogic.remove(participant(at: indexPath))
+        }
+        
     }
     
     func toggleAttendance(at indexPath: IndexPath) {
-        participant(at: indexPath).attendance = true
+        let participant = participant(at: indexPath)
+        if exist {
+            meetingLogic.toggleAttendance(for: participant)
+        } else {
+            participant.attendance = !participant.attendance
+        }
     }
     
     // MARK: - Set Title and Agenda Logic
     
     func setTitle(with title: String) {
-        meeting.title = title
+        if exist {
+            meetingLogic.setTitle(for: meeting, to: title)
+        } else {
+            meeting.title = title
+        }
     }
     
     func saveAgenda(with agenda: String) {
-        meeting.agenda = agenda
+        if exist {
+            meetingLogic.setAgenda(for: meeting, to: agenda)
+        } else {
+            meeting.agenda = agenda
+        }
     }
     
     func getAgenda() -> String {
@@ -166,9 +210,13 @@ class MinutesCreationLogic {
     }
     
     func finishMeetingCreation() {
-        meeting.startTime = startDate
-        meeting.endTime = endDate
-        meetingLogic.save(meeting, participants: participants, type: selectedType!)
+        if exist {
+            meetingLogic.setTime(start: startDate, end: endDate, meeting: meeting)
+        } else {
+            meeting.startTime = startDate
+            meeting.endTime = endDate
+            meetingLogic.save(meeting, participants: participants, type: selectedType!)
+        }
     }
     
 }

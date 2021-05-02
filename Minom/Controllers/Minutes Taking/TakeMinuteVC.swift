@@ -291,6 +291,10 @@ extension TakeMinuteVC: UITableViewDelegate {
             vc.minutesLogic = logic
             vc.minuteItem = logic?.item(at: indexPath)
             navigationController?.pushViewController(vc, animated: true)
+        } else if row == 0 {
+            let vc = Storyboard.MeetingCreation.instantiateInitialViewController() as! CreateMinutesVC
+            vc.logic = creationLogic ?? MinutesCreationLogic(with: logic?.meeting)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

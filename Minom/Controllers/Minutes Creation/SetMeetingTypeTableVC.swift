@@ -112,7 +112,7 @@ extension SetMeetingTypeTableVC: SwipeTableViewCellDelegate {
         guard orientation == .right else { return nil }
         
         let deleteAction = SwipeAction(style: .destructive, title: nil) { action, indexPath in
-            let alert = UIAlertController(title: "Are you sure?", message: "This type will be deleted and all minutes related to this type be kept under 'Deleted Type'.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Are you sure?", message: "This type will be deleted and all minutes related to this type will have no meeting type.", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(cancel)
             let delete = UIAlertAction(title: "Delete", style: .destructive) { action in

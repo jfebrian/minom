@@ -30,10 +30,99 @@ class MeetingLogic {
                 realm.add(meeting)
                 realm.add(participants)
                 meeting.participants.append(objectsIn: participants)
-                type.meetings.append(meeting)
             }
         } catch {
             print("Error saving meeting to Realm, \(error.localizedDescription)")
+        }
+        loadMeetings()
+    }
+    
+    func setTime(start: Date, end: Date, meeting: Meeting) {
+        do {
+            try realm.write {
+                meeting.startTime = start
+                meeting.endTime = end
+            }
+        } catch {
+            print("Error setting meeting time to Realm, \(error.localizedDescription)")
+        }
+        loadMeetings()
+    }
+    
+    func setTitle(for meeting: Meeting, to title: String) {
+        do {
+            try realm.write {
+                meeting.title = title
+            }
+        } catch {
+            print("Error setting meeting title to Realm, \(error.localizedDescription)")
+        }
+        loadMeetings()
+    }
+    
+    func setAgenda(for meeting: Meeting, to agenda: String) {
+        do {
+            try realm.write {
+                meeting.agenda = agenda
+            }
+        } catch {
+            print("Error setting meeting agenda to Realm, \(error.localizedDescription)")
+        }
+        loadMeetings()
+    }
+    
+    func rename(_ participant: Participant, with name: String) {
+        do {
+            try realm.write {
+                participant.name = name
+            }
+        } catch {
+            print("Error renaming participant to Realm, \(error.localizedDescription)")
+        }
+        loadMeetings()
+    }
+    
+    func toggleAttendance(for participant: Participant) {
+        do {
+            try realm.write {
+                participant.attendance = !participant.attendance
+            }
+        } catch {
+            print("Error toggling participant's attendance to Realm, \(error.localizedDescription)")
+        }
+        loadMeetings()
+    }
+    
+    func add(_ participant: Participant, for meeting: Meeting) {
+        do {
+            try realm.write {
+                realm.add(participant)
+                meeting.participants.append(participant)
+            }
+        } catch {
+            print("Error adding participant to Realm, \(error.localizedDescription)")
+        }
+        loadMeetings()
+    }
+    
+    func remove(_ participant: Participant) {
+        do {
+            try realm.write {
+                realm.delete(participant)
+            }
+        } catch {
+            print("Error removing meeting to Realm, \(error.localizedDescription)")
+        }
+        loadMeetings()
+    }
+    
+    func setType(for meeting:Meeting, with type: MeetingType) {
+        do {
+            try realm.write {
+                meeting.type = type
+            }
+        } catch {
+            print("Error setting meeting type to Realm, \(error.localizedDescription)")
         }
         loadMeetings()
     }

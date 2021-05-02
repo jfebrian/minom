@@ -16,6 +16,8 @@ class SetMeetingAgendaVC: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Meeting Agenda"
         textView.delegate = self
+        setupSaveButton()
+        setupBackButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,11 +26,36 @@ class SetMeetingAgendaVC: UIViewController {
         textView.becomeFirstResponder()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        logic?.saveAgenda(with: textView.text)
+    func setupBackButton() {
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(cancel))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc func cancel() {
+        if textView.text != logic?.getAgenda() {
+            let alert = UIAlertController(title: nil, message: "Do you want to save your changes?", preferredStyle: .alert)
+            let no = UIAlertAction(title: "No", style: .destructive) { action in
+                self.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(no)
+            let save = UIAlertAction(title: "Save", style: .default) { action in
+                self.saveAgenda()
+            }
+            alert.addAction(save)
+            present(alert, animated: true, completion: nil)
+        }
+        navigationController?.popViewController(animated: true)
     }
 
+    func setupSaveButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveAgenda))
+    }
+    
+    @objc func saveAgenda() {
+        logic?.saveAgenda(with: textView.text)
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - Text View Delegate

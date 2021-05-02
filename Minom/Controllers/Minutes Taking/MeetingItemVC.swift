@@ -20,6 +20,51 @@ class MeetingItemVC: UIViewController {
         navigationItem.title = "Minutes Item"
         setupSaveButton()
         setupFields()
+        setupBackButton()
+    }
+    
+    func setupBackButton() {
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(cancel))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    @objc func cancel() {
+        if let item = minuteItem {
+            if titleTextField.text != item.title || noteTextView.text != item.note {
+                let alert = UIAlertController(title: nil, message: "Do you want to save your changes?", preferredStyle: .alert)
+                let no = UIAlertAction(title: "No", style: .destructive) { action in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                alert.addAction(no)
+                let save = UIAlertAction(title: "Save", style: .default) { action in
+                    if self.minuteItem != nil {
+                        self.saveItem()
+                    } else {
+                        self.newItem()
+                    }
+                }
+                alert.addAction(save)
+                present(alert, animated: true, completion: nil)
+            }
+        } else if titleTextField.text != "" || (noteTextView.text != "" && noteTextView.textColor != Color.Placeholder) {
+            let alert = UIAlertController(title: nil, message: "Do you want to save your changes?", preferredStyle: .alert)
+            let no = UIAlertAction(title: "No", style: .destructive) { action in
+                self.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(no)
+            let save = UIAlertAction(title: "Save", style: .default) { action in
+                if self.minuteItem != nil {
+                    self.saveItem()
+                } else {
+                    self.newItem()
+                }
+            }
+            alert.addAction(save)
+            present(alert, animated: true, completion: nil)
+        }
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
     func setupFields() {
@@ -47,13 +92,13 @@ class MeetingItemVC: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             } else {
                 let alert = UIAlertController(title: "Notes is Empty!", message: "Are you sure you want to create an empty item?", preferredStyle: .alert)
-                let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
-                alert.addAction(no)
-                let yes = UIAlertAction(title: "Yes", style: .default) { action in
+                let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alert.addAction(cancel)
+                let Create = UIAlertAction(title: "Create", style: .default) { action in
                     self.minutesLogic?.saveItem(title: title, note: self.noteTextView.text, item: self.minuteItem)
                     self.navigationController?.popViewController(animated: true)
                 }
-                alert.addAction(yes)
+                alert.addAction(Create)
                 self.present(alert, animated: true, completion: nil)
             }
         } else {
@@ -71,13 +116,13 @@ class MeetingItemVC: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             } else {
                 let alert = UIAlertController(title: "Notes is Empty!", message: "Are you sure you want to create an empty item?", preferredStyle: .alert)
-                let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
-                alert.addAction(no)
-                let yes = UIAlertAction(title: "Yes", style: .default) { action in
+                let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alert.addAction(cancel)
+                let create = UIAlertAction(title: "Create", style: .default) { action in
                     self.minutesLogic?.saveItem(title: title, note: self.noteTextView.text)
                     self.navigationController?.popViewController(animated: true)
                 }
-                alert.addAction(yes)
+                alert.addAction(create)
                 self.present(alert, animated: true, completion: nil)
             }
         } else {

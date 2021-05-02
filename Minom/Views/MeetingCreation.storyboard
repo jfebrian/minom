@@ -250,7 +250,7 @@
                                                 <rect key="frame" x="334" y="0.0" width="40" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  0  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67r-yV-stL">
-                                                        <rect key="frame" x="6" y="10" width="28.5" height="20"/>
+                                                        <rect key="frame" x="5.5" y="9.5" width="29.5" height="21.5"/>
                                                         <color key="backgroundColor" name="Label Jungle"/>
                                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                                         <color key="textColor" name="Background"/>
@@ -626,7 +626,7 @@
         <!--Set Meeting AgendaVC-->
         <scene sceneID="bKr-cg-jYu">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="c4v-Ed-7JT" customClass="SetMeetingAgendaVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MeetingAgenda" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c4v-Ed-7JT" customClass="SetMeetingAgendaVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Q9-I4-Okr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

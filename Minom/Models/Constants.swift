@@ -32,6 +32,10 @@ struct Storyboard {
             let sb = UIStoryboard(name: "MinutesTaking", bundle: nil)
             return sb.instantiateViewController(identifier: "ViewParticipants")
         }
+        static var MeetingAgenda: UIViewController {
+            let sb = UIStoryboard(name: "MeetingCreation", bundle: nil)
+            return sb.instantiateViewController(identifier: "MeetingAgenda")
+        }
     }
 }
 

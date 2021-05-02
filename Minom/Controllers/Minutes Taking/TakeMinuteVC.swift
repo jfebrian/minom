@@ -144,14 +144,14 @@ class TakeMinuteVC: UIViewController {
     
     @IBAction func stopRecordPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Stop Recording", message: "You can not resume your recording after stopping it, are you sure you want to it?", preferredStyle: .alert)
-        let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
-        alert.addAction(no)
-        let yes = UIAlertAction(title: "Yes", style: .default) { action in
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        let stop = UIAlertAction(title: "Stop", style: .default) { action in
             self.soundRecorder.stop()
             self.soundRecorder = nil
             self.setupAudioButtons()
         }
-        alert.addAction(yes)
+        alert.addAction(stop)
         present(alert, animated: true, completion: nil)
     }
     
@@ -253,7 +253,7 @@ extension TakeMinuteVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2 + (logic?.numberOfItems ?? 0)
+        return 3 + (logic?.numberOfItems ?? 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -261,7 +261,11 @@ extension TakeMinuteVC: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: ID.titleCell, for: indexPath) as! MinuteTitleCell
             setupTitle(in: cell)
             return cell
-        } else if indexPath.row == 1 + (logic?.numberOfItems ?? 0){
+        } else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ID.itemCell, for: indexPath) as! MinuteItemCell
+            cell.titleLabel.text = "Meeting Agenda"
+            return cell
+        } else if indexPath.row == 2 + (logic?.numberOfItems ?? 0){
             let cell = tableView.dequeueReusableCell(withIdentifier: ID.buttonCell, for: indexPath) as! ButtonCell
             cell.action = {
                 let vc = Storyboard.ID.MeetingItem as! MeetingItemVC
@@ -284,15 +288,19 @@ extension TakeMinuteVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
-        let lastRow = 1 + (logic?.numberOfItems ?? 0)
+        let lastRow = 2 + (logic?.numberOfItems ?? 0)
         
-        if row != 0, row != lastRow {
+        if row > 1, row != lastRow {
             let vc = Storyboard.ID.MeetingItem as! MeetingItemVC
             vc.minutesLogic = logic
             vc.minuteItem = logic?.item(at: indexPath)
             navigationController?.pushViewController(vc, animated: true)
         } else if row == 0 {
             let vc = Storyboard.MeetingCreation.instantiateInitialViewController() as! CreateMinutesVC
+            vc.logic = creationLogic ?? MinutesCreationLogic(with: logic?.meeting)
+            navigationController?.pushViewController(vc, animated: true)
+        } else if row == 1 {
+            let vc = Storyboard.ID.MeetingAgenda as! SetMeetingAgendaVC
             vc.logic = creationLogic ?? MinutesCreationLogic(with: logic?.meeting)
             navigationController?.pushViewController(vc, animated: true)
         }

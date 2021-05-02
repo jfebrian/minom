@@ -68,11 +68,11 @@ class MinutesLogic {
     }
     
     func item(at indexPath: IndexPath) -> MinuteItem {
-        return meeting.items[indexPath.row-1]
+        return meeting.items[indexPath.row-2]
     }
     
     func itemTitle(at indexPath: IndexPath) -> String {
-        return meeting.items[indexPath.row-1].title
+        return meeting.items[indexPath.row-2].title
     }
     
     // MARK: - Participants

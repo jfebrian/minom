@@ -72,7 +72,6 @@ extension MinutesVC: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        print(meetingLogic.numberOfMonths(isFiltering))
         return meetingLogic.numberOfMonths(isFiltering)
     }
 

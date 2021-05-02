@@ -14,8 +14,12 @@ class MinutesLogic {
     var participants = [Participant]()
     let participantLogic = ParticipantLogic.standard
     let itemLogic = MinuteItemLogic.standard
+    let meetingLogic = MeetingLogic.standard
     let dateFormatter = DateFormatter()
     let timeFormatter = DateFormatter()
+    var fileName: String {
+        return meeting.id+".m4a"
+    }
     
     var numberOfItems: Int {
         return meeting.items.count
@@ -95,10 +99,7 @@ class MinutesLogic {
         participantLogic.toggleAttendance(participant(at: indexPath))
     }
     
-    // MARK: - Audio Recording
-    
-    func recordAudio() {
-        
+    func finishRecording() {
+        meetingLogic.toggleAudioExist(meeting)
     }
-    
 }

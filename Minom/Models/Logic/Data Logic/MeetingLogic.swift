@@ -50,6 +50,16 @@ class MeetingLogic {
         }
     }
     
+    func toggleAudioExist(_ meeting: Meeting) {
+        do {
+            try realm.write {
+                meeting.audioExist = true
+            }
+        } catch {
+            print("Error toggling audio exist in Realm, \(error.localizedDescription)")
+        }
+    }
+    
     func check(_ meeting: Meeting, for stringToSearch: String) -> Bool {
         let formatter = DateFormatter()
         formatter.dateFormat = "eeee dd MMMM yyyy"

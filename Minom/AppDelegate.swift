@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Migration Block
-//        let config = Realm.Configuration(schemaVersion: 1) { migration, oldSchema in
-//            if oldSchema < 1 {}
-//        }
-//        Realm.Configuration.defaultConfiguration = config
+        let config = Realm.Configuration(schemaVersion: 1) { migration, oldSchema in
+            if oldSchema < 1 {}
+        }
+        Realm.Configuration.defaultConfiguration = config
         
         do {
             _ = try Realm()

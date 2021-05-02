@@ -28,13 +28,14 @@ class TakeMinuteVC: UIViewController {
     var soundRecorder: AVAudioRecorder!
     var soundPlayer: AVAudioPlayer!
     
-    var fileName: String = "audioFile.m4a"
-    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         setupBottomBar()
+        var updateTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: Selector("updateTime"), userInfo: nil, repeats: true)
+        var timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: Selector("updateSlider"), userInfo: nil, repeats: true)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.BackArrow, style: .done, target: self, action: #selector(saveAndGoBack))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: Image.People, style: .done, target: self, action: #selector(viewParticipants))
     }
@@ -45,13 +46,13 @@ class TakeMinuteVC: UIViewController {
     }
     
     func setupRecorder() {
-        let audioFilename = getDocumentDirectory().appendingPathComponent(fileName)
+        guard let logic = self.logic else { fatalError("Minutes taking logic not found") }
+        let audioFilename = getDocumentDirectory().appendingPathComponent(logic.fileName)
         let recordSetting = [
-            AVFormatIDKey : kAudioFormatAppleLossless,
-            AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue,
-            AVEncoderBitRateKey : 320000,
-            AVNumberOfChannelsKey : 2,
-            AVSampleRateKey : 44100.2 ] as [String : Any]
+            AVFormatIDKey : Int(kAudioFormatMPEG4AAC),
+            AVEncoderAudioQualityKey : AVAudioQuality.high.rawValue,
+            AVNumberOfChannelsKey : 1,
+            AVSampleRateKey : 12000 ]
         
         do {
             soundRecorder = try AVAudioRecorder(url: audioFilename, settings: recordSetting)
@@ -63,10 +64,13 @@ class TakeMinuteVC: UIViewController {
     }
     
     func setupPlayer() {
-        let audioFilename = getDocumentDirectory().appendingPathComponent(fileName)
+        
+        guard let logic = self.logic else { fatalError("Minutes taking logic not found") }
+        
+        let audioFilename = getDocumentDirectory().appendingPathComponent(logic.fileName)
         
         do {
-            soundPlayer = try AVAudioPlayer(contentsOf: audioFilename)
+            soundPlayer = try AVAudioPlayer(contentsOf: audioFilename, fileTypeHint: AVFileType.m4a.rawValue)
             soundPlayer.delegate = self
             soundPlayer.prepareToPlay()
             soundPlayer.volume = 1.0
@@ -75,8 +79,56 @@ class TakeMinuteVC: UIViewController {
         }
     }
     
+    func setupView() {
+        let recordingSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try recordingSession.setCategory(.playAndRecord, mode: .default, options: .defaultToSpeaker)
+            try recordingSession.setActive(true)
+            recordingSession.requestRecordPermission() { [unowned self] allowed in
+                DispatchQueue.main.async {
+                    if allowed {
+                        self.recordButton.isEnabled = true
+                    } else {
+                        self.recordButton.isEnabled = false
+                    }
+                }
+            }
+        } catch {
+            print("Error setting up recording session, \(error.localizedDescription)")
+        }
+    }
+    
+    func setupAudioButtons() {
+        setupPlayer()
+        recordButtonsView.isHidden = true
+        audioButtonsView.isHidden = false
+        pauseButton.isHidden = true
+        controlSlider.value = 0
+        controlSlider.maximumValue = Float(soundPlayer.duration)
+        audioTimeLabel.text = "00.00"
+    }
+    
+    func setupRecordButtons() {
+        setupRecorder()
+        recordButtonsView.isHidden = false
+        audioButtonsView.isHidden = true
+        stopRecordButton.isHidden = true
+    }
+    
+    func setupBottomBar() {
+        guard let logic = self.logic else { fatalError("Minutes taking logic not found") }
+        bottomBar.layer.borderWidth = 0.5
+        bottomBar.layer.borderColor = Color.Grey.cgColor
+        if logic.meeting.audioExist {
+            setupAudioButtons()
+        } else {
+            setupRecordButtons()
+        }
+    }
+    
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        //
+        logic?.finishRecording()
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
@@ -85,17 +137,18 @@ class TakeMinuteVC: UIViewController {
     }
     
     @IBAction func recordPressed(_ sender: UIButton) {
-//        soundRecorder.record()
+        soundRecorder.record()
         recordButton.isHidden = true
         stopRecordButton.isHidden = false
     }
     
     @IBAction func stopRecordPressed(_ sender: UIButton) {
-//        soundRecorder.stop()
         let alert = UIAlertController(title: "Stop Recording", message: "You can not resume your recording after stopping it, are you sure you want to it?", preferredStyle: .alert)
         let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
         alert.addAction(no)
         let yes = UIAlertAction(title: "Yes", style: .default) { action in
+            self.soundRecorder.stop()
+            self.soundRecorder = nil
             self.recordButtonsView.isHidden = true
             self.audioButtonsView.isHidden = false
             self.pauseButton.isHidden = true
@@ -105,20 +158,43 @@ class TakeMinuteVC: UIViewController {
     }
     
     @IBAction func playButtonPressed(_ sender: UIButton) {
+        soundPlayer.play()
+        updateTime()
         playButton.isHidden = true
         pauseButton.isHidden = false
     }
     
     @IBAction func pauseButtonPressed(_ sender: UIButton) {
+        soundPlayer.stop()
+        updateTime()
         playButton.isHidden = false
         pauseButton.isHidden = true
     }
     
-    func setupBottomBar() {
-        bottomBar.layer.borderWidth = 0.5
-        bottomBar.layer.borderColor = Color.Grey.cgColor
-        stopRecordButton.isHidden = true
-        audioButtonsView.isHidden = true
+    @IBAction func sliderChanged(_ sender: UISlider) {
+        soundPlayer.stop()
+        soundPlayer.currentTime = TimeInterval(controlSlider.value)
+        soundPlayer.prepareToPlay()
+        soundPlayer.play()
+    }
+    
+    @objc func updateSlider() {
+        controlSlider.value = Float(soundPlayer.currentTime)
+    }
+    
+    @objc func updateTime() {
+        let currentTime = Int(soundPlayer.currentTime)
+//        let duration = Int(soundPlayer.duration)
+//        let total = currentTime - duration
+//        let totalString = String(total)
+        
+        let minutes = currentTime/60
+        var seconds = currentTime - minutes / 60
+        if minutes > 0 {
+            seconds = seconds - 60 * minutes
+        }
+        
+        audioTimeLabel.text = NSString(format: "%02d:%02d", minutes,seconds) as String
     }
     
     @objc func saveAndGoBack() {

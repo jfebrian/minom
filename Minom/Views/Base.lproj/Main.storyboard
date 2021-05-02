@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This section is not implemented yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYd-IS-g2z">
-                                <rect key="frame" x="52" y="420" width="310.5" height="56"/>
+                                <rect key="frame" x="52" y="418" width="310.5" height="60"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="24"/>
                                 <color key="textColor" name="Label Jungle"/>
                                 <nil key="highlightedColor"/>
@@ -52,16 +52,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e6D-6I-Ps3">
-                                <rect key="frame" x="52" y="411" width="310.5" height="128"/>
+                                <rect key="frame" x="52" y="409" width="310.5" height="132"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't made any minutes yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NA6-eb-pXh">
-                                        <rect key="frame" x="33" y="0.0" width="244.5" height="56"/>
+                                        <rect key="frame" x="22.5" y="0.0" width="265.5" height="60"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="24"/>
                                         <color key="textColor" name="Label Jungle"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPC-lK-h0R">
-                                        <rect key="frame" x="16" y="80" width="278.5" height="48"/>
+                                        <rect key="frame" x="16" y="84" width="278.5" height="48"/>
                                         <color key="backgroundColor" name="Label Jungle"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="tCo-Wg-LFe"/>
@@ -110,6 +110,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emptyButton" destination="CPC-lK-h0R" id="myd-Ql-XbS"/>
+                        <outlet property="emptyLabel" destination="NA6-eb-pXh" id="Q0x-85-s16"/>
                         <outlet property="tableView" destination="qq1-FY-14Y" id="wgI-xc-dBK"/>
                     </connections>
                 </viewController>
@@ -136,7 +137,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This section is not implemented yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJZ-b7-Ijd">
-                                <rect key="frame" x="52" y="420" width="310.5" height="56"/>
+                                <rect key="frame" x="52" y="418" width="310.5" height="60"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="24"/>
                                 <color key="textColor" name="Label Jungle"/>
                                 <nil key="highlightedColor"/>

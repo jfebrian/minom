@@ -70,7 +70,21 @@ class SetMeetingTypeTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return logic?.numberOfTypes() ?? 0
+        let rows = logic?.numberOfTypes() ?? 0
+        if rows == 0 {
+            let screen = UIScreen.main.bounds
+            let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: screen.width, height: screen.height))
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: screen.width * 0.75, height: screen.height))
+            label.numberOfLines = 0
+            label.center = emptyView.center
+            label.textAlignment = .center
+            label.font = Font.LexendDeca(24)
+            label.textColor = Color.LabelJungle
+            label.text = "You have no meeting types."
+            emptyView.addSubview(label)
+            tableView.backgroundView = emptyView
+        }
+        return rows
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

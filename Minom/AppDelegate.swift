@@ -24,7 +24,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Realm.Configuration.defaultConfiguration = config
         
         do {
-            _ = try Realm()
+            let realm = try Realm()
+            if realm.objects(User.self).isEmpty {
+                try realm.write {
+                    let user = User()
+                    realm.add(user)
+                    
+                    let dailyStandups = MeetingType()
+                    dailyStandups.name = "Daily Standup"
+                    let sprintPlanning = MeetingType()
+                    sprintPlanning.name = "Sprint Planning"
+                    let sprintReview = MeetingType()
+                    sprintReview.name = "Sprint Review"
+                    let retrospective = MeetingType()
+                    retrospective.name = "Retrospective"
+                    
+                    let defaultTypes = [
+                        dailyStandups,
+                        sprintPlanning,
+                        sprintReview,
+                        retrospective
+                    ]
+                    
+                    realm.add(defaultTypes)
+                }
+            }
         } catch {
             print("Error initiliazing new realm, \(error.localizedDescription)")
         }
@@ -33,6 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    
 
     // MARK: UISceneSession Lifecycle
 

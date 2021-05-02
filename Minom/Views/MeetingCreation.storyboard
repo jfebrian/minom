@@ -110,7 +110,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstItem="XVk-4i-obQ" firstAttribute="top" secondItem="iWg-dm-L94" secondAttribute="top" id="7ks-1z-WOV"/>
                                     <constraint firstItem="l8w-ri-j1u" firstAttribute="width" secondItem="h0x-TZ-2bc" secondAttribute="width" multiplier="0.4" id="FSL-AM-7E2"/>
@@ -201,7 +201,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstItem="MGe-nc-iJI" firstAttribute="height" secondItem="wHM-mb-edE" secondAttribute="height" id="1cN-0v-Eof"/>
                                     <constraint firstItem="IyP-AU-9F8" firstAttribute="top" secondItem="wHM-mb-edE" secondAttribute="top" id="7Tz-lR-Qr6"/>
@@ -295,7 +295,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="kYH-FJ-aBx" secondAttribute="bottom" id="2t3-qG-Ef5"/>
                                     <constraint firstItem="p8r-sO-tuo" firstAttribute="top" secondItem="KD3-EI-8pc" secondAttribute="top" id="578-NP-033"/>
@@ -343,7 +343,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstItem="xXb-HB-MfS" firstAttribute="leading" secondItem="hiw-jT-miP" secondAttribute="leading" id="7kb-Tj-Mxb"/>
                                     <constraint firstItem="xXb-HB-MfS" firstAttribute="top" secondItem="hiw-jT-miP" secondAttribute="top" id="8bX-ij-AKh"/>
@@ -407,7 +407,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Hyl-7J-w5K" secondAttribute="trailing" id="8d8-2h-GRr"/>
                                     <constraint firstItem="CjU-qC-Jwm" firstAttribute="height" secondItem="V3X-gm-w3D" secondAttribute="height" id="9ec-T0-dG5"/>
@@ -428,7 +428,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <constraints>
                                     <constraint firstItem="hw7-tl-9Zu" firstAttribute="top" secondItem="CFE-RZ-Nbd" secondAttribute="top" id="Hap-3m-Mqx"/>
                                     <constraint firstAttribute="height" secondItem="hw7-tl-9Zu" secondAttribute="height" constant="8" id="Uah-6m-vHD"/>
@@ -440,10 +440,75 @@
                                     <segue destination="c4v-Ed-7JT" kind="show" id="emi-Gv-BGD"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2oK-PL-TGs" userLabel="Delete Meeting">
+                                <rect key="frame" x="0.0" y="546" width="414" height="40"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIA-Ok-G4M">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1x0-IL-fPo">
+                                                <rect key="frame" x="0.0" y="0.0" width="48" height="40"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="H1N-ib-lPD">
+                                                        <rect key="frame" x="14" y="9" width="20" height="20.5"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="H1N-ib-lPD" secondAttribute="height" multiplier="1:1" id="Av7-tN-nW1"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="1x0-IL-fPo" secondAttribute="height" multiplier="12:10" id="ABi-HR-MXY"/>
+                                                    <constraint firstItem="H1N-ib-lPD" firstAttribute="centerX" secondItem="1x0-IL-fPo" secondAttribute="centerX" id="aMX-cU-3Un"/>
+                                                    <constraint firstItem="H1N-ib-lPD" firstAttribute="centerY" secondItem="1x0-IL-fPo" secondAttribute="centerY" id="cz1-N2-TpW"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Meeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gds-PQ-nVB">
+                                                <rect key="frame" x="48" y="0.0" width="326" height="40"/>
+                                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbc-6y-GuI">
+                                                <rect key="frame" x="374" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="qbc-6y-GuI" secondAttribute="height" multiplier="1:1" id="XKP-I5-gjn"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Gds-PQ-nVB" firstAttribute="centerY" secondItem="wIA-Ok-G4M" secondAttribute="centerY" id="yJL-tg-yJX"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpo-v6-fAx">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                        <connections>
+                                            <action selector="deleteMeeting:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MXD-ez-Tmr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="Destructive"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Mpo-v6-fAx" secondAttribute="bottom" id="0YE-Us-SdH"/>
+                                    <constraint firstAttribute="trailing" secondItem="wIA-Ok-G4M" secondAttribute="trailing" id="2mW-Ru-CAO"/>
+                                    <constraint firstItem="Mpo-v6-fAx" firstAttribute="top" secondItem="2oK-PL-TGs" secondAttribute="top" id="G7I-7g-U0c"/>
+                                    <constraint firstItem="qbc-6y-GuI" firstAttribute="height" secondItem="2oK-PL-TGs" secondAttribute="height" id="Ida-3t-ldI"/>
+                                    <constraint firstAttribute="bottom" secondItem="wIA-Ok-G4M" secondAttribute="bottom" id="LBe-dW-UT2"/>
+                                    <constraint firstItem="wIA-Ok-G4M" firstAttribute="leading" secondItem="2oK-PL-TGs" secondAttribute="leading" id="PNe-88-LGQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="PVb-df-8qZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mpo-v6-fAx" secondAttribute="trailing" id="QIp-lh-34o"/>
+                                    <constraint firstItem="Mpo-v6-fAx" firstAttribute="leading" secondItem="2oK-PL-TGs" secondAttribute="leading" id="p51-VZ-9zR"/>
+                                    <constraint firstItem="1x0-IL-fPo" firstAttribute="height" secondItem="2oK-PL-TGs" secondAttribute="height" id="paI-0w-kL9"/>
+                                    <constraint firstItem="wIA-Ok-G4M" firstAttribute="top" secondItem="2oK-PL-TGs" secondAttribute="top" id="zXC-gg-frA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background Secondary"/>
                         <constraints>
+                            <constraint firstItem="2oK-PL-TGs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="0WA-oS-PEn"/>
                             <constraint firstItem="mcs-qh-Ala" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="47Z-vN-awM"/>
                             <constraint firstItem="hiw-jT-miP" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="587-mn-u2H"/>
                             <constraint firstItem="V3X-gm-w3D" firstAttribute="top" secondItem="hiw-jT-miP" secondAttribute="bottom" constant="1" id="9mG-wk-aK2"/>
@@ -453,6 +518,7 @@
                             <constraint firstItem="CFE-RZ-Nbd" firstAttribute="top" secondItem="V3X-gm-w3D" secondAttribute="bottom" id="Hd4-yd-TCz"/>
                             <constraint firstItem="wHM-mb-edE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="HzO-8G-bxs"/>
                             <constraint firstItem="hw7-tl-9Zu" firstAttribute="leading" secondItem="GWi-Gs-snG" secondAttribute="leading" id="Jsb-eW-WxG"/>
+                            <constraint firstItem="2oK-PL-TGs" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ktj-Of-Ll6"/>
                             <constraint firstItem="V3X-gm-w3D" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="LUs-46-6wn"/>
                             <constraint firstItem="KD3-EI-8pc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MaM-z1-BUN"/>
                             <constraint firstItem="wHM-mb-edE" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ooo-Ra-q0y"/>
@@ -460,6 +526,7 @@
                             <constraint firstItem="mcs-qh-Ala" firstAttribute="top" secondItem="iWg-dm-L94" secondAttribute="bottom" id="UUf-B6-NVD"/>
                             <constraint firstItem="hiw-jT-miP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XUM-c8-DyO"/>
                             <constraint firstItem="CFE-RZ-Nbd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Yng-o0-Ce5"/>
+                            <constraint firstItem="2oK-PL-TGs" firstAttribute="top" secondItem="CFE-RZ-Nbd" secondAttribute="bottom" constant="16" id="Z1H-iZ-URp"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CFE-RZ-Nbd" secondAttribute="trailing" id="aAd-sH-eSS"/>
                             <constraint firstItem="hiw-jT-miP" firstAttribute="top" secondItem="KD3-EI-8pc" secondAttribute="bottom" constant="16" id="avn-yy-qcG"/>
                             <constraint firstItem="obp-ir-v5l" firstAttribute="leading" secondItem="V3X-gm-w3D" secondAttribute="leading" id="bAJ-si-3iJ"/>
@@ -478,6 +545,7 @@
                         <outlet property="agendaLabel" destination="hw7-tl-9Zu" id="C1w-sH-FJ3"/>
                         <outlet property="clockImage" destination="GnL-X8-oNd" id="Kkw-PI-oMa"/>
                         <outlet property="datePicker" destination="mcs-qh-Ala" id="ake-zW-oKN"/>
+                        <outlet property="deleteMeetingView" destination="2oK-PL-TGs" id="LOs-9x-POv"/>
                         <outlet property="endDateLabel" destination="xe1-o3-UQB" id="AWl-yd-93k"/>
                         <outlet property="endTimeLabel" destination="TIj-kr-abK" id="Q3K-7G-K1f"/>
                         <outlet property="meetingTitleView" destination="hiw-jT-miP" id="fz0-Ru-CQS"/>
@@ -528,10 +596,32 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="zcU-sb-epx"/>
+                    <connections>
+                        <segue destination="v2i-oP-uFJ" kind="show" identifier="AddParticipant" id="qpZ-PG-Tqu"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zVD-Nk-uqI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1216" y="102"/>
+        </scene>
+        <!--Add Participant TableVC-->
+        <scene sceneID="08E-Xm-loy">
+            <objects>
+                <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="v2i-oP-uFJ" customClass="AddParticipantTableVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="q6a-PR-T1p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="Background Secondary"/>
+                        <connections>
+                            <outlet property="dataSource" destination="v2i-oP-uFJ" id="F30-x6-h3R"/>
+                            <outlet property="delegate" destination="v2i-oP-uFJ" id="Okm-6L-NB8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="GmX-g7-9jH"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmg-Dr-o44" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2032" y="102"/>
         </scene>
         <!--Set Meeting AgendaVC-->
         <scene sceneID="bKr-cg-jYu">
@@ -587,12 +677,16 @@
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <image name="tray.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Background Secondary">
             <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Destructive">
+            <color red="0.67400002479553223" green="0.11400000005960464" blue="0.067000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Green Jungle">
             <color red="0.0" green="0.36899998784065247" blue="0.36100000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

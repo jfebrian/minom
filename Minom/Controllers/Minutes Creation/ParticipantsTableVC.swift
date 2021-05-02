@@ -114,8 +114,8 @@ class ParticipantsTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! SwipeTableViewCell
-        cell.showSwipe(orientation: .right)
+        self.minutesLogic?.toggleAttendance(at: indexPath) ?? self.logic?.toggleAttendance(at: indexPath)
+        tableView.reloadData()
     }
 
 }
@@ -135,18 +135,7 @@ extension ParticipantsTableVC: SwipeTableViewCellDelegate {
         }
         editAction.backgroundColor = Color.JungleGreen
         editAction.image = Image.Pencil
-        
-        let checkAction = SwipeAction(style: .default, title: nil) { action, indexPath in
-            self.minutesLogic?.toggleAttendance(at: indexPath) ?? self.logic?.toggleAttendance(at: indexPath)
-            let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell
-            cell.hideSwipe(animated: true) { bool in
-                self.tableView.reloadData()
-            }
-            
-        }
-        checkAction.backgroundColor = Color.LabelJungle
-        checkAction.image = Image.Checkmark
 
-        return [deleteAction, editAction, checkAction]
+        return [deleteAction, editAction]
     }
 }

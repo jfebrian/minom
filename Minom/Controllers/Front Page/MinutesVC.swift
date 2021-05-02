@@ -113,7 +113,7 @@ extension MinutesVC: UITableViewDataSource {
         cell.textLabel?.textColor = Color.LabelJungle
         
         cell.detailTextLabel?.text = meetingLogic.meetingType(at: indexPath, isFiltering)
-        cell.detailTextLabel?.font = Font.RobotoRegular(15)
+        cell.detailTextLabel?.font = Font.RobotoLight(14)
         cell.detailTextLabel?.textColor = Color.EmeraldGreen
         
         let image = UIImage(systemName: "chevron.right")

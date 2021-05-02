@@ -46,7 +46,7 @@ class MinutesLogic {
     }
     
     var type: String {
-        return meeting.type?.name ?? "Deleted Type"
+        return meeting.type?.name ?? "No Meeting Type"
     }
     
     var startTime: String {

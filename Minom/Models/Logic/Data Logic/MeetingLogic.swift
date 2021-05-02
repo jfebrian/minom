@@ -66,7 +66,7 @@ class MeetingLogic {
         let date = formatter.string(from: meeting.startTime).lowercased()
         let string = stringToSearch.lowercased()
         
-        if meeting.title.lowercased().contains(string) || meeting.agenda.lowercased().contains(string) || date.contains(string) || (meeting.type?.name.lowercased().contains(string) ?? "deleted type".contains(string)) {
+        if meeting.title.lowercased().contains(string) || meeting.agenda.lowercased().contains(string) || date.contains(string) || meeting.type?.name.lowercased().contains(string) ?? "no meeting type".contains(string) {
             return true
         } else {
             for participant in meeting.participants {
@@ -148,7 +148,7 @@ class MeetingLogic {
     
     func meetingType(at indexPath: IndexPath, _ isFiltering: Bool) -> String {
         let type = meeting(at: indexPath, isFiltering).type
-        return type?.name ?? "Deleted Type"
+        return type?.name ?? "No Meeting Type"
     }
     
 }

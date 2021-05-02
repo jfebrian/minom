@@ -81,4 +81,5 @@ struct Color {
     static let MidnightGreen = UIColor(named: "Green Midnight")!
     static let JungleGreen = UIColor(named: "Green Jungle")!
     static let Grey = UIColor(named: "Grey")!
+    static let Placeholder = UIColor(named: "Placeholder")
 }

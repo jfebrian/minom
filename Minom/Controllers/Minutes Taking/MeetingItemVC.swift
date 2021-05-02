@@ -26,6 +26,9 @@ class MeetingItemVC: UIViewController {
         if let item = minuteItem {
             titleTextField.text = item.title
             noteTextView.text = item.note
+        } else {
+            noteTextView.text = "Type your notes here..."
+            noteTextView.textColor = Color.Placeholder
         }
     }
     
@@ -87,6 +90,12 @@ class MeetingItemVC: UIViewController {
 }
 
 extension MeetingItemVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        noteTextView.becomeFirstResponder()
+        noteTextView.selectedTextRange = noteTextView.textRange(from: noteTextView.beginningOfDocument, to: noteTextView.beginningOfDocument)
+        return false
+    }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard range.location == 0 else {
             return true
@@ -102,6 +111,41 @@ extension MeetingItemVC: UITextViewDelegate {
         guard range.location == 0 else { return true }
         
         let newString = (textView.text as NSString).replacingCharacters(in: range, with: text) as NSString
-        return newString.rangeOfCharacter(from: .whitespacesAndNewlines).location != 0
+        if newString.rangeOfCharacter(from: .whitespacesAndNewlines).location == 0 {
+            return false
+        } else {
+            let currentText:String = textView.text
+            let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
+            
+            if updatedText.isEmpty {
+                
+                textView.text = "Type your notes here..."
+                textView.textColor = Color.Placeholder
+                
+                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+            } else if textView.textColor == Color.Placeholder && !text.isEmpty {
+                textView.textColor = Color.LabelJungle
+                textView.text = text
+            } else {
+                return true
+            }
+            return false
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if self.view.window != nil {
+            if textView.textColor == Color.Placeholder {
+                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+            }
+        }
+    }
+    
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        if self.view.window != nil {
+            if textView.textColor == Color.Placeholder {
+                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+            }
+        }
     }
 }

@@ -81,8 +81,19 @@ class CreateMinutesVC: UIViewController {
     }
     
     private func setupDates() {
-        startDateLabel.text = logic.startDateString
-        endDateLabel.text = logic.endDateString
+        let bold = [NSAttributedString.Key.font : Font.RobotoMedium(14)]
+        let light = [NSAttributedString.Key.font : Font.RobotoLight(14)]
+        
+        let startString = NSMutableAttributedString(string:"Start: ", attributes:light)
+        let startDate = NSMutableAttributedString(string:logic.startDateString, attributes: bold)
+        startString.append(startDate)
+        startDateLabel.attributedText = startString
+        
+        
+        let endString = NSMutableAttributedString(string:"End: ", attributes:light)
+        let endDate = NSMutableAttributedString(string:logic.endDateString, attributes: bold)
+        endString.append(endDate)
+        endDateLabel.attributedText = startString
         startTimeLabel.text = logic.startTime
         endTimeLabel.text = logic.endTime
     }

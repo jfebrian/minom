@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWg-dm-L94" userLabel="Date Picker">
-                                <rect key="frame" x="0.0" y="84" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="80"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Date Picker Background" translatesAutoresizingMaskIntoConstraints="NO" id="h0x-TZ-2bc">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -37,8 +37,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="o6y-ow-qmv" userLabel="Start Time">
                                         <rect key="frame" x="16" y="0.0" width="165.5" height="80"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="livephoto.play" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GnL-X8-oNd">
-                                                <rect key="frame" x="0.0" y="28" width="24" height="24.5"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GnL-X8-oNd">
+                                                <rect key="frame" x="0.0" y="28.5" width="24" height="23"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="GnL-X8-oNd" secondAttribute="height" multiplier="1:1" id="a6z-qz-dvP"/>
@@ -136,13 +136,13 @@
                                 </constraints>
                             </view>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="mcs-qh-Ala">
-                                <rect key="frame" x="0.0" y="164" width="414" height="180"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="Jiy-Bd-hr8"/>
                                 </constraints>
                             </datePicker>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHM-mb-edE" userLabel="Daily Standup">
-                                <rect key="frame" x="0.0" y="344" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="324" width="414" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wa4-4G-MdP">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -217,7 +217,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KD3-EI-8pc" userLabel="Participants">
-                                <rect key="frame" x="0.0" y="385" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="365" width="414" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYH-FJ-aBx">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -250,7 +250,7 @@
                                                 <rect key="frame" x="334" y="0.0" width="40" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  0  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67r-yV-stL">
-                                                        <rect key="frame" x="5.5" y="9.5" width="29.5" height="21.5"/>
+                                                        <rect key="frame" x="6" y="10" width="28.5" height="20"/>
                                                         <color key="backgroundColor" name="Label Jungle"/>
                                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                                         <color key="textColor" name="Background"/>
@@ -311,7 +311,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-jT-miP" userLabel="Meeting Title">
-                                <rect key="frame" x="0.0" y="441" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="421" width="414" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXb-HB-MfS">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -354,7 +354,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3X-gm-w3D" userLabel="Meeting Agenda">
-                                <rect key="frame" x="0.0" y="482" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="462" width="414" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyl-7J-w5K">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -419,7 +419,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-RZ-Nbd" userLabel="Agenda Label">
-                                <rect key="frame" x="0.0" y="522" width="414" height="28"/>
+                                <rect key="frame" x="0.0" y="502" width="414" height="28"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No meeting agenda" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hw7-tl-9Zu">
                                         <rect key="frame" x="48" y="0.0" width="326" height="20"/>
@@ -435,72 +435,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obp-ir-v5l">
-                                <rect key="frame" x="0.0" y="482" width="414" height="68"/>
+                                <rect key="frame" x="0.0" y="462" width="414" height="68"/>
                                 <connections>
                                     <segue destination="c4v-Ed-7JT" kind="show" id="emi-Gv-BGD"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCp-v1-Auu" userLabel="Date Time">
-                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoH-Eh-5nQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLD-P0-z0R">
-                                                <rect key="frame" x="0.0" y="0.0" width="48" height="40"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zKL-o7-LTy">
-                                                        <rect key="frame" x="14" y="10.5" width="20" height="19"/>
-                                                        <color key="tintColor" name="Label Jungle"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="zKL-o7-LTy" secondAttribute="height" multiplier="1:1" id="7B8-E8-EJE"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="zKL-o7-LTy" firstAttribute="centerX" secondItem="PLD-P0-z0R" secondAttribute="centerX" id="9Rp-uk-Xoh"/>
-                                                    <constraint firstItem="zKL-o7-LTy" firstAttribute="centerY" secondItem="PLD-P0-z0R" secondAttribute="centerY" id="RyZ-i4-Glg"/>
-                                                    <constraint firstAttribute="width" secondItem="PLD-P0-z0R" secondAttribute="height" multiplier="12:10" id="cq9-pZ-iOV"/>
-                                                </constraints>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wn6-q2-P2V">
-                                                <rect key="frame" x="48" y="0.0" width="326" height="40"/>
-                                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
-                                                <color key="textColor" name="Label Jungle"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8W-LR-QzU">
-                                                <rect key="frame" x="374" y="0.0" width="40" height="40"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="L8W-LR-QzU" secondAttribute="height" multiplier="1:1" id="ktt-tB-ZAD"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="wn6-q2-P2V" firstAttribute="centerY" secondItem="JoH-Eh-5nQ" secondAttribute="centerY" id="YjN-5u-ao7"/>
-                                        </constraints>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUv-Ee-yQ3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="NUv-Ee-yQ3" secondAttribute="trailing" id="3Kg-kg-RLE"/>
-                                    <constraint firstItem="NUv-Ee-yQ3" firstAttribute="top" secondItem="JCp-v1-Auu" secondAttribute="top" id="6kC-OI-gPM"/>
-                                    <constraint firstItem="JoH-Eh-5nQ" firstAttribute="leading" secondItem="JCp-v1-Auu" secondAttribute="leading" id="7mc-B8-Mg9"/>
-                                    <constraint firstItem="L8W-LR-QzU" firstAttribute="height" secondItem="JCp-v1-Auu" secondAttribute="height" id="9su-YE-TaP"/>
-                                    <constraint firstAttribute="bottom" secondItem="JoH-Eh-5nQ" secondAttribute="bottom" id="NEU-vb-ZAP"/>
-                                    <constraint firstItem="PLD-P0-z0R" firstAttribute="height" secondItem="JCp-v1-Auu" secondAttribute="height" id="Nck-jR-UGG"/>
-                                    <constraint firstAttribute="bottom" secondItem="NUv-Ee-yQ3" secondAttribute="bottom" id="TuG-Rl-c1i"/>
-                                    <constraint firstAttribute="height" constant="40" id="gQh-7E-ce0"/>
-                                    <constraint firstAttribute="trailing" secondItem="JoH-Eh-5nQ" secondAttribute="trailing" id="ixF-Iy-vsr"/>
-                                    <constraint firstItem="NUv-Ee-yQ3" firstAttribute="leading" secondItem="JCp-v1-Auu" secondAttribute="leading" id="uJH-lo-RCw"/>
-                                    <constraint firstItem="JoH-Eh-5nQ" firstAttribute="top" secondItem="JCp-v1-Auu" secondAttribute="top" id="v65-2U-hD6"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background Secondary"/>
@@ -508,7 +447,6 @@
                             <constraint firstItem="mcs-qh-Ala" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="47Z-vN-awM"/>
                             <constraint firstItem="hiw-jT-miP" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="587-mn-u2H"/>
                             <constraint firstItem="V3X-gm-w3D" firstAttribute="top" secondItem="hiw-jT-miP" secondAttribute="bottom" constant="1" id="9mG-wk-aK2"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="JCp-v1-Auu" secondAttribute="trailing" id="AlM-hT-ZUP"/>
                             <constraint firstItem="iWg-dm-L94" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AvJ-vd-DZn"/>
                             <constraint firstItem="obp-ir-v5l" firstAttribute="bottom" secondItem="CFE-RZ-Nbd" secondAttribute="bottom" id="BeP-n6-ESU"/>
                             <constraint firstAttribute="trailing" secondItem="KD3-EI-8pc" secondAttribute="trailing" id="F9K-CD-0Mc"/>
@@ -529,12 +467,10 @@
                             <constraint firstItem="hw7-tl-9Zu" firstAttribute="trailing" secondItem="GWi-Gs-snG" secondAttribute="trailing" id="cLS-wV-1UV"/>
                             <constraint firstItem="wHM-mb-edE" firstAttribute="top" secondItem="mcs-qh-Ala" secondAttribute="bottom" id="e6d-ki-H81"/>
                             <constraint firstItem="obp-ir-v5l" firstAttribute="trailing" secondItem="V3X-gm-w3D" secondAttribute="trailing" id="fr5-aO-5zA"/>
-                            <constraint firstItem="iWg-dm-L94" firstAttribute="top" secondItem="JCp-v1-Auu" secondAttribute="bottom" id="h6o-OC-UDQ"/>
+                            <constraint firstItem="iWg-dm-L94" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="h6o-OC-UDQ"/>
                             <constraint firstItem="KD3-EI-8pc" firstAttribute="top" secondItem="wHM-mb-edE" secondAttribute="bottom" constant="1" id="ksK-XN-rjJ"/>
                             <constraint firstItem="mcs-qh-Ala" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="pfu-1O-WXN"/>
-                            <constraint firstItem="JCp-v1-Auu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="wiw-CG-nZu"/>
                             <constraint firstItem="V3X-gm-w3D" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="yJ9-I8-fnu"/>
-                            <constraint firstItem="JCp-v1-Auu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ybx-z9-XiP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fqz-Hw-6GJ"/>
@@ -645,8 +581,7 @@
         <image name="Date Picker Background" width="1563" height="334"/>
         <image name="bookmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="clock.fill" catalog="system" width="128" height="121"/>
-        <image name="livephoto.play" catalog="system" width="128" height="122"/>
+        <image name="clock" catalog="system" width="128" height="121"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="tray.circle.fill" catalog="system" width="128" height="121"/>

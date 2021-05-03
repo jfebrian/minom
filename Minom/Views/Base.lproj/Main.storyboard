@@ -50,7 +50,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lsq-5Y-WFl">
-                                <rect key="frame" x="0.0" y="168" width="414" height="694"/>
+                                <rect key="frame" x="0.0" y="169" width="414" height="693"/>
                                 <color key="backgroundColor" name="Background Secondary"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeetingCell" rowHeight="200" id="qbN-3R-bvx" customClass="MeetingCell" customModule="Minom" customModuleProvider="target">
@@ -281,14 +281,14 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iKN-bX-e0d"/>
-                        <color key="backgroundColor" name="Background Secondary"/>
+                        <color key="backgroundColor" name="Grey"/>
                         <constraints>
                             <constraint firstItem="iKN-bX-e0d" firstAttribute="bottom" secondItem="lsq-5Y-WFl" secondAttribute="bottom" id="BXM-gf-mu0"/>
                             <constraint firstItem="vRU-2E-tPn" firstAttribute="top" secondItem="iKN-bX-e0d" secondAttribute="top" id="P0K-J5-53w"/>
                             <constraint firstItem="lsq-5Y-WFl" firstAttribute="leading" secondItem="iKN-bX-e0d" secondAttribute="leading" id="brP-cu-IKO"/>
                             <constraint firstItem="vRU-2E-tPn" firstAttribute="leading" secondItem="iKN-bX-e0d" secondAttribute="leading" id="kIY-ko-c4z"/>
                             <constraint firstItem="iKN-bX-e0d" firstAttribute="trailing" secondItem="lsq-5Y-WFl" secondAttribute="trailing" id="oXG-yX-ET4"/>
-                            <constraint firstItem="lsq-5Y-WFl" firstAttribute="top" secondItem="vRU-2E-tPn" secondAttribute="bottom" id="wmN-yE-gmY"/>
+                            <constraint firstItem="lsq-5Y-WFl" firstAttribute="top" secondItem="vRU-2E-tPn" secondAttribute="bottom" constant="1" id="wmN-yE-gmY"/>
                             <constraint firstItem="iKN-bX-e0d" firstAttribute="trailing" secondItem="vRU-2E-tPn" secondAttribute="trailing" id="x6y-fg-Sho"/>
                         </constraints>
                     </view>
@@ -503,6 +503,9 @@
         </namedColor>
         <namedColor name="Green Jungle">
             <color red="0.0" green="0.36899998784065247" blue="0.36100000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Grey">
+            <color red="0.72500002384185791" green="0.72500002384185791" blue="0.72500002384185791" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Label Jungle">
             <color red="0.054999999701976776" green="0.46700000762939453" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

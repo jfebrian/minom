@@ -105,6 +105,8 @@ class ParticipantsTableVC: UITableViewController {
             label.text = "This meeting has no participants."
             emptyView.addSubview(label)
             tableView.backgroundView = emptyView
+        } else {
+            tableView.backgroundView = nil
         }
         return rows
     }
@@ -151,9 +153,12 @@ extension ParticipantsTableVC: SwipeTableViewCellDelegate {
         let deleteAction = SwipeAction(style: .destructive, title: nil) { action, indexPath in
             let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell
             cell.hideSwipe(animated: true) { bool in
-                self.minutesLogic?.deleteParticipant(at: indexPath) ??
-                self.logic?.deleteParticipant(at: indexPath)
-                self.logic?.reloadParticipants()
+                if let minutesLogic = self.minutesLogic {
+                    minutesLogic.deleteParticipant(at: indexPath)
+                    self.logic?.reloadParticipants()
+                } else {
+                    self.logic?.deleteParticipant(at: indexPath)
+                }
                 
                 self.tableView.reloadData()
             }

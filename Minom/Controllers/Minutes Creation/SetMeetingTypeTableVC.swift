@@ -83,6 +83,8 @@ class SetMeetingTypeTableVC: UITableViewController {
             label.text = "You have no meeting types."
             emptyView.addSubview(label)
             tableView.backgroundView = emptyView
+        } else {
+            tableView.backgroundView = nil
         }
         return rows
     }

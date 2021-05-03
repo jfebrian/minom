@@ -26,12 +26,20 @@ class MeetingCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCard()
+        hideParticipants()
     }
     
     func setupCard() {
         cardView.layer.cornerRadius = 10.0
         cardView.layer.borderWidth = 0.5
         cardView.layer.borderColor = Color.Grey.cgColor
+    }
+    
+    func hideParticipants() {
+        for participant in participantLabels() {
+            participant.isHidden = true
+        }
+        moreParticipantLabel.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

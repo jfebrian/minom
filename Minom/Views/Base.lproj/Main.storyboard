@@ -49,11 +49,11 @@
                                     <outlet property="delegate" destination="1Bo-Kl-F5s" id="G3f-Hg-hhd"/>
                                 </connections>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lsq-5Y-WFl">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lsq-5Y-WFl">
                                 <rect key="frame" x="0.0" y="168" width="414" height="694"/>
                                 <color key="backgroundColor" name="Background Secondary"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeetingCell" rowHeight="200" id="qbN-3R-bvx" customClass="MeetingCell" customModule="Minom" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeetingCell" rowHeight="200" id="qbN-3R-bvx" customClass="MeetingCell" customModule="Minom" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qbN-3R-bvx" id="qw4-KI-icy">
@@ -64,19 +64,19 @@
                                                     <rect key="frame" x="16" y="8" width="382" height="184"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="m9C-wN-zk1">
-                                                            <rect key="frame" x="8" y="8" width="366" height="87.5"/>
+                                                            <rect key="frame" x="16" y="12" width="350" height="75.5"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FCJ-6F-8MW">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="274.5" height="44.5"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="FCJ-6F-8MW">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="245" height="50.5"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCJ-Zl-rc9">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="274.5" height="28"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCJ-Zl-rc9">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="245" height="30"/>
                                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="24"/>
                                                                             <color key="textColor" name="Label Jungle"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aya-By-Wji">
-                                                                            <rect key="frame" x="0.0" y="28" width="274.5" height="16.5"/>
+                                                                            <rect key="frame" x="0.0" y="34" width="245" height="16.5"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -84,16 +84,16 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Id5-h8-auz">
-                                                                    <rect key="frame" x="290.5" y="0.0" width="75.5" height="66"/>
+                                                                    <rect key="frame" x="261" y="0.0" width="89" height="66"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14.30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeY-7G-Y3P">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="75.5" height="33"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14.30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeY-7G-Y3P">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="89" height="33"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="28"/>
                                                                             <color key="textColor" name="Green Jungle"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhs-hQ-Kcy">
-                                                                            <rect key="frame" x="0.0" y="33" width="75.5" height="33"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhs-hQ-Kcy">
+                                                                            <rect key="frame" x="0.0" y="33" width="89" height="33"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="28"/>
                                                                             <color key="textColor" name="Label Jungle"/>
                                                                             <nil key="highlightedColor"/>
@@ -102,38 +102,38 @@
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="FCJ-6F-8MW" firstAttribute="width" secondItem="m9C-wN-zk1" secondAttribute="width" multiplier="0.75" id="Dgi-Tk-nox"/>
+                                                                <constraint firstItem="FCJ-6F-8MW" firstAttribute="width" secondItem="m9C-wN-zk1" secondAttribute="width" multiplier="0.7" id="fst-2h-7Su"/>
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="oFZ-1w-3Pq">
-                                                            <rect key="frame" x="8" y="99.5" width="366" height="76.5"/>
+                                                            <rect key="frame" x="16" y="93.5" width="350" height="78.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6F6-fw-aLV">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="16.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="16.5"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                                                     <color key="textColor" name="Label Jungle"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nVk-IQ-skP">
-                                                                    <rect key="frame" x="0.0" y="18.5" width="366" height="42"/>
+                                                                    <rect key="frame" x="0.0" y="18.5" width="350" height="43.5"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Fcm-f0-8Po">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="179" height="42"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="171" height="43.5"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gtk-b3-m6Y">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="179" height="14"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="171" height="14.5"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" name="Green Jungle"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZh-jq-cCS">
-                                                                                    <rect key="frame" x="0.0" y="14" width="179" height="14"/>
+                                                                                    <rect key="frame" x="0.0" y="14.5" width="171" height="14.5"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" name="Green Jungle"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dr7-tx-bDh">
-                                                                                    <rect key="frame" x="0.0" y="28" width="179" height="14"/>
+                                                                                    <rect key="frame" x="0.0" y="29" width="171" height="14.5"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" name="Green Jungle"/>
                                                                                     <nil key="highlightedColor"/>
@@ -141,22 +141,22 @@
                                                                             </subviews>
                                                                         </stackView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="esl-0w-mr0">
-                                                                            <rect key="frame" x="187" y="0.0" width="179" height="42"/>
+                                                                            <rect key="frame" x="179" y="0.0" width="171" height="43.5"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z40-fi-u5a">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="179" height="14"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="171" height="14.5"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" name="Green Jungle"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hay-Ok-oO2">
-                                                                                    <rect key="frame" x="0.0" y="14" width="179" height="14"/>
+                                                                                    <rect key="frame" x="0.0" y="14.5" width="171" height="14.5"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" name="Green Jungle"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOP-Pp-5gT">
-                                                                                    <rect key="frame" x="0.0" y="28" width="179" height="14"/>
+                                                                                    <rect key="frame" x="0.0" y="29" width="171" height="14.5"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" name="Green Jungle"/>
                                                                                     <nil key="highlightedColor"/>
@@ -166,7 +166,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and X more participants..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLO-s4-1oa">
-                                                                    <rect key="frame" x="0.0" y="62.5" width="366" height="14"/>
+                                                                    <rect key="frame" x="0.0" y="64" width="350" height="14.5"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
                                                                     <color key="textColor" name="Green Jungle"/>
                                                                     <nil key="highlightedColor"/>
@@ -184,13 +184,13 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="oFZ-1w-3Pq" secondAttribute="trailing" constant="8" id="Ebo-N0-8YG"/>
-                                                        <constraint firstAttribute="bottom" secondItem="oFZ-1w-3Pq" secondAttribute="bottom" constant="8" id="JqT-Bg-gs4"/>
-                                                        <constraint firstItem="m9C-wN-zk1" firstAttribute="top" secondItem="rER-2g-mk1" secondAttribute="top" constant="8" id="MBZ-bO-jyo"/>
-                                                        <constraint firstItem="oFZ-1w-3Pq" firstAttribute="top" secondItem="m9C-wN-zk1" secondAttribute="bottom" constant="4" id="SDp-wq-Ahk"/>
-                                                        <constraint firstAttribute="trailing" secondItem="m9C-wN-zk1" secondAttribute="trailing" constant="8" id="Se6-hr-zVx"/>
-                                                        <constraint firstItem="oFZ-1w-3Pq" firstAttribute="leading" secondItem="rER-2g-mk1" secondAttribute="leading" constant="8" id="Xt8-wp-mLG"/>
-                                                        <constraint firstItem="m9C-wN-zk1" firstAttribute="leading" secondItem="rER-2g-mk1" secondAttribute="leading" constant="8" id="fsS-W0-VII"/>
+                                                        <constraint firstAttribute="trailing" secondItem="oFZ-1w-3Pq" secondAttribute="trailing" constant="16" id="Ebo-N0-8YG"/>
+                                                        <constraint firstAttribute="bottom" secondItem="oFZ-1w-3Pq" secondAttribute="bottom" constant="12" id="JqT-Bg-gs4"/>
+                                                        <constraint firstItem="m9C-wN-zk1" firstAttribute="top" secondItem="rER-2g-mk1" secondAttribute="top" constant="12" id="MBZ-bO-jyo"/>
+                                                        <constraint firstItem="oFZ-1w-3Pq" firstAttribute="top" secondItem="m9C-wN-zk1" secondAttribute="bottom" constant="6" id="SDp-wq-Ahk"/>
+                                                        <constraint firstAttribute="trailing" secondItem="m9C-wN-zk1" secondAttribute="trailing" constant="16" id="Se6-hr-zVx"/>
+                                                        <constraint firstItem="oFZ-1w-3Pq" firstAttribute="leading" secondItem="rER-2g-mk1" secondAttribute="leading" constant="16" id="Xt8-wp-mLG"/>
+                                                        <constraint firstItem="m9C-wN-zk1" firstAttribute="leading" secondItem="rER-2g-mk1" secondAttribute="leading" constant="16" id="fsS-W0-VII"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -203,21 +203,21 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="cardView" destination="rER-2g-mk1" id="f1H-Xc-OSC"/>
+                                            <outlet property="cardView" destination="rER-2g-mk1" id="gih-l9-613"/>
                                             <outlet property="endTimeLabel" destination="Rhs-hQ-Kcy" id="aiR-hv-mv4"/>
-                                            <outlet property="moreParticipantLabel" destination="TLO-s4-1oa" id="YaY-qX-QGb"/>
+                                            <outlet property="moreParticipantLabel" destination="TLO-s4-1oa" id="rfa-GO-o5q"/>
                                             <outlet property="participant1" destination="Gtk-b3-m6Y" id="2xY-Oa-Rym"/>
                                             <outlet property="participant2" destination="cZh-jq-cCS" id="uaE-BD-7RZ"/>
                                             <outlet property="participant3" destination="Dr7-tx-bDh" id="zv0-bg-Oau"/>
                                             <outlet property="participant4" destination="z40-fi-u5a" id="zRy-cE-v84"/>
                                             <outlet property="participant5" destination="hay-Ok-oO2" id="q5c-fa-OdQ"/>
-                                            <outlet property="participant6" destination="YOP-Pp-5gT" id="z9n-MA-N3w"/>
+                                            <outlet property="participant6" destination="YOP-Pp-5gT" id="ezU-Fk-naq"/>
                                             <outlet property="startTimeLabel" destination="QeY-7G-Y3P" id="ZCf-qd-HkY"/>
                                             <outlet property="titleLabel" destination="yCJ-Zl-rc9" id="5oZ-LS-WEy"/>
                                             <outlet property="typeLabel" destination="Aya-By-Wji" id="cpC-Yf-gcB"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewMeetingButtonCell" rowHeight="66" id="afF-UD-7uF" customClass="NewMeetingButtonCell" customModule="Minom" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewMeetingButtonCell" rowHeight="66" id="afF-UD-7uF" customClass="NewMeetingButtonCell" customModule="Minom" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="224.5" width="414" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="afF-UD-7uF" id="TNn-KU-pJ3">
@@ -228,7 +228,7 @@
                                                     <rect key="frame" x="16" y="8" width="382" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Meeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEG-h5-v8H">
-                                                            <rect key="frame" x="138" y="14.5" width="106.5" height="21"/>
+                                                            <rect key="frame" x="133.5" y="14" width="115.5" height="22.5"/>
                                                             <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="18"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -243,7 +243,7 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywu-aN-ARH">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                             <connections>
-                                                                <action selector="buttonPressed:" destination="afF-UD-7uF" eventType="touchUpInside" id="AOj-qn-YeV"/>
+                                                                <action selector="buttonPressed:" destination="afF-UD-7uF" eventType="touchUpInside" id="Qwc-we-G0c"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -270,10 +270,14 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="cardView" destination="QcO-hP-gv0" id="5Gc-Qs-mqn"/>
+                                            <outlet property="cardView" destination="QcO-hP-gv0" id="oEY-rE-c7D"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1Bo-Kl-F5s" id="lhP-za-1x7"/>
+                                    <outlet property="delegate" destination="1Bo-Kl-F5s" id="i5O-gJ-jp6"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iKN-bX-e0d"/>
@@ -291,6 +295,7 @@
                     <navigationItem key="navigationItem" id="HNO-fG-NkS"/>
                     <connections>
                         <outlet property="collectionView" destination="vRU-2E-tPn" id="BvG-a5-Qdd"/>
+                        <outlet property="tableView" destination="lsq-5Y-WFl" id="gNb-Yl-ffe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2KP-qP-zS7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -306,16 +311,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e6D-6I-Ps3">
-                                <rect key="frame" x="52" y="411" width="310.5" height="128"/>
+                                <rect key="frame" x="52" y="409" width="310.5" height="132"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't made any minutes yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NA6-eb-pXh">
-                                        <rect key="frame" x="33" y="0.0" width="244.5" height="56"/>
+                                        <rect key="frame" x="22.5" y="0.0" width="265.5" height="60"/>
                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="24"/>
                                         <color key="textColor" name="Label Jungle"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPC-lK-h0R">
-                                        <rect key="frame" x="16" y="80" width="278.5" height="48"/>
+                                        <rect key="frame" x="16" y="84" width="278.5" height="48"/>
                                         <color key="backgroundColor" name="Label Jungle"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="tCo-Wg-LFe"/>
@@ -391,7 +396,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This section is not implemented yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJZ-b7-Ijd">
-                                <rect key="frame" x="52" y="420" width="310.5" height="56"/>
+                                <rect key="frame" x="52" y="418" width="310.5" height="60"/>
                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="24"/>
                                 <color key="textColor" name="Label Jungle"/>
                                 <nil key="highlightedColor"/>

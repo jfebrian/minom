@@ -23,6 +23,11 @@ class AddParticipantVC: UIViewController {
         setupSuggestions()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.becomeFirstResponder()
+    }
+    
     func setupSuggestions() {
         var suggestions = [String]()
         for participant in participantLogic.getAllUnique() {
@@ -112,5 +117,14 @@ extension AddParticipantVC: UITextFieldDelegate {
         
         let newString = (textField.text! as NSString).replacingCharacters(in: range, with: string) as NSString
         return newString.rangeOfCharacter(from: CharacterSet.whitespacesAndNewlines).location != 0
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let field = textField as? SearchTextField {
+            if field.filteredResults.count == 0 {
+                saveAndQuit()
+            }
+        }
+        return true
     }
 }

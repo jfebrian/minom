@@ -177,7 +177,6 @@ class MinutesCreationLogic {
         if exist {
             participantLogic.delete(participant(at: indexPath))
         }
-        
     }
     
     func toggleAttendance(at indexPath: IndexPath) {
@@ -227,6 +226,8 @@ class MinutesCreationLogic {
     
     func finishMeetingCreation() {
         if !exist {
+            meeting.startTime = startDate
+            meeting.endTime = endDate
             meetingLogic.save(meeting, participants: participants, type: selectedType!)
         }
     }

@@ -13,12 +13,27 @@ class MeetingLogic {
     static var standard = MeetingLogic()
     
     let realm = try! Realm()
+    var recentMeetings = [[Meeting]]()
     var meetingByMonths = [[Meeting]]()
     var filteredMeetingByMonths = [[Meeting]]()
+    var recentDates = [Date]()
     
+    var selectedRecent = 13
     
     init() {
+        fetchDates()
         loadMeetings()
+    }
+    
+    func fetchDates() {
+        let calendar = Calendar.current
+        var date = calendar.startOfDay(for: Date())
+        recentDates = []
+        for _ in 1 ... 14 {
+            recentDates.append(date)
+            date = calendar.date(byAdding: .day, value: -1, to: date)!
+        }
+        recentDates.reverse()
     }
     
     // MARK: - Model Manipulation Methods
@@ -128,6 +143,8 @@ class MeetingLogic {
         return false
     }
     
+    // MARK: - Fetch and Filter Meetings
+    
     func searchMeetings(for text: String) {
         filteredMeetingByMonths = [[]]
         for month in meetingByMonths {
@@ -145,6 +162,28 @@ class MeetingLogic {
     
     func loadMeetings() {
         let meetings = realm.objects(Meeting.self).sorted(byKeyPath: "startTime", ascending: false)
+        loadMeetingByMonths(meetings)
+        loadRecentMeetings(meetings)
+    }
+    
+    func loadRecentMeetings(_ meetings: Results<Meeting>) {
+        recentMeetings = [[]]
+        for _ in recentDates {
+            let meetingArray = [Meeting]()
+            recentMeetings.append(meetingArray)
+        }
+        let calendar = Calendar.current
+        for meeting in meetings {
+            dates: for date in recentDates {
+                if calendar.isDate(meeting.startTime, inSameDayAs: date) {
+                    recentMeetings[recentDates.firstIndex(of: date)!].append(meeting)
+                    break dates
+                }
+            }
+        }
+    }
+    
+    func loadMeetingByMonths(_ meetings: Results<Meeting>) {
         meetingByMonths = [[]]
         if let start = meetings.first {
             let calendar = Calendar.current
@@ -165,6 +204,8 @@ class MeetingLogic {
             meetingByMonths.append(lastMonth)
         }
     }
+    
+    // MARK: - Other Functions
     
     func meeting(at indexPath: IndexPath, _ isFiltering: Bool) -> Meeting {
         return isFiltering ? filteredMeetingByMonths[indexPath.section][indexPath.row] : meetingByMonths[indexPath.section][indexPath.row]
@@ -187,6 +228,18 @@ class MeetingLogic {
         return formatter.string(from: meeting.startTime).uppercased()
     }
     
+    func startTime(for meeting: Meeting) -> String {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH.mm"
+        return timeFormatter.string(from: meeting.startTime)
+    }
+    
+    func endTime(for meeting: Meeting) -> String {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH.mm"
+        return timeFormatter.string(from: meeting.endTime)
+    }
+    
     func meetingTitle(at indexPath: IndexPath, _ isFiltering: Bool) -> String {
         return meeting(at: indexPath, isFiltering).title
     }
@@ -194,6 +247,50 @@ class MeetingLogic {
     func meetingType(at indexPath: IndexPath, _ isFiltering: Bool) -> String {
         let type = meeting(at: indexPath, isFiltering).type
         return type?.name ?? "No Meeting Type"
+    }
+    
+    func recentDate(at indexPath: IndexPath) -> String {
+        let date = recentDates[indexPath.row]
+        return "\(Calendar.current.component(.day, from: date))"
+    }
+    
+    func recentDay(at indexPath: IndexPath) -> String {
+        let daysOfWeek = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+        let date = recentDates[indexPath.row]
+        let weekday = Calendar.current.component(.weekday, from: date)
+        return daysOfWeek[weekday - 1]
+    }
+    
+    func selectRecent(at index: Int) {
+        selectedRecent = index
+    }
+    
+    func isSelectedRecent(at indexPath: IndexPath) -> Bool {
+        return selectedRecent == indexPath.row
+    }
+    
+    func recentMeeting(at indexPath: IndexPath) -> Meeting {
+        return recentMeetings[selectedRecent][indexPath.row]
+    }
+    
+    func selectedRecentMeetings() -> [Meeting] {
+        return recentMeetings[selectedRecent]
+    }
+    
+    func selectedCount() -> Int {
+        return recentMeetings[selectedRecent].count
+    }
+    
+    func participantInfo(for meeting:Meeting) -> ([String], Int?) {
+        var counter = 0
+        var names = [String]()
+        for participant in meeting.participants {
+            guard counter < 6 else { break }
+            names.append(participant.name)
+            counter += 1
+        }
+        let left = meeting.participants.count - counter
+        return (names, left > 0 ? left : nil)
     }
     
 }

@@ -21,6 +21,11 @@ class ParticipantsTableVC: UITableViewController {
         setupLogic()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func setupLogic() {
         if let minutesLogic = self.minutesLogic {
             logic?.meeting = minutesLogic.meeting
@@ -41,7 +46,10 @@ class ParticipantsTableVC: UITableViewController {
     }
     
     @objc func addButtonPressed() {
-        alertInput(title: "New Participant")
+        let vc = Storyboard.ID.AddParticipant as! AddParticipantVC
+        vc.logic = logic
+        vc.minutesLogic = minutesLogic
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func alertInput(title: String, at indexPath: IndexPath? = nil) {

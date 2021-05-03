@@ -1,17 +1,18 @@
 //
-//  User.swift
+//  Team.swift
 //  Minom
 //
-//  Created by Joanda Febrian on 02/05/21.
+//  Created by Joanda Febrian on 03/05/21.
 //
 
 import Foundation
 import RealmSwift
 
-class User: Object {
+class Team: Object {
     @objc dynamic var id = NSUUID().uuidString
     
     override static func primaryKey() -> String? {
         return "id"
     }
+    
 }

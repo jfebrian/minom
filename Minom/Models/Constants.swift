@@ -15,7 +15,6 @@ struct ID {
 
 struct Segue {
     static let viewParticipants = "viewParticipants"
-    static let addParticipant = "AddParticipant"
     static let addNewMinute = "AddNewMinute"
 }
 
@@ -25,16 +24,20 @@ struct Storyboard {
     static let MinutesTaking = UIStoryboard(name: "MinutesTaking", bundle: nil)
     struct ID {
         static var MeetingItem: UIViewController {
-            let sb = UIStoryboard(name: "MinutesTaking", bundle: nil)
+            let sb = Storyboard.MinutesTaking
             return sb.instantiateViewController(identifier: "MeetingItem")
         }
         static var ViewParticipants: UIViewController {
-            let sb = UIStoryboard(name: "MinutesTaking", bundle: nil)
+            let sb = Storyboard.MinutesTaking
             return sb.instantiateViewController(identifier: "ViewParticipants")
         }
         static var MeetingAgenda: UIViewController {
-            let sb = UIStoryboard(name: "MeetingCreation", bundle: nil)
+            let sb = Storyboard.MeetingCreation
             return sb.instantiateViewController(identifier: "MeetingAgenda")
+        }
+        static var AddParticipant: UIViewController {
+            let sb = Storyboard.MeetingCreation
+            return sb.instantiateViewController(withIdentifier: "AddParticipant")
         }
     }
 }

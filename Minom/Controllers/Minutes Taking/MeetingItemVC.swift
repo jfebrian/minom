@@ -141,6 +141,7 @@ extension MeetingItemVC: UITextFieldDelegate {
         noteTextView.selectedTextRange = noteTextView.textRange(from: noteTextView.beginningOfDocument, to: noteTextView.beginningOfDocument)
         return false
     }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard range.location == 0 else {
             return true

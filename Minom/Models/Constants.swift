@@ -77,6 +77,7 @@ struct Image {
     static let Trash = UIImage(systemName: "trash")!
     static let Pencil = UIImage(systemName: "pencil")!
     static let BackArrow = UIImage(systemName: "chevron.backward")!
+    static let RightChevron = UIImage(systemName: "chevron.right")!
     static let People = UIImage(systemName: "person.3.fill")!
     static let Checkmark = UIImage(systemName: "checkmark")!
 }

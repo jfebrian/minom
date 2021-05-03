@@ -387,35 +387,6 @@
             </objects>
             <point key="canvasLocation" x="2859" y="149"/>
         </scene>
-        <!--SettingsVC-->
-        <scene sceneID="0pa-f2-iPx">
-            <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="xJa-JU-Kci" customClass="SettingsVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IMq-D8-Rug">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This section is not implemented yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJZ-b7-Ijd">
-                                <rect key="frame" x="52" y="418" width="310.5" height="60"/>
-                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="24"/>
-                                <color key="textColor" name="Label Jungle"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="7Sh-bg-gN8"/>
-                        <color key="backgroundColor" name="Background Secondary"/>
-                        <constraints>
-                            <constraint firstItem="jJZ-b7-Ijd" firstAttribute="centerY" secondItem="IMq-D8-Rug" secondAttribute="centerY" id="Cap-PS-4PO"/>
-                            <constraint firstItem="jJZ-b7-Ijd" firstAttribute="centerX" secondItem="IMq-D8-Rug" secondAttribute="centerX" id="UDs-5d-0zn"/>
-                            <constraint firstItem="jJZ-b7-Ijd" firstAttribute="width" secondItem="IMq-D8-Rug" secondAttribute="width" multiplier="0.75" id="npN-sE-Uyd"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="T2M-VK-ima"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tpm-Yt-WPx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2137.68115942029" y="-585.26785714285711"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ovh-Oq-17S">
             <objects>
@@ -485,12 +456,31 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="xJa-JU-Kci" kind="relationship" relationship="rootViewController" id="1DK-2x-Vo1"/>
+                        <segue destination="Yac-IM-jhh" kind="relationship" relationship="rootViewController" id="vaI-MH-U8o"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jer-P9-v6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1227.536231884058" y="-585.26785714285711"/>
+        </scene>
+        <!--Settings TableVC-->
+        <scene sceneID="Jfb-rc-IvO">
+            <objects>
+                <tableViewController id="Yac-IM-jhh" customClass="SettingsTableVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="q0t-w2-waA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Yac-IM-jhh" id="FWU-TA-9fs"/>
+                            <outlet property="delegate" destination="Yac-IM-jhh" id="pKF-8D-aV0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="26N-Ko-ZI4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zLl-Ht-60d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2168" y="-585"/>
         </scene>
     </scenes>
     <resources>

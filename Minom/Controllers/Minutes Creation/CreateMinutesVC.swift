@@ -103,7 +103,7 @@ class CreateMinutesVC: UIViewController {
         let endString = NSMutableAttributedString(string:"End: ", attributes:light)
         let endDate = NSMutableAttributedString(string:logic.endDateString, attributes: bold)
         endString.append(endDate)
-        endDateLabel.attributedText = startString
+        endDateLabel.attributedText = endString
         startTimeLabel.text = logic.startTime
         endTimeLabel.text = logic.endTime
     }

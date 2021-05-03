@@ -48,7 +48,7 @@
 		7E7CF32A2639988A00BD0C71 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7CF31E2639988900BD0C71 /* Roboto-Light.ttf */; };
 		7E7CF32D2639A0A500BD0C71 /* RecentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF32C2639A0A500BD0C71 /* RecentsVC.swift */; };
 		7E7CF32F2639A0D800BD0C71 /* MinutesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF32E2639A0D800BD0C71 /* MinutesVC.swift */; };
-		7E7CF3312639A0F800BD0C71 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF3302639A0F800BD0C71 /* SettingsVC.swift */; };
+		7E7CF3312639A0F800BD0C71 /* SettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF3302639A0F800BD0C71 /* SettingsTableVC.swift */; };
 		7E7CF3332639A74F00BD0C71 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF3322639A74F00BD0C71 /* NavigationController.swift */; };
 		7E7CF33B2639BAC100BD0C71 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
@@ -99,7 +99,7 @@
 		7E7CF31E2639988900BD0C71 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		7E7CF32C2639A0A500BD0C71 /* RecentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsVC.swift; sourceTree = "<group>"; };
 		7E7CF32E2639A0D800BD0C71 /* MinutesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesVC.swift; sourceTree = "<group>"; };
-		7E7CF3302639A0F800BD0C71 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		7E7CF3302639A0F800BD0C71 /* SettingsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableVC.swift; sourceTree = "<group>"; };
 		7E7CF3322639A74F00BD0C71 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,7 +175,7 @@
 				7E24DB36263FBB140075C431 /* Custom Cells */,
 				7E7CF32C2639A0A500BD0C71 /* RecentsVC.swift */,
 				7E7CF32E2639A0D800BD0C71 /* MinutesVC.swift */,
-				7E7CF3302639A0F800BD0C71 /* SettingsVC.swift */,
+				7E7CF3302639A0F800BD0C71 /* SettingsTableVC.swift */,
 				7E7CF3322639A74F00BD0C71 /* NavigationController.swift */,
 				7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */,
 			);
@@ -463,7 +463,7 @@
 				7E7CF3332639A74F00BD0C71 /* NavigationController.swift in Sources */,
 				7E557306263AD25A00F549FD /* MeetingLogic.swift in Sources */,
 				7E55730A263B034C00F549FD /* CreateMinutesVC.swift in Sources */,
-				7E7CF3312639A0F800BD0C71 /* SettingsVC.swift in Sources */,
+				7E7CF3312639A0F800BD0C71 /* SettingsTableVC.swift in Sources */,
 				7E5A592D263FD9C200D28676 /* NewMeetingButtonCell.swift in Sources */,
 				7E55730C263B1BC500F549FD /* MinutesCreationLogic.swift in Sources */,
 				7E557333263C5F9200F549FD /* MeetingItemVC.swift in Sources */,

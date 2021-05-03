@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CalendarCell" customModule="Minom" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="80"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WtA-Ra-5Lc">
+                        <rect key="frame" x="0.0" y="8" width="50" height="64"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Nt1-gE-p3U">
+                                <rect key="frame" x="12.5" y="11" width="25.5" height="42.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txM-Lk-pHr">
+                                        <rect key="frame" x="0.0" y="0.0" width="25.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <color key="textColor" name="Label Grey"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hld-fe-YZ0">
+                                        <rect key="frame" x="0.0" y="16.5" width="25.5" height="26"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
+                                        <color key="textColor" name="Green Midnight"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Nt1-gE-p3U" firstAttribute="centerX" secondItem="WtA-Ra-5Lc" secondAttribute="centerX" id="KyR-nE-WN0"/>
+                            <constraint firstItem="Nt1-gE-p3U" firstAttribute="centerY" secondItem="WtA-Ra-5Lc" secondAttribute="centerY" id="iNS-w0-7ru"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="WtA-Ra-5Lc" secondAttribute="bottom" constant="8" id="GYL-b0-fGU"/>
+                <constraint firstItem="WtA-Ra-5Lc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="nRZ-Ex-Jnf"/>
+                <constraint firstAttribute="trailing" secondItem="WtA-Ra-5Lc" secondAttribute="trailing" id="r0E-Or-bdY"/>
+                <constraint firstItem="WtA-Ra-5Lc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sBd-Mw-hJf"/>
+            </constraints>
+            <size key="customSize" width="100" height="100"/>
+            <connections>
+                <outlet property="cardView" destination="WtA-Ra-5Lc" id="Tu2-WN-A3c"/>
+                <outlet property="dateLabel" destination="hld-fe-YZ0" id="q3Q-6l-840"/>
+                <outlet property="dayLabel" destination="txM-Lk-pHr" id="v6b-5d-lh4"/>
+            </connections>
+            <point key="canvasLocation" x="172.46376811594203" y="153.34821428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Green Midnight">
+            <color red="0.097999997437000275" green="0.34099999070167542" blue="0.3919999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label Grey">
+            <color red="0.41600000858306885" green="0.41600000858306885" blue="0.41600000858306885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -11,6 +11,7 @@ struct ID {
     static let titleCell = "MinuteTitleCell"
     static let itemCell = "MinuteItemCell"
     static let buttonCell = "ButtonCell"
+    static let calendarCell = "CalendarCell"
 }
 
 struct Segue {

@@ -35,10 +35,17 @@ class AddParticipantVC: UIViewController {
         textField.theme.fontColor = Color.LabelJungle
         textField.theme.bgColor = Color.BackgroundSecondary
         textField.theme.cellHeight = 48
-        
+        textField.itemSelectionHandler = { name, position in
+            self.textField.text = name.first?.title
+            self.saveAndQuit()
+        }
     }
     
     @objc func addButtonPressed() {
+        saveAndQuit()
+    }
+    
+    func saveAndQuit() {
         if let text = textField.text, text != "" {
             let participant = Participant()
             participant.name = text

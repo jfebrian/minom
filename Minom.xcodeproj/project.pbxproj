@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		397BC66757FC3D2B04B616AF /* Pods_Minom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523EBEF99FB379D4E2DAFC86 /* Pods_Minom.framework */; };
 		7E24DB31263EE7440075C431 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E24DB30263EE7440075C431 /* User.swift */; };
+		7E24DB33263F04920075C431 /* AddParticipantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E24DB32263F04920075C431 /* AddParticipantVC.swift */; };
+		7E24DB35263F9F8C0075C431 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E24DB34263F9F8C0075C431 /* Team.swift */; };
 		7E5572FC263ACEDC00F549FD /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5572FB263ACEDC00F549FD /* Meeting.swift */; };
 		7E5572FE263ACF9E00F549FD /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5572FD263ACF9E00F549FD /* Participant.swift */; };
 		7E557300263AD00500F549FD /* MinuteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5572FF263AD00500F549FD /* MinuteItem.swift */; };
@@ -45,7 +47,6 @@
 		7E7CF3312639A0F800BD0C71 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF3302639A0F800BD0C71 /* SettingsVC.swift */; };
 		7E7CF3332639A74F00BD0C71 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF3322639A74F00BD0C71 /* NavigationController.swift */; };
 		7E7CF33B2639BAC100BD0C71 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */; };
-		7EE5BC72263ED40900B8E50D /* AddParticipantTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE5BC71263ED40900B8E50D /* AddParticipantTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,8 @@
 		40F1D5E02FCA89742C7AE0BB /* Pods-Minom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minom.debug.xcconfig"; path = "Target Support Files/Pods-Minom/Pods-Minom.debug.xcconfig"; sourceTree = "<group>"; };
 		523EBEF99FB379D4E2DAFC86 /* Pods_Minom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E24DB30263EE7440075C431 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7E24DB32263F04920075C431 /* AddParticipantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantVC.swift; sourceTree = "<group>"; };
+		7E24DB34263F9F8C0075C431 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		7E5572FB263ACEDC00F549FD /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		7E5572FD263ACF9E00F549FD /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		7E5572FF263AD00500F549FD /* MinuteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuteItem.swift; sourceTree = "<group>"; };
@@ -91,7 +94,6 @@
 		7E7CF3302639A0F800BD0C71 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		7E7CF3322639A74F00BD0C71 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		7EE5BC71263ED40900B8E50D /* AddParticipantTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				7E5572FF263AD00500F549FD /* MinuteItem.swift */,
 				7E557315263B9B3100F549FD /* MeetingType.swift */,
 				7E24DB30263EE7440075C431 /* User.swift */,
+				7E24DB34263F9F8C0075C431 /* Team.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -133,7 +136,7 @@
 				7E55730D263B955600F549FD /* SetMeetingTypeTableVC.swift */,
 				7E55730F263B959200F549FD /* ParticipantsTableVC.swift */,
 				7E557311263B97AE00F549FD /* SetMeetingAgendaVC.swift */,
-				7EE5BC71263ED40900B8E50D /* AddParticipantTableVC.swift */,
+				7E24DB32263F04920075C431 /* AddParticipantVC.swift */,
 			);
 			path = "Minutes Creation";
 			sourceTree = "<group>";
@@ -429,10 +432,11 @@
 				7E557329263C3B7B00F549FD /* MinuteTitleCell.swift in Sources */,
 				7E7CF2EE26393E3600BD0C71 /* Constants.swift in Sources */,
 				7E55732D263C3B9F00F549FD /* ButtonCell.swift in Sources */,
+				7E24DB35263F9F8C0075C431 /* Team.swift in Sources */,
 				7E557331263C470A00F549FD /* MinutesLogic.swift in Sources */,
 				7E557337263D26EE00F549FD /* ParticipantLogic.swift in Sources */,
-				7EE5BC72263ED40900B8E50D /* AddParticipantTableVC.swift in Sources */,
 				7E5572FE263ACF9E00F549FD /* Participant.swift in Sources */,
+				7E24DB33263F04920075C431 /* AddParticipantVC.swift in Sources */,
 				7E7CF3332639A74F00BD0C71 /* NavigationController.swift in Sources */,
 				7E557306263AD25A00F549FD /* MeetingLogic.swift in Sources */,
 				7E55730A263B034C00F549FD /* CreateMinutesVC.swift in Sources */,

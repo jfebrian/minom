@@ -56,4 +56,8 @@ class ParticipantLogic {
             print("Error deleting participant from Realm, \(error.localizedDescription)")
         }
     }
+    
+    func getAllUnique() -> Results<Participant> {
+        return realm.objects(Participant.self).distinct(by: ["name"])
+    }
 }

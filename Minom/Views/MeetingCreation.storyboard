@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -250,7 +250,7 @@
                                                 <rect key="frame" x="334" y="0.0" width="40" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  0  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67r-yV-stL">
-                                                        <rect key="frame" x="5.5" y="9.5" width="29.5" height="21.5"/>
+                                                        <rect key="frame" x="6" y="10" width="28.5" height="20"/>
                                                         <color key="backgroundColor" name="Label Jungle"/>
                                                         <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
                                                         <color key="textColor" name="Background"/>
@@ -596,32 +596,72 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="zcU-sb-epx"/>
-                    <connections>
-                        <segue destination="v2i-oP-uFJ" kind="show" identifier="AddParticipant" id="qpZ-PG-Tqu"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zVD-Nk-uqI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1216" y="102"/>
         </scene>
-        <!--Add Participant TableVC-->
-        <scene sceneID="08E-Xm-loy">
+        <!--Add ParticipantVC-->
+        <scene sceneID="tT7-iJ-ZFi">
             <objects>
-                <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="v2i-oP-uFJ" customClass="AddParticipantTableVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="q6a-PR-T1p">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                <viewController storyboardIdentifier="AddParticipant" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iE5-Hg-Bbr" customClass="AddParticipantVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="18y-cP-LsX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BeG-Fn-86m">
+                                <rect key="frame" x="0.0" y="113" width="414" height="749"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="iE5-Hg-Bbr" id="Dnt-Iq-dPr"/>
+                                    <outlet property="delegate" destination="iE5-Hg-Bbr" id="t4o-MX-mr3"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2e-lW-XaX">
+                                <rect key="frame" x="0.0" y="65" width="414" height="48"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Participant Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rGO-wW-Oti" customClass="SearchTextField" customModule="SearchTextField">
+                                        <rect key="frame" x="16" y="0.0" width="382" height="48"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="Label Jungle"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="iE5-Hg-Bbr" id="s8w-UK-zbq"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" name="Background"/>
+                                <constraints>
+                                    <constraint firstItem="rGO-wW-Oti" firstAttribute="top" secondItem="g2e-lW-XaX" secondAttribute="top" id="0uA-hF-iyO"/>
+                                    <constraint firstItem="rGO-wW-Oti" firstAttribute="leading" secondItem="g2e-lW-XaX" secondAttribute="leading" constant="16" id="Lue-mk-aLy"/>
+                                    <constraint firstAttribute="trailing" secondItem="rGO-wW-Oti" secondAttribute="trailing" constant="16" id="r5a-l3-47I"/>
+                                    <constraint firstAttribute="height" constant="48" id="rDB-Jn-Zdq"/>
+                                    <constraint firstAttribute="bottom" secondItem="rGO-wW-Oti" secondAttribute="bottom" id="wa6-dq-DcO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="g8P-dW-kl0"/>
                         <color key="backgroundColor" name="Background Secondary"/>
-                        <connections>
-                            <outlet property="dataSource" destination="v2i-oP-uFJ" id="F30-x6-h3R"/>
-                            <outlet property="delegate" destination="v2i-oP-uFJ" id="Okm-6L-NB8"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="GmX-g7-9jH"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bmg-Dr-o44" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="g8P-dW-kl0" firstAttribute="bottom" secondItem="BeG-Fn-86m" secondAttribute="bottom" id="AZM-6g-gtP"/>
+                            <constraint firstItem="g8P-dW-kl0" firstAttribute="trailing" secondItem="BeG-Fn-86m" secondAttribute="trailing" id="DZD-3q-xzq"/>
+                            <constraint firstItem="g2e-lW-XaX" firstAttribute="top" secondItem="g8P-dW-kl0" secondAttribute="top" constant="21" id="Om6-93-NHf"/>
+                            <constraint firstItem="g2e-lW-XaX" firstAttribute="leading" secondItem="g8P-dW-kl0" secondAttribute="leading" id="ZqI-AV-y0Y"/>
+                            <constraint firstItem="BeG-Fn-86m" firstAttribute="top" secondItem="g2e-lW-XaX" secondAttribute="bottom" id="bIG-Fo-pCb"/>
+                            <constraint firstItem="BeG-Fn-86m" firstAttribute="leading" secondItem="g8P-dW-kl0" secondAttribute="leading" id="hH0-bu-iqJ"/>
+                            <constraint firstItem="g8P-dW-kl0" firstAttribute="trailing" secondItem="g2e-lW-XaX" secondAttribute="trailing" id="r1S-gK-fse"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XOc-wm-2Vb"/>
+                    <connections>
+                        <outlet property="tableView" destination="BeG-Fn-86m" id="udf-gM-hEA"/>
+                        <outlet property="textField" destination="rGO-wW-Oti" id="zII-gN-7ne"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgu-or-Av3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2032" y="102"/>
+            <point key="canvasLocation" x="2195.6521739130435" y="101.78571428571428"/>
         </scene>
         <!--Set Meeting AgendaVC-->
         <scene sceneID="bKr-cg-jYu">

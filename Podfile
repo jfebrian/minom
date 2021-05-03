@@ -9,5 +9,6 @@ use_frameworks!
 pod 'RealmSwift'
 pod 'IQKeyboardManagerSwift'
 pod 'SwipeCellKit'
+pod 'SearchTextField'
 
 end

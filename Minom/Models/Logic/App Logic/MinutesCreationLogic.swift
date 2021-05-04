@@ -60,7 +60,13 @@ class MinutesCreationLogic {
     // MARK: - Set Date Time Logic
     
     var startDateString: String {
-        return dateFormatter.string(from: startDate)
+        let string = dateFormatter.string(from: startDate)
+        let components = string.components(separatedBy: " ")
+        if components.count != 1 {
+            return components.dropLast().joined(separator: " ")
+        } else {
+            return components.first!
+        }
     }
     
     var startTime: String {
@@ -68,7 +74,13 @@ class MinutesCreationLogic {
     }
     
     var endDateString: String {
-        return dateFormatter.string(from: endDate)
+        let string = dateFormatter.string(from: endDate)
+        let components = string.components(separatedBy: " ")
+        if components.count != 1 {
+            return components.dropLast().joined(separator: " ")
+        } else {
+            return components.first!
+        }
     }
     
     var endTime: String {

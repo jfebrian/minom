@@ -23,10 +23,14 @@ class TakeMinuteVC: UIViewController {
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var controlSlider: UISlider!
+    @IBOutlet weak var recordTimeLabel: UILabel!
     @IBOutlet weak var audioTimeLabel: UILabel!
     
     var soundRecorder: AVAudioRecorder!
     var soundPlayer: AVAudioPlayer!
+    
+    var recordTimer: Timer? = nil
+    var playbackTimer: Timer? = nil
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -112,8 +116,7 @@ class TakeMinuteVC: UIViewController {
         controlSlider.value = 0
         controlSlider.maximumValue = Float(soundPlayer.duration)
         audioTimeLabel.text = "00.00"
-        _ = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
-        _ = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.updateSlider), userInfo: nil, repeats: true)
+        playbackTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.updatePlayback), userInfo: nil, repeats: true)
     }
     
     func setupRecordButtons() {
@@ -145,6 +148,7 @@ class TakeMinuteVC: UIViewController {
     
     @IBAction func recordPressed(_ sender: UIButton) {
         soundRecorder.record()
+        recordTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.recordTime), userInfo: nil, repeats: true)
         recordButton.isHidden = true
         stopRecordButton.isHidden = false
     }
@@ -154,6 +158,8 @@ class TakeMinuteVC: UIViewController {
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancel)
         let stop = UIAlertAction(title: "Stop", style: .default) { action in
+            self.recordTimer?.invalidate()
+            self.recordTimer = nil
             self.soundRecorder.stop()
             self.soundRecorder = nil
             self.setupAudioButtons()
@@ -164,14 +170,14 @@ class TakeMinuteVC: UIViewController {
     
     @IBAction func playButtonPressed(_ sender: UIButton) {
         soundPlayer.play()
-        updateTime()
+        updatePlayback()
         playButton.isHidden = true
         pauseButton.isHidden = false
     }
     
     @IBAction func pauseButtonPressed(_ sender: UIButton) {
         soundPlayer.stop()
-        updateTime()
+        updatePlayback()
         playButton.isHidden = false
         pauseButton.isHidden = true
     }
@@ -200,16 +206,22 @@ class TakeMinuteVC: UIViewController {
         soundPlayer.play()
     }
     
-    
-    @objc func updateSlider() {
-        controlSlider.value = Float(soundPlayer.currentTime)
+    @objc func recordTime() {
+        let currentTime = Int(soundRecorder.currentTime)
+        
+        let minutes = currentTime / 60
+        var seconds = currentTime - minutes / 60
+        if minutes > 0 {
+            seconds = seconds - 60 * minutes
+        }
+        
+        recordTimeLabel.text = NSString(format: "%02d:%02d", minutes,seconds) as String
     }
     
-    @objc func updateTime() {
+    @objc func updatePlayback() {
+        controlSlider.value = Float(soundPlayer.currentTime)
+        
         let currentTime = Int(soundPlayer.currentTime)
-//        let duration = Int(soundPlayer.duration)
-//        let total = currentTime - duration
-//        let totalString = String(total)
         
         let minutes = currentTime/60
         var seconds = currentTime - minutes / 60
@@ -221,7 +233,23 @@ class TakeMinuteVC: UIViewController {
     }
     
     @objc func saveAndGoBack() {
-        navigationController?.popToRootViewController(animated: true)
+        if let player = soundRecorder, player.isRecording {
+            let alert = UIAlertController(title: "Your recording is still running!", message: "Do you want to save your recording? Saved recordings are permanent and can't be resumed or modified.", preferredStyle: .alert)
+            let no = UIAlertAction(title: "No", style: .destructive) { action in
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            alert.addAction(no)
+            let save = UIAlertAction(title: "Save", style: .default) { action in
+                self.recordTimer?.invalidate()
+                self.recordTimer = nil
+                self.soundRecorder.stop()
+                self.soundRecorder = nil
+                self.setupAudioButtons()
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            alert.addAction(save)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @objc func viewParticipants() {

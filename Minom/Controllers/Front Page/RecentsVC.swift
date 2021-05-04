@@ -11,6 +11,7 @@ class RecentsVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyCardView: UIView!
     private let meetingLogic = MeetingLogic.standard
     
     override func viewDidLoad() {
@@ -36,6 +37,7 @@ class RecentsVC: UIViewController {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+        emptyCardView.layer.cornerRadius = 10
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +46,12 @@ class RecentsVC: UIViewController {
         meetingLogic.selectRecent(at: 13)
         collectionView.reloadData()
         tableView.reloadData()
+    }
+    
+    @IBAction func emptyButtonPressed(_ sender: UIButton) {
+        let sb = Storyboard.MeetingCreation
+        let vc = sb.instantiateInitialViewController()!
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -81,18 +89,10 @@ extension RecentsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = meetingLogic.selectedCount()
         if count == 0 {
-            let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height))
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width * 0.75, height: tableView.frame.height))
-            label.numberOfLines = 0
-            label.center = emptyView.center
-            label.textAlignment = .center
-            label.font = Font.LexendDeca(24)
-            label.textColor = Color.LabelJungle
-            label.text = "You have no meeting on this day."
-            emptyView.addSubview(label)
-            tableView.backgroundView = emptyView
+            tableView.isHidden = true
             return 0
         } else {
+            tableView.isHidden = false
             tableView.backgroundView = nil
             return count + 1
         }

@@ -36,6 +36,7 @@
 		7E557337263D26EE00F549FD /* ParticipantLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557336263D26EE00F549FD /* ParticipantLogic.swift */; };
 		7E5A592B263FD9A300D28676 /* MeetingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A592A263FD9A300D28676 /* MeetingCell.swift */; };
 		7E5A592D263FD9C200D28676 /* NewMeetingButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A592C263FD9C200D28676 /* NewMeetingButtonCell.swift */; };
+		7E5A5931264105EE00D28676 /* NameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A5930264105EE00D28676 /* NameCell.swift */; };
 		7E7CF2D626392D1A00BD0C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF2D526392D1A00BD0C71 /* AppDelegate.swift */; };
 		7E7CF2D826392D1A00BD0C71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF2D726392D1A00BD0C71 /* SceneDelegate.swift */; };
 		7E7CF2DD26392D1A00BD0C71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E7CF2DB26392D1A00BD0C71 /* Main.storyboard */; };
@@ -85,6 +86,7 @@
 		7E557336263D26EE00F549FD /* ParticipantLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantLogic.swift; sourceTree = "<group>"; };
 		7E5A592A263FD9A300D28676 /* MeetingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingCell.swift; sourceTree = "<group>"; };
 		7E5A592C263FD9C200D28676 /* NewMeetingButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMeetingButtonCell.swift; sourceTree = "<group>"; };
+		7E5A5930264105EE00D28676 /* NameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCell.swift; sourceTree = "<group>"; };
 		7E7CF2D226392D1A00BD0C71 /* Minom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E7CF2D526392D1A00BD0C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E7CF2D726392D1A00BD0C71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				7E24DB3A263FBDF60075C431 /* CalendarCell.xib */,
 				7E5A592A263FD9A300D28676 /* MeetingCell.swift */,
 				7E5A592C263FD9C200D28676 /* NewMeetingButtonCell.swift */,
+				7E5A5930264105EE00D28676 /* NameCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				7E557335263C662F00F549FD /* MinuteItemLogic.swift in Sources */,
 				7E7CF32D2639A0A500BD0C71 /* RecentsVC.swift in Sources */,
 				7E7CF2D826392D1A00BD0C71 /* SceneDelegate.swift in Sources */,
+				7E5A5931264105EE00D28676 /* NameCell.swift in Sources */,
 				7E557310263B959200F549FD /* ParticipantsTableVC.swift in Sources */,
 				7E557312263B97AE00F549FD /* SetMeetingAgendaVC.swift in Sources */,
 				7E557329263C3B7B00F549FD /* MinuteTitleCell.swift in Sources */,
@@ -616,7 +620,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 7BXMQ2C5C2;
 				INFOPLIST_FILE = Minom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -639,7 +643,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 7BXMQ2C5C2;
 				INFOPLIST_FILE = Minom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

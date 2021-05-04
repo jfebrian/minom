@@ -32,7 +32,7 @@ class CreateMinutesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = logic.exist ? "" : "New Meeting"
+        navigationItem.title = logic.exist ? "" : "New Minutes"
         deleteMeetingView.isHidden = logic.exist ? false : true
         setupSaveButton()
         setupDates()

@@ -200,9 +200,10 @@ class MinutesCreationLogic {
     }
     
     func deleteParticipant(at indexPath: IndexPath) {
+        let participant = participants[indexPath.row]
         participants.remove(at: indexPath.row)
         if exist {
-            participantLogic.delete(participant(at: indexPath))
+            participantLogic.delete(participant)
         }
     }
     

@@ -23,6 +23,11 @@ class MeetingItemVC: UIViewController {
         setupBackButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        titleTextField.becomeFirstResponder()
+    }
+    
     func setupBackButton() {
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(cancel))

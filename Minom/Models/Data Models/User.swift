@@ -10,6 +10,7 @@ import RealmSwift
 
 class User: Object {
     @objc dynamic var id = NSUUID().uuidString
+    let teams = List<Team>()
     
     override static func primaryKey() -> String? {
         return "id"

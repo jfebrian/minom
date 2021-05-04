@@ -75,7 +75,18 @@ extension AddParticipantVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
+        let label = UILabel(frame: CGRect(x: 0, y: 80, width: tableView.bounds.width, height: 80))
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = Font.LexendDeca(22)
+        label.textColor = Color.LabelJungle
+        label.text = "You has no team yet."
+        emptyView.addSubview(label)
+        tableView.backgroundView = emptyView
+        tableView.separatorStyle = .none
+        tableView.isScrollEnabled = false
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -12,7 +12,9 @@ class MeetingLogic {
     
     static var standard = MeetingLogic()
     
-    let realm = try! Realm()
+    lazy var realm:Realm = {
+        return try! Realm()
+    }()
     var recentMeetings = [[Meeting]]()
     var meetingByMonths = [[Meeting]]()
     var filteredMeetingByMonths = [[Meeting]]()

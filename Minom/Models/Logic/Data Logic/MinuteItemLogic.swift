@@ -12,7 +12,9 @@ class MinuteItemLogic {
     
     static var standard = MinuteItemLogic()
     
-    let realm = try! Realm()
+    lazy var realm:Realm = {
+        return try! Realm()
+    }()
     
     // MARK: - Model Manipulation Methods
     

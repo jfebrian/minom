@@ -9,13 +9,7 @@ import UIKit
 
 class SettingsTableVC: UITableViewController {
     
-    let settingCategories = [
-        SettingsCategory(title: "Preferences",
-                         settings: ["Teams","Templates","App Theme"]),
-        SettingsCategory(title: "Support", settings: ["Help","Send Feedback","Rate on App Store"]),
-        SettingsCategory(title: "Information",
-                         settings: ["Change Logs","Licenses","About"])
-    ]
+    let logic = SettingsLogic.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +22,11 @@ class SettingsTableVC: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return settingCategories.count + 2
+        return logic.settingCategories.count + 2
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == settingCategories.count + 1{
+        if section == logic.settingCategories.count + 1{
             return tableView.bounds.height - (40 * 4) - (44 * 10) - (tabBarController?.tabBar.bounds.height ?? 0)
         }
         return 40
@@ -42,9 +36,9 @@ class SettingsTableVC: UITableViewController {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
         view.backgroundColor = Color.BackgroundSecondary
         
-        if section < settingCategories.count + 1 {
+        if section < logic.settingCategories.count + 1 {
             let label = UILabel(frame: CGRect(x: 20, y: 14, width: tableView.frame.size.width - 40, height: 20))
-            label.text = section == 0 ? "USER INFORMATION" : settingCategories[section - 1].title.uppercased()
+            label.text = section == 0 ? "USER INFORMATION" : logic.settingCategories[section - 1].title.uppercased()
             label.font = .systemFont(ofSize: 13)
             label.textColor = Color.LabelGrey
             view.addSubview(label)
@@ -64,18 +58,18 @@ class SettingsTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == settingCategories.count + 1{
+        if section == logic.settingCategories.count + 1{
             return 0
         } else if section == 0 {
             return 1
         }
-        return settingCategories[section - 1].settings.count
+        return logic.settingCategories[section - 1].settings.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section > 0 {
             let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-            cell.textLabel?.text = settingCategories[indexPath.section - 1].settings[indexPath.row]
+            cell.textLabel?.text = logic.settingCategories[indexPath.section - 1].settings[indexPath.row]
             cell.textLabel?.font = Font.LexendDeca(17)
             cell.textLabel?.textColor = Color.LabelJungle
             
@@ -93,6 +87,9 @@ class SettingsTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = logic.vc(for: indexPath) {
+            navigationController?.pushViewController(vc, animated: true)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

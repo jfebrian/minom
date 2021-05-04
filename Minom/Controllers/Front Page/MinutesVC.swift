@@ -13,6 +13,7 @@ class MinutesVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyButton: UIButton!
     @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     private let searchController = UISearchController(searchResultsController: nil)
     private let meetingLogic = MeetingLogic.standard
@@ -31,6 +32,7 @@ class MinutesVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        
         tabBarController?.tabBar.isHidden = false
     }
     

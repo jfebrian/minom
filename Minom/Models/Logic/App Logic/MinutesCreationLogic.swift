@@ -39,6 +39,10 @@ class MinutesCreationLogic {
             endDate = existMeeting.endTime
             selectedType = existMeeting.type
             exist = true
+        } else if let minutesTaker = UserDefaults.standard.string(forKey: "UserName"){
+            let taker = Participant()
+            taker.name = minutesTaker
+            participants.append(taker)
         }
     }
     
@@ -161,10 +165,21 @@ class MinutesCreationLogic {
         return participants.count
     }
     
+    func isExist(_ new: Participant) -> Bool {
+        for participant in participants {
+            if participant.name == new.name {
+                return true
+            }
+        }
+        return false
+    }
+    
     func addParticipant(with participant: Participant) {
-        participants.append(participant)
-        if exist {
-            participantLogic.save(participant, for: meeting)
+        if !isExist(participant) {
+            participants.append(participant)
+            if exist {
+                participantLogic.save(participant, for: meeting)
+            }
         }
     }
     

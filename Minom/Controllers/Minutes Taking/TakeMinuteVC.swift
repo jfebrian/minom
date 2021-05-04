@@ -249,6 +249,8 @@ class TakeMinuteVC: UIViewController {
             }
             alert.addAction(save)
             self.present(alert, animated: true, completion: nil)
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
         }
     }
     

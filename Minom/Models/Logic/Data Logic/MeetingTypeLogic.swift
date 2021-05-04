@@ -12,7 +12,9 @@ class MeetingTypeLogic {
     
     static var standard = MeetingTypeLogic()
     
-    let realm = try! Realm()
+    lazy var realm:Realm = {
+        return try! Realm()
+    }()
     
     var types: Results<MeetingType>?
     

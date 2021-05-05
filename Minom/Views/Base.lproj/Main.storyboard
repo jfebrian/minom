@@ -266,7 +266,7 @@
                                                     <outlet property="participant2" destination="cZh-jq-cCS" id="uaE-BD-7RZ"/>
                                                     <outlet property="participant3" destination="Dr7-tx-bDh" id="zv0-bg-Oau"/>
                                                     <outlet property="participant4" destination="z40-fi-u5a" id="zRy-cE-v84"/>
-                                                    <outlet property="participant5" destination="hay-Ok-oO2" id="q5c-fa-OdQ"/>
+                                                    <outlet property="participant5" destination="hay-Ok-oO2" id="mcF-Rx-SKV"/>
                                                     <outlet property="participant6" destination="YOP-Pp-5gT" id="ezU-Fk-naq"/>
                                                     <outlet property="startTimeLabel" destination="QeY-7G-Y3P" id="ZCf-qd-HkY"/>
                                                     <outlet property="titleLabel" destination="yCJ-Zl-rc9" id="5oZ-LS-WEy"/>

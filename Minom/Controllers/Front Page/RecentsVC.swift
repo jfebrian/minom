@@ -106,13 +106,27 @@ extension RecentsVC: UITableViewDelegate, UITableViewDataSource {
             cell.typeLabel.text = meeting.type?.name ?? "No Meeting Type"
             cell.startTimeLabel.text = meetingLogic.startTime(for: meeting)
             cell.endTimeLabel.text = meetingLogic.endTime(for: meeting)
+            
             let participantInfo = meetingLogic.participantInfo(for: meeting)
             let participantLabels = cell.participantLabels()
-            for i in 0...participantInfo.0.count - 1 {
-                guard i < 6 else { break }
-                participantLabels[i].isHidden = false
-                participantLabels[i].text = participantInfo.0[i]
+            var counter = 0
+            while counter < 6 {
+                if counter < participantInfo.0.count {
+                    if counter < 3 {
+                        participantLabels[counter]?.isHidden = false
+                        participantLabels[counter+3]?.isHidden = false
+                    }
+                    participantLabels[counter]?.text = participantInfo.0[counter]
+                } else {
+                    if counter < 3 {
+                        participantLabels[counter]?.isHidden = true
+                        participantLabels[counter+3]?.isHidden = true
+                    }
+                    participantLabels[counter]?.text = ""
+                }
+                counter += 1
             }
+            
             if let left = participantInfo.1 {
                 cell.moreParticipantLabel.isHidden = false
                 cell.moreParticipantLabel.text = "and \(left) more participants..."

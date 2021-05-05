@@ -151,16 +151,23 @@ extension ParticipantsTableVC: SwipeTableViewCellDelegate {
         guard orientation == .right else { return nil }
 
         let deleteAction = SwipeAction(style: .destructive, title: nil) { action, indexPath in
-            let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell
-            cell.hideSwipe(animated: true) { bool in
-                if let minutesLogic = self.minutesLogic {
-                    minutesLogic.deleteParticipant(at: indexPath)
-                    self.logic?.reloadParticipants()
-                } else {
-                    self.logic?.deleteParticipant(at: indexPath)
+            if self.logic?.numberOfParticipants() == 1 {
+                let alert = UIAlertController(title: "Last Participant!", message: "You can't remove the last participant of a meeting.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell
+                cell.hideSwipe(animated: true) { bool in
+                    if let minutesLogic = self.minutesLogic {
+                        minutesLogic.deleteParticipant(at: indexPath)
+                        self.logic?.reloadParticipants()
+                    } else {
+                        self.logic?.deleteParticipant(at: indexPath)
+                    }
+                    
+                    self.tableView.reloadData()
                 }
-                
-                self.tableView.reloadData()
             }
         }
         deleteAction.image = Image.Trash

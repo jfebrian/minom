@@ -97,7 +97,7 @@ extension AddParticipantVC: UITableViewDataSource {
             label.textAlignment = .center
             label.font = Font.LexendDeca(22)
             label.textColor = Color.LabelJungle
-            label.text = "You has no team yet."
+            label.text = "You haven't made any teams yet."
             emptyView.addSubview(label)
             tableView.backgroundView = emptyView
             tableView.separatorStyle = .none

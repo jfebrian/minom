@@ -26,7 +26,7 @@ class MeetingCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCard()
-        hideParticipants()
+        emptyParticipants()
     }
     
     func setupCard() {
@@ -35,9 +35,10 @@ class MeetingCell: UITableViewCell {
         cardView.layer.borderColor = Color.Grey.cgColor
     }
     
-    func hideParticipants() {
+    func emptyParticipants() {
         for participant in participantLabels() {
-            participant.isHidden = true
+            participant?.isHidden = true
+            participant?.text = ""
         }
         moreParticipantLabel.isHidden = true
     }
@@ -46,10 +47,9 @@ class MeetingCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func participantLabels() -> [UILabel] {
-        return [
-            participant1, participant2, participant3, participant4, participant5, participant6
-        ]
+    func participantLabels() -> [UILabel?] {
+        let labels = [ participant1, participant2, participant3, participant4, participant5, participant6 ]
+        return labels
     }
 
 }

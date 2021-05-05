@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Team MembersVC-->
+        <scene sceneID="NpR-dQ-WiW">
+            <objects>
+                <viewController storyboardIdentifier="TeamMembers" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Toh-nw-2sI" customClass="TeamMembersVC" customModule="Minom" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nhJ-VX-4co">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9oA-g0-eIm">
+                                <rect key="frame" x="0.0" y="113" width="414" height="749"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Toh-nw-2sI" id="fWR-hs-ZoP"/>
+                                    <outlet property="delegate" destination="Toh-nw-2sI" id="qWD-nb-Pwo"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2I-Qp-FQv">
+                                <rect key="frame" x="0.0" y="65" width="414" height="48"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Participant Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ejx-ek-e6d" customClass="SearchTextField" customModule="SearchTextField">
+                                        <rect key="frame" x="16" y="0.0" width="382" height="48"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="Label Jungle"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Toh-nw-2sI" id="DaC-Bc-ypK"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" name="Background"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="2pO-fp-qvi"/>
+                                    <constraint firstItem="ejx-ek-e6d" firstAttribute="leading" secondItem="E2I-Qp-FQv" secondAttribute="leading" constant="16" id="9Fl-WS-HCp"/>
+                                    <constraint firstAttribute="bottom" secondItem="ejx-ek-e6d" secondAttribute="bottom" id="EDc-Jg-iei"/>
+                                    <constraint firstItem="ejx-ek-e6d" firstAttribute="top" secondItem="E2I-Qp-FQv" secondAttribute="top" id="Sdb-Jd-e1R"/>
+                                    <constraint firstAttribute="trailing" secondItem="ejx-ek-e6d" secondAttribute="trailing" constant="16" id="dVL-re-db5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6hL-lm-aOW"/>
+                        <color key="backgroundColor" name="Background Secondary"/>
+                        <constraints>
+                            <constraint firstItem="E2I-Qp-FQv" firstAttribute="leading" secondItem="6hL-lm-aOW" secondAttribute="leading" id="5QC-da-R9r"/>
+                            <constraint firstItem="6hL-lm-aOW" firstAttribute="bottom" secondItem="9oA-g0-eIm" secondAttribute="bottom" id="Ia8-lZ-RZs"/>
+                            <constraint firstItem="E2I-Qp-FQv" firstAttribute="top" secondItem="6hL-lm-aOW" secondAttribute="top" constant="21" id="K9J-fZ-fSP"/>
+                            <constraint firstItem="9oA-g0-eIm" firstAttribute="top" secondItem="E2I-Qp-FQv" secondAttribute="bottom" id="KFp-wN-tg2"/>
+                            <constraint firstItem="6hL-lm-aOW" firstAttribute="trailing" secondItem="9oA-g0-eIm" secondAttribute="trailing" id="Qmc-VF-q5h"/>
+                            <constraint firstItem="9oA-g0-eIm" firstAttribute="leading" secondItem="6hL-lm-aOW" secondAttribute="leading" id="ZxM-mk-sS7"/>
+                            <constraint firstItem="6hL-lm-aOW" firstAttribute="trailing" secondItem="E2I-Qp-FQv" secondAttribute="trailing" id="lcS-Mt-QkA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VyN-vg-RmV"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="ejx-ek-e6d" id="Gj6-Xb-bhU"/>
+                        <outlet property="tableView" destination="9oA-g0-eIm" id="4vo-WK-Gvl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jtn-NL-3av" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="804" y="-335"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Background Secondary">
+            <color red="0.97600001096725464" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Label Jungle">
+            <color red="0.054999999701976776" green="0.46700000762939453" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

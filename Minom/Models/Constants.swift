@@ -25,6 +25,7 @@ struct Storyboard {
     static let Main = UIStoryboard(name: "Main", bundle: nil)
     static let MeetingCreation = UIStoryboard(name: "MeetingCreation", bundle: nil)
     static let MinutesTaking = UIStoryboard(name: "MinutesTaking", bundle: nil)
+    static let Settings = UIStoryboard(name: "Settings", bundle: nil)
     struct ID {
         static var MeetingItem: UIViewController {
             let sb = Storyboard.MinutesTaking
@@ -41,6 +42,10 @@ struct Storyboard {
         static var AddParticipant: UIViewController {
             let sb = Storyboard.MeetingCreation
             return sb.instantiateViewController(withIdentifier: "AddParticipant")
+        }
+        static var TeamMembers: UIViewController {
+            let sb = Storyboard.Settings
+            return sb.instantiateViewController(withIdentifier: "TeamMembers")
         }
     }
 }
@@ -80,6 +85,8 @@ struct Image {
     static let RightChevron = UIImage(systemName: "chevron.right")!
     static let People = UIImage(systemName: "person.3.fill")!
     static let Checkmark = UIImage(systemName: "checkmark")!
+    static let Keyboard = UIImage(systemName: "keyboard.chevron.compact.down")
+    static let AddPerson = UIImage(systemName: "person.crop.circle.fill.badge.plus")!
 }
 
 struct Color {
@@ -95,4 +102,13 @@ struct Color {
     static let JungleGreen = UIColor(named: "Green Jungle")!
     static let Grey = UIColor(named: "Grey")!
     static let Placeholder = UIColor(named: "Placeholder")
+}
+
+// MARK: - Extension Sequence
+
+extension Sequence where Element: Hashable {
+    func uniqued() -> [Element] {
+        var set = Set<Element>()
+        return filter { set.insert($0).inserted }
+    }
 }

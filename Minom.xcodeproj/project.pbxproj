@@ -55,6 +55,10 @@
 		7E7CF3312639A0F800BD0C71 /* SettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF3302639A0F800BD0C71 /* SettingsTableVC.swift */; };
 		7E7CF3332639A74F00BD0C71 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF3322639A74F00BD0C71 /* NavigationController.swift */; };
 		7E7CF33B2639BAC100BD0C71 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */; };
+		7EE914FA26424ABD009ACEC4 /* TeamLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE914F926424ABD009ACEC4 /* TeamLogic.swift */; };
+		7EE914FC26424F1F009ACEC4 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE914FB26424F1F009ACEC4 /* Settings.storyboard */; };
+		7EE9150026425004009ACEC4 /* TeamMembersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE914FF26425004009ACEC4 /* TeamMembersVC.swift */; };
+		7EE915022642592C009ACEC4 /* TeamMembersLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE915012642592C009ACEC4 /* TeamMembersLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +114,10 @@
 		7E7CF3302639A0F800BD0C71 /* SettingsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableVC.swift; sourceTree = "<group>"; };
 		7E7CF3322639A74F00BD0C71 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		7E7CF33A2639BAC100BD0C71 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		7EE914F926424ABD009ACEC4 /* TeamLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamLogic.swift; sourceTree = "<group>"; };
+		7EE914FB26424F1F009ACEC4 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		7EE914FF26425004009ACEC4 /* TeamMembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersVC.swift; sourceTree = "<group>"; };
+		7EE915012642592C009ACEC4 /* TeamMembersLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +157,7 @@
 			children = (
 				7E4E595F26410FF4007EE982 /* TeamsTableVC.swift */,
 				7E4E596326413C94007EE982 /* ComingSoonVC.swift */,
+				7EE914FF26425004009ACEC4 /* TeamMembersVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -207,6 +216,7 @@
 				7E557313263B99F400F549FD /* MeetingTypeLogic.swift */,
 				7E557334263C662F00F549FD /* MinuteItemLogic.swift */,
 				7E557336263D26EE00F549FD /* ParticipantLogic.swift */,
+				7EE914F926424ABD009ACEC4 /* TeamLogic.swift */,
 			);
 			path = "Data Logic";
 			sourceTree = "<group>";
@@ -217,6 +227,7 @@
 				7E55730B263B1BC500F549FD /* MinutesCreationLogic.swift */,
 				7E557330263C470A00F549FD /* MinutesLogic.swift */,
 				7E4E5961264139A9007EE982 /* SettingsLogic.swift */,
+				7EE915012642592C009ACEC4 /* TeamMembersLogic.swift */,
 			);
 			path = "App Logic";
 			sourceTree = "<group>";
@@ -300,6 +311,7 @@
 				7E7CF2DB26392D1A00BD0C71 /* Main.storyboard */,
 				7E557307263AECFF00F549FD /* MeetingCreation.storyboard */,
 				7E557320263BEB2D00F549FD /* MinutesTaking.storyboard */,
+				7EE914FB26424F1F009ACEC4 /* Settings.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -395,6 +407,7 @@
 			files = (
 				7E7CF2E226392D1B00BD0C71 /* Launch.storyboard in Resources */,
 				7E7CF3222639988A00BD0C71 /* Roboto-Regular.ttf in Resources */,
+				7EE914FC26424F1F009ACEC4 /* Settings.storyboard in Resources */,
 				7E557321263BEB2D00F549FD /* MinutesTaking.storyboard in Resources */,
 				7E7CF32A2639988A00BD0C71 /* Roboto-Light.ttf in Resources */,
 				7E7CF3212639988A00BD0C71 /* Roboto-Medium.ttf in Resources */,
@@ -472,6 +485,7 @@
 				7E7CF32D2639A0A500BD0C71 /* RecentsVC.swift in Sources */,
 				7E7CF2D826392D1A00BD0C71 /* SceneDelegate.swift in Sources */,
 				7E5A5931264105EE00D28676 /* NameCell.swift in Sources */,
+				7EE915022642592C009ACEC4 /* TeamMembersLogic.swift in Sources */,
 				7E557310263B959200F549FD /* ParticipantsTableVC.swift in Sources */,
 				7E557312263B97AE00F549FD /* SetMeetingAgendaVC.swift in Sources */,
 				7E557329263C3B7B00F549FD /* MinuteTitleCell.swift in Sources */,
@@ -479,11 +493,13 @@
 				7E55732D263C3B9F00F549FD /* ButtonCell.swift in Sources */,
 				7E24DB35263F9F8C0075C431 /* Team.swift in Sources */,
 				7E557331263C470A00F549FD /* MinutesLogic.swift in Sources */,
+				7EE9150026425004009ACEC4 /* TeamMembersVC.swift in Sources */,
 				7E5A592B263FD9A300D28676 /* MeetingCell.swift in Sources */,
 				7E557337263D26EE00F549FD /* ParticipantLogic.swift in Sources */,
 				7E5572FE263ACF9E00F549FD /* Participant.swift in Sources */,
 				7E24DB33263F04920075C431 /* AddParticipantVC.swift in Sources */,
 				7E7CF3332639A74F00BD0C71 /* NavigationController.swift in Sources */,
+				7EE914FA26424ABD009ACEC4 /* TeamLogic.swift in Sources */,
 				7E557306263AD25A00F549FD /* MeetingLogic.swift in Sources */,
 				7E55730A263B034C00F549FD /* CreateMinutesVC.swift in Sources */,
 				7E7CF3312639A0F800BD0C71 /* SettingsTableVC.swift in Sources */,
@@ -640,7 +656,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 7BXMQ2C5C2;
 				INFOPLIST_FILE = Minom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -663,7 +679,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 7BXMQ2C5C2;
 				INFOPLIST_FILE = Minom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

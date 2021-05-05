@@ -64,7 +64,9 @@ class CreateMinutesVC: UIViewController {
     }
     
     private func setupSaveButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveButtonPressed))
+        if !logic.exist {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveButtonPressed))
+        }
     }
     
     private func setupPicker() {

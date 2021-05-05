@@ -305,7 +305,7 @@ extension TakeMinuteVC: UITableViewDataSource {
         } else if indexPath.row == 2 + (logic?.numberOfItems ?? 0){
             let cell = tableView.dequeueReusableCell(withIdentifier: ID.buttonCell, for: indexPath) as! ButtonCell
             cell.action = {
-                let vc = Storyboard.ID.MeetingItem as! MeetingItemVC
+                let vc = Storyboard.ID.MeetingItem as! MinutesItemVC
                 vc.minutesLogic = self.logic
                 self.navigationController?.pushViewController(vc, animated: true)
             }
@@ -328,7 +328,7 @@ extension TakeMinuteVC: UITableViewDelegate {
         let lastRow = 2 + (logic?.numberOfItems ?? 0)
         
         if row > 1, row != lastRow {
-            let vc = Storyboard.ID.MeetingItem as! MeetingItemVC
+            let vc = Storyboard.ID.MeetingItem as! MinutesItemVC
             vc.minutesLogic = logic
             vc.minuteItem = logic?.item(at: indexPath)
             navigationController?.pushViewController(vc, animated: true)

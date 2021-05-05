@@ -18,6 +18,7 @@ class RecentsVC: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Recents"
         setupView()
+        meetingLogic.selectRecent(at: 13)
         collectionView.register(UINib(nibName: "CalendarCell", bundle: nil), forCellWithReuseIdentifier: ID.calendarCell)
         scrollToEnd()
     }
@@ -43,7 +44,6 @@ class RecentsVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
-        meetingLogic.selectRecent(at: 13)
         collectionView.reloadData()
         tableView.reloadData()
     }

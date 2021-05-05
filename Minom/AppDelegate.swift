@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Migration Block
-        let schema: UInt64 = 2
+        let schema: UInt64 = 4
         
         let config = Realm.Configuration(
             schemaVersion: schema,
@@ -61,6 +61,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemImage = Image.Keyboard
+        IQKeyboardManager.shared.toolbarTintColor = Color.JungleGreen
+        IQKeyboardManager.shared.placeholderColor = Color.JungleGreen
+        IQKeyboardManager.shared.placeholderFont = Font.LexendDeca(14)
         
         return true
     }

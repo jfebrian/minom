@@ -11,9 +11,9 @@ import SwipeCellKit
 class MinutesVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var emptyButton: UIButton!
     @IBOutlet weak var emptyLabel: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var cardView: UIView!
     
     private let searchController = UISearchController(searchResultsController: nil)
     private let meetingLogic = MeetingLogic.standard
@@ -25,7 +25,7 @@ class MinutesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
-        emptyButton.layer.cornerRadius = 10.0
+        cardView.layer.cornerRadius = 10.0
         tableView.backgroundColor = Color.BackgroundSecondary
     }
     
@@ -83,10 +83,10 @@ extension MinutesVC: UITableViewDataSource {
             tableView.isHidden = true
             if isFiltering {
                 emptyLabel.text = "There is no meeting related to that search keyword"
-                emptyButton.isHidden = true
+                cardView.isHidden = true
             } else {
                 emptyLabel.text = "You haven't made any minutes yet."
-                emptyButton.isHidden = false
+                cardView.isHidden = false
             }
             return months
         } else {
@@ -136,8 +136,8 @@ extension MinutesVC: UITableViewDataSource {
         cell.detailTextLabel?.font = Font.RobotoLight(14)
         cell.detailTextLabel?.textColor = Color.EmeraldGreen
         
-        let image = UIImage(systemName: "chevron.right")
-        let disclosureIndicator  = UIImageView(frame:CGRect(x:0, y:0, width:(image?.size.width)!, height:(image?.size.height)!));
+        let image = Image.RightChevron
+        let disclosureIndicator  = UIImageView(frame:CGRect(x:0, y:0, width: image.size.width, height: image.size.height));
         disclosureIndicator.image = image
         cell.accessoryView = disclosureIndicator
         cell.tintColor = Color.LabelJungle

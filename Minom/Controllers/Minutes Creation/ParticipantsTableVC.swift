@@ -57,8 +57,8 @@ class ParticipantsTableVC: UITableViewController {
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancel)
         
-        let add = UIAlertAction(title: "Save", style: .default) { action in
-            if let text = alert.textFields?.first?.text, let logic = self.logic {
+        let save = UIAlertAction(title: "Save", style: .default) { action in
+            if let text = alert.textFields?.first?.text, text != "", let logic = self.logic {
                 if let index = indexPath {
                     self.minutesLogic?.setParticipantName(as: text, at: index) ?? logic.setParticipantName(as: text, at: index)
                     let cell = self.tableView.cellForRow(at: index) as! SwipeTableViewCell
@@ -74,8 +74,8 @@ class ParticipantsTableVC: UITableViewController {
                 }
             }
         }
+        alert.addAction(save)
         
-        alert.addAction(add)
         alert.addTextField { textField in
             textField.placeholder = "Enter Participant Name"
             if let index = indexPath, let logic = self.logic {

@@ -55,7 +55,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="o80-pp-IRO">
                                         <rect key="frame" x="52" y="284" width="310.5" height="126"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no meeting on this day." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGQ-U2-cxo">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no minutes on this day." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGQ-U2-cxo">
                                                 <rect key="frame" x="0.0" y="0.0" width="310.5" height="60"/>
                                                 <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="24"/>
                                                 <color key="textColor" name="Label Jungle"/>
@@ -349,7 +349,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iKN-bX-e0d"/>
-                        <color key="backgroundColor" name="Grey"/>
+                        <color key="backgroundColor" name="Background Secondary"/>
                         <constraints>
                             <constraint firstItem="iKN-bX-e0d" firstAttribute="trailing" secondItem="7fr-fv-ikk" secondAttribute="trailing" id="EYZ-ti-ejF"/>
                             <constraint firstItem="vRU-2E-tPn" firstAttribute="top" secondItem="iKN-bX-e0d" secondAttribute="top" id="P0K-J5-53w"/>
@@ -380,7 +380,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="e6D-6I-Ps3">
-                                <rect key="frame" x="52" y="409" width="310.5" height="132"/>
+                                <rect key="frame" x="52" y="408" width="310.5" height="134"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't made any minutes yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NA6-eb-pXh">
                                         <rect key="frame" x="22.5" y="0.0" width="265.5" height="60"/>
@@ -388,24 +388,51 @@
                                         <color key="textColor" name="Label Jungle"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPC-lK-h0R">
-                                        <rect key="frame" x="16" y="84" width="278.5" height="48"/>
-                                        <color key="backgroundColor" name="Label Jungle"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hve-p1-sT0">
+                                        <rect key="frame" x="0.0" y="84" width="310.5" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFx-D6-Pqi">
+                                                <rect key="frame" x="99" y="14" width="112.5" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.tip.crop.circle.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eG6-uc-UcK">
+                                                <rect key="frame" x="16" y="12.5" width="25" height="24.5"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="eG6-uc-UcK" secondAttribute="height" multiplier="1:1" id="43w-iU-6s0"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPC-lK-h0R">
+                                                <rect key="frame" x="0.0" y="0.0" width="310.5" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="emptyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3k4-bo-OZz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="Menu Jungle"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="tCo-Wg-LFe"/>
+                                            <constraint firstAttribute="trailing" secondItem="CPC-lK-h0R" secondAttribute="trailing" id="4Nl-js-YFn"/>
+                                            <constraint firstAttribute="bottom" secondItem="CPC-lK-h0R" secondAttribute="bottom" id="83G-7G-jvk"/>
+                                            <constraint firstItem="eG6-uc-UcK" firstAttribute="height" secondItem="Hve-p1-sT0" secondAttribute="height" multiplier="0.5" id="Afc-j8-z4C"/>
+                                            <constraint firstItem="CFx-D6-Pqi" firstAttribute="centerX" secondItem="Hve-p1-sT0" secondAttribute="centerX" id="OWP-RP-phW"/>
+                                            <constraint firstItem="CFx-D6-Pqi" firstAttribute="centerY" secondItem="Hve-p1-sT0" secondAttribute="centerY" id="TGp-ei-nIl"/>
+                                            <constraint firstItem="CPC-lK-h0R" firstAttribute="leading" secondItem="Hve-p1-sT0" secondAttribute="leading" id="Xqy-48-wbE"/>
+                                            <constraint firstItem="CPC-lK-h0R" firstAttribute="top" secondItem="Hve-p1-sT0" secondAttribute="top" id="fgn-CP-iOO"/>
+                                            <constraint firstItem="eG6-uc-UcK" firstAttribute="leading" secondItem="Hve-p1-sT0" secondAttribute="leading" constant="16" id="vk2-qw-uMg"/>
+                                            <constraint firstItem="eG6-uc-UcK" firstAttribute="centerY" secondItem="Hve-p1-sT0" secondAttribute="centerY" id="zrJ-a1-CR5"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="LexendDeca-Regular" family="Lexend Deca" pointSize="17"/>
-                                        <state key="normal" title="Add New Minute">
-                                            <color key="titleColor" name="Background Secondary"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="emptyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3k4-bo-OZz"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="CPC-lK-h0R" secondAttribute="trailing" constant="16" id="Ibb-DQ-KwD"/>
-                                    <constraint firstItem="CPC-lK-h0R" firstAttribute="leading" secondItem="e6D-6I-Ps3" secondAttribute="leading" constant="16" id="JCV-pE-qQo"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hve-p1-sT0" secondAttribute="trailing" id="Qwz-3x-kGw"/>
+                                    <constraint firstItem="Hve-p1-sT0" firstAttribute="leading" secondItem="e6D-6I-Ps3" secondAttribute="leading" id="Z9L-xz-v42"/>
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qq1-FY-14Y">
@@ -437,7 +464,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="emptyButton" destination="CPC-lK-h0R" id="myd-Ql-XbS"/>
+                        <outlet property="cardView" destination="Hve-p1-sT0" id="QT3-G1-JVU"/>
                         <outlet property="emptyLabel" destination="NA6-eb-pXh" id="Q0x-85-s16"/>
                         <outlet property="saveButton" destination="afJ-eG-LDH" id="9MU-zL-2Eb"/>
                         <outlet property="tableView" destination="qq1-FY-14Y" id="wgI-xc-dBK"/>
@@ -606,9 +633,6 @@
         </namedColor>
         <namedColor name="Green Jungle">
             <color red="0.0" green="0.36899998784065247" blue="0.36100000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Grey">
-            <color red="0.72500002384185791" green="0.72500002384185791" blue="0.72500002384185791" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Label Jungle">
             <color red="0.054999999701976776" green="0.46700000762939453" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

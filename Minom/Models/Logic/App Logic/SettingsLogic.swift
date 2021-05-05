@@ -16,7 +16,7 @@ class SettingsLogic {
                          settings: ["Teams","Templates","App Theme"]),
         SettingsCategory(title: "Support", settings: ["Help","Send Feedback","Rate on App Store"]),
         SettingsCategory(title: "Information",
-                         settings: ["Change Logs","Licenses","About"])
+                         settings: ["Changelog","Licenses","About"])
     ]
     
     init() {
@@ -27,8 +27,8 @@ class SettingsLogic {
         switch (indexPath.section, indexPath.row) {
         case (0, _):
             return nil
-//        case (1, 0):
-//            return TeamsTableVC()
+        case (1, 0):
+            return TeamsTableVC()
         case (let x, let y):
             let vc = ComingSoonVC.standard
             vc.navigationItem.title = settingCategories[x-1].settings[y]

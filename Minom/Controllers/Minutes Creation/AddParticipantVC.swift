@@ -13,6 +13,7 @@ class AddParticipantVC: UIViewController {
     var logic: MinutesCreationLogic?
     var minutesLogic: MinutesLogic?
     let participantLogic = ParticipantLogic.standard
+    let teamLogic = TeamLogic.standard
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: SearchTextField!
@@ -33,6 +34,9 @@ class AddParticipantVC: UIViewController {
         for participant in participantLogic.getAllUnique() {
             suggestions.append(participant.name)
         }
+        suggestions.append(contentsOf: teamLogic.getAllUnique())
+        suggestions = suggestions.uniqued()
+        
         textField.filterStrings(suggestions)
         textField.comparisonOptions = [.caseInsensitive, .diacriticInsensitive]
         textField.theme = .darkTheme()
@@ -41,7 +45,7 @@ class AddParticipantVC: UIViewController {
         textField.theme.bgColor = Color.BackgroundSecondary
         textField.theme.cellHeight = 48
         textField.itemSelectionHandler = { name, position in
-            self.textField.text = name.first?.title
+            self.textField.text = name[position].title
             self.saveAndQuit()
         }
     }
@@ -64,6 +68,16 @@ class AddParticipantVC: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func saveAndQuit(with members: [String]) {
+        for member in members {
+            let participant = Participant()
+            participant.name = member
+            logic?.addParticipant(with: participant)
+            minutesLogic?.addParticipant(with: participant)
+        }
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - Table View Data Source
@@ -71,26 +85,33 @@ class AddParticipantVC: UIViewController {
 extension AddParticipantVC: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
-        let label = UILabel(frame: CGRect(x: 0, y: 80, width: tableView.bounds.width, height: 80))
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.font = Font.LexendDeca(22)
-        label.textColor = Color.LabelJungle
-        label.text = "You has no team yet."
-        emptyView.addSubview(label)
-        tableView.backgroundView = emptyView
-        tableView.separatorStyle = .none
-        tableView.isScrollEnabled = false
-        return 0
+        let rows = teamLogic.numberOfTeams()
+        if rows == 0 {
+            let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
+            let label = UILabel(frame: CGRect(x: 0, y: 80, width: tableView.bounds.width, height: 80))
+            label.numberOfLines = 0
+            label.textAlignment = .center
+            label.font = Font.LexendDeca(22)
+            label.textColor = Color.LabelJungle
+            label.text = "You has no team yet."
+            emptyView.addSubview(label)
+            tableView.backgroundView = emptyView
+            tableView.separatorStyle = .none
+            tableView.isScrollEnabled = false
+        } else {
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .singleLine
+            tableView.isScrollEnabled = true
+        }
+        return rows
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        40
+        return 40
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -107,7 +128,10 @@ extension AddParticipantVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        
+        cell.textLabel?.text = teamLogic.teamName(at: indexPath)
+        cell.textLabel?.textColor = Color.LabelJungle
+        cell.textLabel?.font = Font.LexendDeca(17)
+        cell.tintColor = Color.LabelJungle
         return cell
     }
 }
@@ -115,7 +139,11 @@ extension AddParticipantVC: UITableViewDataSource {
 // MARK: - Table View Delegate
 
 extension AddParticipantVC: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let members = teamLogic.teamMembers(at: indexPath)
+        saveAndQuit(with: members)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 // MARK: - Text Field Delegate
@@ -133,6 +161,7 @@ extension AddParticipantVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let field = textField as? SearchTextField {
             if field.filteredResults.count == 0 {
+                
                 saveAndQuit()
             }
         }

@@ -10,8 +10,8 @@ import RealmSwift
 
 class Team: Object {
     @objc dynamic var id = NSUUID().uuidString
-    
-    let names = List<String>()
+    @objc dynamic var name: String = ""
+    let members = List<String>()
     
     override static func primaryKey() -> String? {
         return "id"

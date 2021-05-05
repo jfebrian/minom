@@ -29,6 +29,18 @@ class ParticipantLogic {
         }
     }
     
+    func save(name: String) {
+        do {
+            try realm.write {
+                let participant = Participant()
+                participant.name = name
+                realm.add(participant)
+            }
+        } catch {
+            print("Error saving participant to Realm, \(error.localizedDescription)")
+        }
+    }
+    
     func toggleAttendance(_ participant: Participant) {
         do {
             try realm.write {

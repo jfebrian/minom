@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MeetingItemVC: UIViewController {
+class MinutesItemVC: UIViewController {
     
     var minutesLogic: MinutesLogic?
     var minuteItem: MinuteItem?
@@ -52,7 +52,7 @@ class MeetingItemVC: UIViewController {
                 alert.addAction(save)
                 present(alert, animated: true, completion: nil)
             }
-        } else if titleTextField.text != "" || (noteTextView.text != "" && noteTextView.textColor != Color.Placeholder) {
+        } else if titleTextField.text != "" || noteTextView.text != "" {
             let alert = UIAlertController(title: nil, message: "Do you want to save your changes?", preferredStyle: .alert)
             let no = UIAlertAction(title: "No", style: .destructive) { action in
                 self.navigationController?.popViewController(animated: true)
@@ -76,9 +76,6 @@ class MeetingItemVC: UIViewController {
         if let item = minuteItem {
             titleTextField.text = item.title
             noteTextView.text = item.note
-        } else {
-            noteTextView.text = "Type your notes here..."
-            noteTextView.textColor = Color.Placeholder
         }
     }
     
@@ -139,7 +136,7 @@ class MeetingItemVC: UIViewController {
     }
 }
 
-extension MeetingItemVC: UITextFieldDelegate {
+extension MinutesItemVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         noteTextView.becomeFirstResponder()
@@ -157,7 +154,7 @@ extension MeetingItemVC: UITextFieldDelegate {
     }
 }
 
-extension MeetingItemVC: UITextViewDelegate {
+extension MinutesItemVC: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard range.location == 0 else { return true }
         
@@ -165,38 +162,7 @@ extension MeetingItemVC: UITextViewDelegate {
         if newString.rangeOfCharacter(from: .whitespacesAndNewlines).location == 0 {
             return false
         } else {
-            let currentText:String = textView.text
-            let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
-            
-            if updatedText.isEmpty {
-                
-                textView.text = "Type your notes here..."
-                textView.textColor = Color.Placeholder
-                
-                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-            } else if textView.textColor == Color.Placeholder && !text.isEmpty {
-                textView.textColor = Color.LabelJungle
-                textView.text = text
-            } else {
-                return true
-            }
-            return false
-        }
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if self.view.window != nil {
-            if textView.textColor == Color.Placeholder {
-                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-            }
-        }
-    }
-    
-    func textViewDidChangeSelection(_ textView: UITextView) {
-        if self.view.window != nil {
-            if textView.textColor == Color.Placeholder {
-                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-            }
+            return true
         }
     }
 }

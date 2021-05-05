@@ -34,7 +34,7 @@
 		7E55732B263C3B9100F549FD /* MinuteItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55732A263C3B9100F549FD /* MinuteItemCell.swift */; };
 		7E55732D263C3B9F00F549FD /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55732C263C3B9F00F549FD /* ButtonCell.swift */; };
 		7E557331263C470A00F549FD /* MinutesLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557330263C470A00F549FD /* MinutesLogic.swift */; };
-		7E557333263C5F9200F549FD /* MeetingItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557332263C5F9200F549FD /* MeetingItemVC.swift */; };
+		7E557333263C5F9200F549FD /* MinutesItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557332263C5F9200F549FD /* MinutesItemVC.swift */; };
 		7E557335263C662F00F549FD /* MinuteItemLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557334263C662F00F549FD /* MinuteItemLogic.swift */; };
 		7E557337263D26EE00F549FD /* ParticipantLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E557336263D26EE00F549FD /* ParticipantLogic.swift */; };
 		7E5A592B263FD9A300D28676 /* MeetingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A592A263FD9A300D28676 /* MeetingCell.swift */; };
@@ -91,7 +91,7 @@
 		7E55732A263C3B9100F549FD /* MinuteItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuteItemCell.swift; sourceTree = "<group>"; };
 		7E55732C263C3B9F00F549FD /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		7E557330263C470A00F549FD /* MinutesLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesLogic.swift; sourceTree = "<group>"; };
-		7E557332263C5F9200F549FD /* MeetingItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingItemVC.swift; sourceTree = "<group>"; };
+		7E557332263C5F9200F549FD /* MinutesItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesItemVC.swift; sourceTree = "<group>"; };
 		7E557334263C662F00F549FD /* MinuteItemLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuteItemLogic.swift; sourceTree = "<group>"; };
 		7E557336263D26EE00F549FD /* ParticipantLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantLogic.swift; sourceTree = "<group>"; };
 		7E5A592A263FD9A300D28676 /* MeetingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingCell.swift; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 			children = (
 				7E557327263C3B5C00F549FD /* Custom Cells */,
 				7E557325263C314C00F549FD /* TakeMinuteVC.swift */,
-				7E557332263C5F9200F549FD /* MeetingItemVC.swift */,
+				7E557332263C5F9200F549FD /* MinutesItemVC.swift */,
 			);
 			path = "Minutes Taking";
 			sourceTree = "<group>";
@@ -506,7 +506,7 @@
 				7E5A592D263FD9C200D28676 /* NewMeetingButtonCell.swift in Sources */,
 				7E55730C263B1BC500F549FD /* MinutesCreationLogic.swift in Sources */,
 				7E4E596026410FF4007EE982 /* TeamsTableVC.swift in Sources */,
-				7E557333263C5F9200F549FD /* MeetingItemVC.swift in Sources */,
+				7E557333263C5F9200F549FD /* MinutesItemVC.swift in Sources */,
 				7E557314263B99F400F549FD /* MeetingTypeLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

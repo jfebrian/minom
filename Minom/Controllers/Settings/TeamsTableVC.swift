@@ -20,7 +20,7 @@ class TeamsTableVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        tableView.reloadData() // be aware of reloadData in willappear, unless your table not perform some query to fetch the data, then it will fine here
     }
     
     // MARK: - User Interface
@@ -39,7 +39,7 @@ class TeamsTableVC: UITableViewController {
                 let team = Team()
                 team.name = text
                 vc.logic = TeamMembersLogic(with: team)
-                self.tableView.reloadData()
+                self.tableView.reloadData() // Why table reload if next line from here the table won't be necessary to see? You push to other vc after reload which current table won't be seen anyway
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
@@ -49,6 +49,7 @@ class TeamsTableVC: UITableViewController {
             textField.placeholder = "Enter Team Name"
         }
         present(alert, animated: true, completion: nil)
+        // make alert as a custom class and just pass the message for the parameter and the action as the action parameter too
     }
 
     // MARK: - Table View Data Source
@@ -83,6 +84,9 @@ class TeamsTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SwipeTableViewCell(style: .default, reuseIdentifier: nil)
         cell.delegate = self
+        
+        // Put everything that related to UI like below code inside the Cell it self. Don't put it here, because controller doesn't care what the UI should looks like. It's view job.
+        
         cell.textLabel?.text = logic.teamName(at: indexPath)
         cell.textLabel?.textColor = Color.LabelJungle
         cell.textLabel?.font = Font.LexendDeca(17)

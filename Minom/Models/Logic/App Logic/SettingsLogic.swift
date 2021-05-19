@@ -31,7 +31,7 @@ class SettingsLogic {
             return TeamsTableVC()
         case (let x, let y):
             let vc = ComingSoonVC.standard
-            vc.navigationItem.title = settingCategories[x-1].settings[y]
+            vc.navigationItem.title = settingCategories[x-1].settings[y] // use enum instead to make it more faster when mapping the data
             return vc
         }
     }

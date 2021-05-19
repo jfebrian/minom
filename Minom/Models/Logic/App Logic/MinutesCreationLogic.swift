@@ -8,7 +8,7 @@
 import Foundation
 class MinutesCreationLogic {
     
-    var meeting = Meeting()
+    var meeting = Meeting() // Always use private when it not exposed to others
     var participants = [Participant]()
     var meetingLogic = MeetingLogic.standard
     var participantLogic = ParticipantLogic.standard

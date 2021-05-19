@@ -10,7 +10,7 @@ import RealmSwift
 
 class ParticipantLogic {
     
-    static var standard = ParticipantLogic()
+    static var standard = ParticipantLogic() // why you create a singleton for this? Since it's already use class, I don't see necessity to make it as singleton.
     
     lazy var realm:Realm = {
         return try! Realm()

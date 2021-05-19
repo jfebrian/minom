@@ -76,6 +76,8 @@ struct Font {
     }
 }
 
+
+// Nice one, make all the static asset into constant and access it from here, I used this mechanism for all the project I've done. This make your compile time when consuming asset more faster, also this more easier to manage.
 struct Image {
     static let DatePickerBackground = UIImage(named: "Date Picker Background")!
     static let DatePickerBackgroundReverse = UIImage(named: "Date Picker Background Reverse")!

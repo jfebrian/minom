@@ -14,7 +14,7 @@ class TeamMembersVC: UIViewController {
     @IBOutlet weak var nameTextField: SearchTextField!
     @IBOutlet weak var tableView: UITableView!
     
-    var logic: TeamMembersLogic?
+    var logic: TeamMembersLogic? // always make it private if not exposed to others
     let participantLogic = ParticipantLogic.standard
     let teamLogic = TeamLogic.standard
     
@@ -22,7 +22,7 @@ class TeamMembersVC: UIViewController {
         super.viewDidLoad()
         setupAddButton()
         setupSuggestions()
-        navigationItem.title = logic?.team?.name
+        navigationItem.title = logic?.team?.name // create extention for UINavigationController that taking parameter you need, such as title, bar button item, background color, etc.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +42,7 @@ class TeamMembersVC: UIViewController {
         suggestions.append(contentsOf: teamLogic.getAllUnique())
         suggestions = suggestions.uniqued()
         
+        // put everything related to UI to view, if you have to make a custom UIView then do it. Controller doesn't care what UI should be configured.
         nameTextField.filterStrings(suggestions)
         nameTextField.comparisonOptions = [.caseInsensitive, .diacriticInsensitive]
         nameTextField.theme = .darkTheme()
@@ -94,6 +95,7 @@ extension TeamMembersVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let rows = logic?.numberOfMembers() ?? 0
         if rows == 0 {
+            // I saw this in more than 1 controller, so create a custom view to return this empty configuration
             let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
             let label = UILabel(frame: CGRect(x: 0, y: 80, width: tableView.bounds.width, height: 80))
             label.numberOfLines = 0

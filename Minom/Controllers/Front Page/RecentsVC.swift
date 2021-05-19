@@ -55,7 +55,7 @@ class RecentsVC: UIViewController {
     }
 }
 
-// MARK: - Collection View Protocols
+// MARK: - Collection View Protocols 
 
 extension RecentsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
